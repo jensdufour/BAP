@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_GB
 %%=============================================================================
 %% Inleiding
 %%=============================================================================
@@ -5,32 +6,81 @@
 \chapter{\IfLanguageName{dutch}{Inleiding}{Introduction}}
 \label{ch:inleiding}
 
-De inleiding moet de lezer net genoeg informatie verschaffen om het onderwerp te begrijpen en in te zien waarom de onderzoeksvraag de moeite waard is om te onderzoeken. In de inleiding ga je literatuurverwijzingen beperken, zodat de tekst vlot leesbaar blijft. Je kan de inleiding verder onderverdelen in secties als dit de tekst verduidelijkt. Zaken die aan bod kunnen komen in de inleiding~\autocite{Pollefliet2011}:
+Windows Server is an \acrfull{os} that is widely used by organizations all over the world. Some of them with only a handful of employees to corporations that have a couple thousand at their disposal, in multiple geographic locations. To keep up in the fast-paced world that is \acrfull{it}, updates are a necessary part of the daily operation, though they do not always present themselves at the most convenient time. 
+With semi-annual updates that can often be scheduled to larger ones that could require those systems to be taken offline for an extended duration. This can bring tremendous damage to the business value of the organization, since \acrshort{it} had become a core business for many of them. Therefore asking the question of how this can be done as efficient and cost-effective as possible is important before considering updating, let alone migrating the system to a newer version. 
 
-\begin{itemize}
-  \item context, achtergrond
-  \item afbakenen van het onderwerp
-  \item verantwoording van het onderwerp, methodologie
-  \item probleemstelling
-  \item onderzoeksdoelstelling
-  \item onderzoeksvraag
-  \item \ldots
-\end{itemize}
 
 \section{\IfLanguageName{dutch}{Probleemstelling}{Problem Statement}}
 \label{sec:probleemstelling}
 
-Uit je probleemstelling moet duidelijk zijn dat je onderzoek een meerwaarde heeft voor een concrete doelgroep. De doelgroep moet goed gedefinieerd en afgelijnd zijn. Doelgroepen als ``bedrijven,'' ``KMO's,'' systeembeheerders, enz.~zijn nog te vaag. Als je een lijstje kan maken van de personen/organisaties die een meerwaarde zullen vinden in deze bachelorproef (dit is eigenlijk je steekproefkader), dan is dat een indicatie dat de doelgroep goed gedefinieerd is. Dit kan een enkel bedrijf zijn of zelfs één persoon (je co-promotor/opdrachtgever).
+Since the release of the latest version Windows Server 2019, many organizations will, in the nearby future, look into the migration to this version from previous versions. One of these organizations, Delaware, wants to research how this migration would take place from Windows Server 2016 and how it can be achieved in an efficient and cost-effective fashion. 
+
+\begin{table}[ht]
+	\centering
+	\begin{adjustbox}{width=1\textwidth}
+		\begin{tabular}{l||l|l|l|l}
+			Products Released                                                     & Life cycle Start Date & Mainstream Support End Date & Extended Support End Date &\\
+			\hline
+			\hline
+			Windows Server 2016 Standard                                          & 15/10/2016           & 11/01/2022                  & 12/01/2027                &\\
+			Windows Server 2016 Datacenter                                        & 15/10/2016			 & 11/01/2022				   & 12/01/2027  			   &\\
+		\end{tabular}
+	\end{adjustbox}
+	\caption{\acrshort{eol} of Windows Server 2016}
+	\scriptsize	
+	Adapted from \autocite{MicrosoftEOL2019}
+	%TODO Bronvermelding correct?
+	\label{tab:EOL2016}
+\end{table}
+
+With the mainstream support end date of Windows Server 2016 (Table~\ref{tab:EOL2016}) scheduled for January of 2022, it is best to research migration to newer versions well in advance. Especially when considering that organizations running \acrfull{eol} are more common than is initially thought. In an article written by \textcite{Tsai2016} it is shown that the market share of Windows Server 2003 still was 17.9\% and that of Windows Server 2008 was at 45.4\% . The official support for both of these versions of the \acrshort{os} has ended with extended support, for the latter, ending on January 2020. 
+
+\begin{table}[ht]
+	\centering
+	\begin{adjustbox}{width=1\textwidth}
+		\begin{tabular}{l||l|l|l|l}
+			Products Released                                                     & Life cycle Start Date & Mainstream Support End Date & Extended Support End Date &\\
+			\hline
+			\hline
+			Windows Server 2019 Essentials                                        & 13/11/2018           & 09/01/2024                  & 09/01/2029                &\\
+			Windows Server 2019 Standard                                          & 13/11/2018           & 09/01/2024                  & 09/01/2029                &\\
+			Windows Server 2019 Datacenter                                        & 13/11/2018			 & 09/01/2024				   & 09/01/2029  			   &\\
+		\end{tabular}
+	\end{adjustbox}
+	\caption{\acrshort{eol} of Windows Server 2019}
+	\scriptsize	
+	Adapted from \autocite{MicrosoftEOL2019}
+	%TODO Bronvermelding correct?
+	\label{tab:EOL2019}
+\end{table}
+
+Those deadlines combined with the \acrshort{eol} of Windows Server 2016 continue to make a strong case to look into the migration to newer versions, with enhanced security and additional features. The life cycle of the latest version, Windows Server 2019, has started in November of 2018 and will continue to receive mainstream support till January 2024, and even extended support till January 2029. This makes it a viable successor to the \acrshort{os} that makes up a large percent of the server infrastructure used in the world. This paper attempts to show that the benefits will outweigh the disadvantages that are paired with a migration. The advantages that come with the latest version can be divided in four key themes:
+
+\begin{itemize}
+	\item Hybrid cloud
+	\item Security
+	\item Application platform
+	\item Hyper-converged infrastructure
+\end{itemize}
+
+Those four themes will be examined very thoroughly in the state of affairs.
 
 \section{\IfLanguageName{dutch}{Onderzoeksvraag}{Research question}}
 \label{sec:onderzoeksvraag}
+What are the advantages and disadvantages of a migration from Windows Server 2016 to 2019 in a business environment?
 
-Wees zo concreet mogelijk bij het formuleren van je onderzoeksvraag. Een onderzoeksvraag is trouwens iets waar nog niemand op dit moment een antwoord heeft (voor zover je kan nagaan). Het opzoeken van bestaande informatie (bv. ``welke tools bestaan er voor deze toepassing?'') is dus geen onderzoeksvraag. Je kan de onderzoeksvraag verder specifiëren in deelvragen. Bv.~als je onderzoek gaat over performantiemetingen, dan 
+\subsection{Sub-research question}
+
+\begin{itemize}
+	\item What are the differences between the standard, ServerCore and Nano version of Windows Server 2019?
+	\item Can we migrate SAP from an existing Windows Server 2016 to 2019 in a business environment?
+	\item How can the new features of Windows Server 2019 be leveraged in the migrated infrastructure? 
+\end{itemize}
 
 \section{\IfLanguageName{dutch}{Onderzoeksdoelstelling}{Research objective}}
 \label{sec:onderzoeksdoelstelling}
 
-Wat is het beoogde resultaat van je bachelorproef? Wat zijn de criteria voor succes? Beschrijf die zo concreet mogelijk. Gaat het bv. om een proof-of-concept, een prototype, een verslag met aanbevelingen, een vergelijkende studie, enz.
+The expected result of this bachelor's thesis is that it will demonstrate the advantages of the newer Windows Server and that the migration is a long-term investment towards the future. It will show which version of Windows Server 2019 best meets the needs of organizations, both new and existing. However, migrating an SAP will not yet be recommended due to the new nature of Windows Server 2019. The migration of an SAP environment will not yet be recommended due to requirements that have not yet been met between both software solutions. 
 
 \section{\IfLanguageName{dutch}{Opzet van deze bachelorproef}{Structure of this bachelor thesis}}
 \label{sec:opzet-bachelorproef}
@@ -39,12 +89,14 @@ Wat is het beoogde resultaat van je bachelorproef? Wat zijn de criteria voor suc
 % geven van de opbouw van de rest van de tekst. Deze sectie bevat al een aanzet
 % die je kan aanvullen/aanpassen in functie van je eigen tekst.
 
-De rest van deze bachelorproef is als volgt opgebouwd:
+The remainder of this bachelor's thesis is structured as follows:
 
-In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand van zaken binnen het onderzoeksdomein, op basis van een literatuurstudie.
+In Chapter ~\ref{ch:stand-van-zaken} an overview is given of the state of affairs within the research domain, based on a literature study.
 
-In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht en worden de gebruikte onderzoekstechnieken besproken om een antwoord te kunnen formuleren op de onderzoeksvragen.
+In Chapter ~\ref{ch:methodologie} a methodology is explained and the research techniques used to formulate an answer to the research questions are discussed.
 
-% TODO: Vul hier aan voor je eigen hoofstukken, één of twee zinnen per hoofdstuk
+% TODO Vul hier aan voor je eigen hoofstukken, één of twee zinnen per hoofdstuk
 
-In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.
+In Chapter ~\ref{ch:toekomstvisie} the further development of Windows Server over the years to come will be investigated. 
+
+In Chapter~\ref{ch:conclusie}, finally, the conclusion is given and an answer is formulated to the research questions. This will also provide an impetus for future research within this domain.

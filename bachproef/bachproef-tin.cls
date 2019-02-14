@@ -615,5 +615,7 @@ extendedchars=\true
 %-------------------------------------------------------------------------------
 
 \RequirePackage{lipsum}          % Voor vultekst (lorem ipsum)
-
+\usepackage[acronym]{glossaries}
+\usepackage{glossaries}
+\makenoidxglossaries
 \endinput
