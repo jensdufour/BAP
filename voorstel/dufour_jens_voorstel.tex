@@ -1,0 +1,40 @@
+% !TeX spellcheck = en_GB
+%==============================================================================
+% Onderzoeksvoorstel bachelorproef
+%==============================================================================
+\documentclass{voorstel}
+%------------------------------------------------------------------------------
+% Metadata over het voorstel
+%------------------------------------------------------------------------------
+%---------- Titel & auteur ----------------------------------------------------
+\PaperTitle{The migration process and advantages of Windows Server 2019}
+\PaperType{Research proposal bachelor's thesis 2018-2019} % Type document
+\Authors{Jens Du Four\textsuperscript{1}} % Authors
+\CoPromotor{Glenn Verschuere\textsuperscript{2} (Delaware)}
+\affiliation{\textbf{Contact:}
+  \textsuperscript{1} \href{mailto:jens.dufour.y2321@student.hogent.be}{jens.dufour.y2321@student.hogent.be};
+  \textsuperscript{2} \href{mailto:glenn.verschuere@delaware.pro}{glenn.verschuere@delaware.pro};
+}
+%---------- Abstract ----------------------------------------------------------
+\Abstract{This research covers the topic of Windows Server 2019, the different versions, and the advantages it has to its precursor Windows Server 2016.
+	Windows Server is one of the most used enterprise operating systems in the world. This makes keeping it up-to-date in the fast paced world of information technologies crucial. Thanks to the abundance of new features it offers looking into migration to this newer version is definitely an important question.
+	This research paper will look into how the migration process from Windows Server 2016 to Windows Server 2019 would work, the advantages and possible disadvantages of this process. Another important part will be looking into the choice between the different available versions and how these different versions can be leveraged. At last there will be a comparison between Windows Server Manager and Project Honolulu, its successor and better known as Windows Admin Center. In the end this research paper will advise for or against a migration to the newer system.}
+%---------- Onderzoeksdomein en sleutelwoorden --------------------------------
+\Keywords{System administration. Windows Server --- Server Migration --- Project Honolulu} % Keywords
+\newcommand{\keywordname}{Keywords} % Defines the keywords heading name
+%---------- Titel, inhoud -----------------------------------------------------
+\begin{document}
+\flushbottom % Makes all text pages the same height
+\maketitle % Print the title and abstract box
+\tableofcontents % Print the contents section
+\thispagestyle{empty} % Removes page numbering from the first page
+%------------------------------------------------------------------------------
+% Hoofdtekst
+%------------------------------------------------------------------------------
+\input{voorstel-inhoud}
+%------------------------------------------------------------------------------
+% Referentielijst
+%------------------------------------------------------------------------------
+\phantomsection
+\printbibliography[heading=bibintoc]
+\end{document}

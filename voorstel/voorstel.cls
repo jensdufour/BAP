@@ -1,26 +1,10 @@
+% !TeX spellcheck = en_GB
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % LaTeX-sjabloon voorstel onderwerp Bachelorproef
 % HoGent Bedrijf en Organisatie, opleiding toegepaste informatica
-% 
-% Gebaseerd op ``Stylish Article'' class
-% Version 2.1 (1/10/15)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original author:
-% Mathias Legrand (legrand.mathias@gmail.com)
-% With extensive modifications by:
-% Vel (vel@latextemplates.com)
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{voorstel}
-
 \RequirePackage{ifthen}
 \RequirePackage{calc}
 \AtEndOfClass{\RequirePackage{microtype}}
@@ -28,56 +12,45 @@
 \ProcessOptions*
 \LoadClass{article}
 \RequirePackage{ifpdf}      % Needed to pick between latex and pdflatex
-
 %----------------------------------------------------------------------
 %  FONTS & COLORS
 %----------------------------------------------------------------------
-
 \RequirePackage{times}      % Loads the Times-Roman Fonts
 \RequirePackage{mathptmx}   % Loads the Times-Roman Math Fonts
-
 \RequirePackage{xcolor}
 \definecolor{color1}{RGB}{0,147,208} % Color of the article title and sections
 \definecolor{color2}{RGB}{0,20,20} % Color of the boxes behind the abstract and headings
-
 %----------------------------------------------------------------------
 %  VARIOUS USEFUL PACKAGES
 %----------------------------------------------------------------------
-
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{amsmath,amsfonts,amssymb}
 \RequirePackage{graphicx}
 \RequirePackage{booktabs}
 \RequirePackage{csquotes}
-\RequirePackage[english,dutch]{babel}
+\RequirePackage[english]{babel}
 \usepackage{hyperref}                      % hyperlinks
 \hypersetup{hidelinks,colorlinks,breaklinks=true,urlcolor=black,citecolor=color2,linkcolor=color2,bookmarksopen=false,pdftitle={Title},pdfauthor={Author}}
-
 %----------------------------------------------------------------------
 %  MARGINS
 %----------------------------------------------------------------------
-
 \RequirePackage[left=2cm,%
 right=2cm,%
 top=2.25cm,%
 bottom=2.25cm,%
 headheight=11pt,%
 a4paper]{geometry}%
-
 %----------------------------------------------------------------------
 %  FIGURES AND TABLES CAPTIONS
 %----------------------------------------------------------------------
-
 \RequirePackage[labelfont={bf,sf,small},%
 labelsep=period,%
 justification=raggedright]{caption}
 \setlength{\abovecaptionskip}{0pt}
 \setlength{\belowcaptionskip}{0pt}
-
 %----------------------------------------------------------------------
 %  SECTION/SUBSECTION/PARAGRAPH SET-UP
 %----------------------------------------------------------------------
-
 \RequirePackage[explicit]{titlesec}
 \titleformat{\section}
   {\color{color1}\large\sffamily\bfseries}
@@ -112,14 +85,12 @@ justification=raggedright]{caption}
 \titlespacing*{\subsection}{0pc}{2.5ex \@plus3pt \@minus2pt}{0pt}
 \titlespacing*{\subsubsection}{0pc}{2ex \@plus2.5pt \@minus1.5pt}{0pt}
 \titlespacing*{\paragraph}{0pc}{1.5ex \@plus2pt \@minus1pt}{10pt}
-
 %----------------------------------------------------------------------
 %  TABLEOFCONTENTS SET-UP
 %----------------------------------------------------------------------
 \newlength{\tocsep}
 \setlength\tocsep{1.5pc} % Sets the indentation of the sections in the table of contents
 \setcounter{tocdepth}{3} % Three levels in the table of contents section: sections, subsections and subsubsections
-
 \usepackage{titletoc}
 \contentsmargin{0cm}
 \titlecontents{section}[\tocsep]
@@ -140,11 +111,9 @@ justification=raggedright]{caption}
   {}
   {}
   [\ \textbullet\ ]
-
 %----------------------------------------------------------------------
 %  MULTIPLE AUTHOR SET
 %----------------------------------------------------------------------
-
 \newcount\@authcnt
 \newcount\@tmpcnt\@tmpcnt\z@
 
@@ -157,34 +126,27 @@ justification=raggedright]{caption}
    \let\next\relax
   \fi
 \next}
-
 \newcommand{\affiliation}[1]{%
     \global\advance\@authcnt1
     \expandafter\gdef\csname @auth\romannumeral\the\@authcnt\endcsname
     {#1}}
-
 %----------------------------------------------------------------------
 %  LIST CONTROL
 %----------------------------------------------------------------------
-
 \RequirePackage{enumitem}
 \setlist{nolistsep} % Uncomment to remove spacing between items in lists (enumerate, itemize)
-
 %----------------------------------------------------------------------
 %  ABSTRACT+AUTHOR FRAME
 %----------------------------------------------------------------------
-
 \newcommand{\PaperTitle}[1]{\def\@PaperTitle{#1}}
 \newcommand{\PaperType}[1]{\def\@PaperType{#1}}
 \newcommand{\Authors}[1]{\def\@Authors{#1}}
 \newcommand{\Abstract}[1]{\def\@Abstract{#1}}
 \newcommand{\Keywords}[1]{\def\@Keywords{#1}}
 \newcommand{\CoPromotor}[1]{\def\@CoPromotor{#1}}
-
 % ---------------------------------------------------------------------
 \setlength{\columnsep}{0.55cm} % Distance between the two columns of text
 \setlength{\fboxrule}{0.75pt} % Width of the border around the abstract
-
 \renewcommand{\@maketitle}{%
 \twocolumn[{%
 \thispagestyle{empty}%
@@ -219,11 +181,9 @@ justification=raggedright]{caption}
 \vskip25pt%
 }]%
 }
-
 %----------------------------------------------------------------------
 %  PAGE HEADER
 %----------------------------------------------------------------------
-
 \RequirePackage{fancyhdr}  % Needed to define custom headers/footers
 \RequirePackage{lastpage}  % Number of pages in the document
 \pagestyle{fancy}          % Enables the custom headers/footers
@@ -241,9 +201,7 @@ justification=raggedright]{caption}
 %----------------------------------------------------------------------
 %  REFERENCES
 %----------------------------------------------------------------------
-
 \RequirePackage[backend=biber,style=apa]{biblatex}
-\DeclareLanguageMapping{dutch}{dutch-apa}
+\DeclareLanguageMapping{english}{english-apa}
 \addbibresource{voorstel.bib}
-
 \endinput
