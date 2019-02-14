@@ -44,7 +44,6 @@
 \cleardoublepage  % Zorg dat volgende hoofstuk op een oneven pagina begint
 \pagestyle{fancy} % Zet hoofding opnieuw aan
 %---------- Lijst figuren, afkortingen, ... ------------------------------------
-
 % Indien gewenst kan je hier een lijst van figuren/tabellen opgeven. Geef in
 % dat geval je figuren/tabellen altijd een korte beschrijving:
 %
@@ -52,58 +51,37 @@
 %
 % De korte beschrijving wordt gebruikt voor deze lijst, de uitgebreide staat bij
 % de figuur of tabel zelf.
-
 \listoffigures
 \listoftables
-
 % Als je een lijst van afkortingen of termen wil toevoegen, dan hoort die
 % hier thuis.
 \printnoidxglossaries
-
 %---------- Kern ---------------------------------------------------------------
-
 % De eerste hoofdstukken van een bachelorproef zijn meestal een inleiding op
 % het onderwerp, literatuurstudie en verantwoording methodologie.
 % Aarzel niet om een meer beschrijvende titel aan deze hoofstukken te geven of
 % om bijvoorbeeld de inleiding en/of stand van zaken over meerdere hoofdstukken
 % te verspreiden!
-
 \input{inleiding}
 \input{standvanzaken}
 \input{methodologie}
-
-% Voeg hier je eigen hoofdstukken toe die de ``corpus'' van je bachelorproef
-% vormen. De structuur en titels hangen af van je eigen onderzoek. Je kan bv.
-% elke fase in je onderzoek in een apart hoofdstuk bespreken.
+% Eigen hoofdstukken
 \input{toekomstvisie}
-%\input{...}
-%\input{...}
-%...
 
 \input{conclusie}
-
 %%=============================================================================
 %% Bijlagen
 %%=============================================================================
-
 \appendix
 \renewcommand{\chaptername}{Appendix}
-
 %%---------- Onderzoeksvoorstel -----------------------------------------------
-
 \chapter{Research proposal}
-
 The subject of this bachelor's thesis is based on a research proposal that has been assessed in advance by the promoter. This proposal is included in this appendix.
-
 % Verwijzing naar het bestand met de inhoud van het onderzoeksvoorstel
 \input{../voorstel/voorstel-inhoud}
-
 %%---------- Andere bijlagen --------------------------------------------------
 % TODO: Voeg hier eventuele andere bijlagen toe
 %\input{...}
-
 %%---------- Referentielijst --------------------------------------------------
-
 \printbibliography[heading=bibintoc]
-
 \end{document}
