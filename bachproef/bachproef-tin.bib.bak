@@ -122,13 +122,13 @@
   url       = {https://www.ebook.de/de/product/11419455/david_e_y_sarna_implementing_and_developing_cloud_computing_applications.html},
 }
 
-@Online{WDATPT2018,
-  author = {{Windows Defender ATP Team}},
-  title  = {{What’s new in Windows Defender ATP}},
-  month  = nov,
+@Online{Aslaner2018,
+  author = {Milad Aslaner},
+  title  = {{Protecting Windows Server with Windows Defender ATP}},
+  month  = oct,
   year   = {2018},
   note   = {[Online; accessed February 15, 2019]},
-  url    = {https://cloudblogs.microsoft.com/uploads/prod/sites/13/2018/11/fig1-Windows-Defender-ATP.png},
+  url    = {https://gxcuf89792.i.lithium.com/t5/image/serverpage/image-id/55539i467D9A8C7674CE11/image-size/large?v=1.0&px=999},
 }
 
 @TechReport{Musto2017,
@@ -140,6 +140,26 @@
   month       = jul,
   note        = {[Online; accessed February 15, 2019]},
   url         = {http://info.microsoft.com/rs/157-GQE-382/images/EN-US-CNTNT-Forrester-TEI-Report-WDATP.pdf},
+}
+
+@Online{Hall2018,
+  author = {Justin Hall and John Rajunas and jcaparas and essdeekay},
+  title  = {{Windows Defender Advanced Threat Protection}},
+  month  = jul,
+  year   = {2018},
+  note   = {[Online; accessed February 15, 2019]},
+  url    = {https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection},
+}
+
+@InProceedings{Shin2016,
+  author    = {Seungwon Shin and Lei Xu and Sungmin Hong and Guofei Gu},
+  title     = {{Enhancing Network Security through Software Defined Networking ({SDN})}},
+  booktitle = {2016 25th International Conference on Computer Communication and Networks ({ICCCN})},
+  year      = {2016},
+  month     = aug,
+  publisher = {{IEEE}},
+  doi       = {10.1109/icccn.2016.7568520},
+  url       = {http://iranarze.ir/wp-content/uploads/2018/02/E5843-IranArze.pdf},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
