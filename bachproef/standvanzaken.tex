@@ -39,7 +39,6 @@ A hybrid cloud aims to be the solution for every business. It combines the highe
 
 \subsection{Hybrid cloud in Windows Server 2019}
 %TODO Windows Admin Center
-\clearpage
 
 \section{Security}
 With more than 53.000 reported incidents and 2.216 confirmed data breaches \autocite{Verizon2018}, security has become an essential part of \acrshort{it}. The importance of security directly translates into Windows Server 2019 through various parts of the \acrshort{os} that have either been reviewed to make them more resilient and accessible or new features which have been added to further improve security. In the following section all the major elements will be discussed, distributed among three subsections:
@@ -80,10 +79,17 @@ Virtual network peering allows you to combine two individual virtual networks. A
 Egress metering for \acrshort{sdn} enables an administrator to monitor the consumption on outgoing connections. Windows Server 2019 also makes a distinction between traffic that leaves the virtual network and the data centre, in comparison to traffic that stays within the data centre. 
 
 \subsection{Shielded Virtual Machines}
-%TODO Shielded VM
+One of the requirements to run a Shielded \acrfull{vm} is a \acrfull{hgs}. Since Windows Server 2019 it is possible to run Shielded \acrshort{vm}s on machines with irregular connection to the \acrshort{hgs}. This can be done by leveraging the two new features. 
+
+\begin{description}
+	\item[Fallback \acrshort{hgs}] Provide a redundant connection in case the primary \acrshort{hgs} can not be reached.
+	\item[Offline Mode] Once a shielded \acrshort{vm} has been setup it can be started up seeing the security configuration remains unchanged.
+\end{description}
+
+Another new feature is the addition of support for Ubuntu, Red Hat Enterprise Linux and SUSE Linux Enterprise Servers inside Shielded \acrshort{vm}s. 
 
 \section{Application platform}
-%TODO Application Platform
+% TODO Application Platform
 %\subsection{Linux containers on Windows}
 %\subsection{Building Support for Kubernetes}
 %\subsection{Container improvements}
@@ -96,4 +102,6 @@ Egress metering for \acrshort{sdn} enables an administrator to monitor the consu
 %\subsection{Persistent Memory support for Hyper-V VMs}
 
 \section{Hyper-converged infrastructure}
-%TODO HCI
+% TODO HCI
+\section{Conclusion}
+% TODO Conclusion
