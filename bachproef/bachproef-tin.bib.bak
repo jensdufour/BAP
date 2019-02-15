@@ -162,4 +162,21 @@
   url       = {http://iranarze.ir/wp-content/uploads/2018/02/E5843-IranArze.pdf},
 }
 
+@InProceedings{Modadugu2004,
+  author    = {Nagendra Modadugu and Eric Rescorla},
+  title     = {{The Design and Implementation of Datagram TLS}},
+  booktitle = {In Proc. NDSS},
+  year      = {2004},
+  url       = {http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.74.6613&rep=rep1&type=pdf},
+}
+
+@Article{Naeem2016,
+  author  = {Naeem, Makhdoom and Mahar, Hidayatullah and Memon, Furqan and Siddique, Muhammad and Rauf, Abdul},
+  title   = {{AN OVERVIEW OF VIRTUALIZATION \& CLOUD COMPUTING}},
+  journal = {Science international journal lahore},
+  year    = {2016},
+  month   = jul,
+  url     = {https://www.researchgate.net/publication/307905618_AN_OVERVIEW_OF_VIRTUALIZATION_CLOUD_COMPUTING},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
