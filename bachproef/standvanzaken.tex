@@ -19,12 +19,12 @@ Hybrid Cloud is a topic that has gained more momentum over the past years. This 
 \subsection{Types of cloud solutions}
 
 The National Institute of Standards and Technology differentiates four types of clouds \autocite{Mell2011}:
-\begin{enumerate}
+\begin{itemize}
 	\item Private Cloud
 	\item Community Cloud
 	\item Public Cloud
 	\item Hybrid Cloud
-\end{enumerate}	
+\end{itemize}	
 
 %TODO Usage of types of clouds in a business environment
 %Poll op LinkedIn
@@ -56,10 +56,32 @@ A hybrid cloud aims to be the solution for every business. It combines the highe
 %TODO Windows Admin Center
 
 \section{Security}
-%\subsection{Windows Defender Advanced Threat Protection (ATP)}
-%\subsection{Security with Software Defined Networking (SDN)}
-%\subsection{Shielded Virtual Machines improvements}
-%\subsection{HTTP/2 for a faster and safer Web}
+With more than 53.000 reported incidents and 2.216 confirmed data breaches \autocite{Verizon2018}, security has become an essential part of \acrshort{it}. The importance of security directly translates into Windows Server 2019 through various parts of the \acrshort{os} that have either been reviewed to make them more resilient and accessible or new features which have been added to further improve security. In the following section all of the major elements will be discussed, distributed among three subsections:
+\begin{itemize}
+	\item Windows Defender \acrfull{atp}
+	\item Security with \acrfull{sdn}
+	\item Shielded Virtual Machines
+\end{itemize}
+
+\subsection{Windows Defender \acrfull{atp}}
+In a research study done by \cite{Musto2017} \acrfull{wdatp} was scrutinized. While the security solution is implemented in Windows Server 2019, it requires additional licensing. Still the efficiency with which it tackles security problems resulted in a 53\% \acrfull{roi}. The research reported that \acrshort{wdatp} reduced the risk of a breach by 40\%. It even enabled them to identify threats faster and resolve them in a more efficient fashion. In conclusion, the replacement of previous solutions with \acrlong{wdatp} reduced costs and made security teams more efficient. With the advent of Windows Server 2019, additional features have been added to \acrlong{wdatp} to ensure the safety of organizations in the years to come. As described in the picture \acrshort{wdatp} consists of different components in which the advancements since the new release shall be reviewed. 
+
+\begin{figure}[hbt!]
+	\centering
+	\includegraphics[width=\textwidth,height=6cm,keepaspectratio=true]{img/Windows-Defender-ATP.png}
+	\caption{The picture above \autocite{WDATPT2018} shows the different components of Windows Defender \acrlong{atp}.}
+	\label{fig:WDATPT2018}
+\end{figure}
+\subsubsection{Attack surface reduction}
+
+\subsubsection{Next generation protection}
+\subsubsection{Endpoint detection and response}
+\subsubsection{Auto investigation and remediation}
+\subsubsection{Security posture}
+\subsubsection{Advanced hunting}
+
+\subsection{Security with \acrfull{sdn}}
+\subsection{Shielded Virtual Machines}
 
 \section{Application platform}
 %\subsection{Linux containers on Windows}
@@ -74,4 +96,3 @@ A hybrid cloud aims to be the solution for every business. It combines the highe
 %\subsection{Persistent Memory support for Hyper-V VMs}
 
 \section{Hyper-converged infrastructure}
-%https://thestack.com/data-centre/2017/06/26/hyperconverged-market-grows-64-over-2016/

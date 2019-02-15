@@ -40,6 +40,7 @@
 *.synctex.gz(busy)
 *.pdfsync
 *.tcp
+*.gz
 
 ## Auxiliary and intermediate files from other packages:
 

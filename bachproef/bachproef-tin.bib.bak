@@ -17,6 +17,7 @@
   title  = {{Scribbr - Meest Complete Nakijkservice voor jouw Scriptie of Verslag}},
   month  = feb,
   year   = {2019},
+  note   = {[Online; accessed February 15, 2019]},
   url    = {https://www.scribbr.nl/},
 }
 
@@ -25,6 +26,7 @@
   title     = {{Introducing Windows Server 2019 – now available in preview}},
   month     = mar,
   year      = {2018},
+  note      = {[Online; accessed February 15, 2019]},
   timestamp = {2019-02-10},
   url       = {https://cloudblogs.microsoft.com/windowsserver/2018/03/20/introducing-windows-server-2019-now-available-in-preview/},
 }
@@ -96,14 +98,14 @@
   title  = {{Server Virtualization and OS Trends}},
   month  = aug,
   year   = {2016},
-  note   = {[Online; posted 30-August-2016]},
+  note   = {[Online; accessed February 13, 2019]},
   url    = {https://community.spiceworks.com/networking/articles/2462-server-virtualization-and-os-trends},
 }
 
 @Online{MicrosoftEOL2019,
   author = {{Microsoft Corporation}},
   title  = {{Microsoft Lifecycle Policy}},
-  note   = {Accessed: 2019-02-14},
+  note   = {[Online; accessed February 14, 2019]},
   url    = {https://support.microsoft.com/en-hk/lifecycle/search?alpha=Windows%20Server},
 }
 
@@ -113,10 +115,31 @@
   year      = {2010},
   author    = {Sarna, David E. Y.},
   isbn      = {1439830827},
+  note      = {[Online; accessed February 14, 2019]},
   date      = {2010-11-26},
   ean       = {9781439830826},
   pagetotal = {344},
   url       = {https://www.ebook.de/de/product/11419455/david_e_y_sarna_implementing_and_developing_cloud_computing_applications.html},
+}
+
+@Online{WDATPT2018,
+  author = {{Windows Defender ATP Team}},
+  title  = {{What’s new in Windows Defender ATP}},
+  month  = nov,
+  year   = {2018},
+  note   = {[Online; accessed February 15, 2019]},
+  url    = {https://cloudblogs.microsoft.com/uploads/prod/sites/13/2018/11/fig1-Windows-Defender-ATP.png},
+}
+
+@TechReport{Musto2017,
+  author      = {Sarah Musto},
+  title       = {{The Total Economic Impact™ Of Microsoft Windows Defender Advanced Threat Protection}},
+  institution = {Forrester},
+  year        = {2017},
+  type        = {resreport},
+  month       = jul,
+  note        = {[Online; accessed February 15, 2019]},
+  url         = {http://info.microsoft.com/rs/157-GQE-382/images/EN-US-CNTNT-Forrester-TEI-Report-WDATP.pdf},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
