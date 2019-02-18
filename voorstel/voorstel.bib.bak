@@ -11,7 +11,7 @@
 }
 
 @Online{Gerend2018,
-  author = {Jason Gerend and Liza Poggemeyer and Corey Plett and Michael C. Bazarewsky and Thomas Lee and Lars Iwer and Jens Du Four},
+  author = {Jason Gerend and Liza Poggemeyer and Corey Plett and Michael C. Bazarewsky and Thomas Lee and Lars Iwer},
   title  = {What's new in Windows Server 2019},
   year   = {2018},
   date   = {2018-12-21},

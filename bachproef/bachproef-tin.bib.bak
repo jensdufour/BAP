@@ -1,26 +1,5 @@
 % Encoding: UTF-8
 
-@Book{Pollefliet2012,
-  title     = {Schrijven: van verslag tot eindwerk: do's \& don'ts},
-  publisher = {Academia Press},
-  year      = {2012},
-  author    = {Pollefliet, Leen},
-  isbn      = {9789038219264},
-  abstract  = {Handboek voor allen die een eindwerk (bachelorproef - masterproef) schrijven in het hoger onderwijs en voor allen die studenten begeleiden als ze een dergelijk verslag schrijven. Belangrijkste thema's: Hoe begin je te schrijven? Welke zijn de belangrijkste onderdelen in een eindwerk? Hoe breng je structuur aan? Wat is de correcte taal, stijl en toon? Hoe refereer je aan digitale en niet-digitale werken? Welke opmaak zorgt ervoor dat je verslag gemakkelijk en duidelijk leest?},
-  language  = {dut},
-  pages     = {291},
-  url       = {http://hdl.handle.net/1854/LU-4174497},
-}
-
-@Online{Scribbr2019,
-  author = {{Scribbr B.V.}},
-  title  = {{Scribbr - Meest Complete Nakijkservice voor jouw Scriptie of Verslag}},
-  month  = feb,
-  year   = {2019},
-  note   = {[Online; accessed February 15, 2019]},
-  url    = {https://www.scribbr.nl/},
-}
-
 @Online{MWST2018,
   author    = {{Microsoft Windows Server Team}},
   title     = {{Introducing Windows Server 2019 – now available in preview}},
@@ -172,11 +151,56 @@
 
 @Article{Naeem2016,
   author  = {Naeem, Makhdoom and Mahar, Hidayatullah and Memon, Furqan and Siddique, Muhammad and Rauf, Abdul},
-  title   = {{AN OVERVIEW OF VIRTUALIZATION \& CLOUD COMPUTING}},
-  journal = {Science international journal lahore},
+  title   = {{An Overview of Virtualization \& Cloud Computing}},
+  journal = {Science International Journal Lahore},
   year    = {2016},
   month   = jul,
   url     = {https://www.researchgate.net/publication/307905618_AN_OVERVIEW_OF_VIRTUALIZATION_CLOUD_COMPUTING},
+}
+
+@Online{Chappell2011,
+  author = {David Chappell},
+  title  = {{What is an Application Platform?}},
+  month  = dec,
+  year   = {2011},
+  note   = {[Online; accessed February 18, 2019]},
+  url    = {http://www.davidchappell.com/writing/white_papers/What_is_an_Application_Platform-Chappell.pdf},
+}
+
+@Online{SecuritySpace2019,
+  author = {{Security Space}},
+  title  = {{OS/Linux Distributions using Apache}},
+  year   = {2019},
+  note   = {[Online; accessed February 18, 2019]},
+  url    = {https://secure1.securityspace.com/s_survey/data/man.201901/apacheos.html},
+}
+
+@TechReport{Shalunov2012,
+  author      = {S. Shalunov and G. Hazel and J. Iyengar and M. Kuehlewind},
+  title       = {{Low Extra Delay Background Transport ({LEDBAT})}},
+  institution = {{Internet Engineering Task Force}},
+  year        = {2012},
+  month       = dec,
+  doi         = {10.17487/rfc6817},
+  publisher   = {{RFC} Editor},
+  url         = {https://doi.org/10.17487%2Frfc6817},
+}
+
+@Book{Haag2016,
+  title     = {{Hyper‐Converged Infrastructure For Dummies® VMware and Intel Special Edition}},
+  publisher = {John Wiley \& Sons, Inc.},
+  year      = {2016},
+  author    = {Michael Haag},
+  editor    = {Elizabeth Kuball and Katie Mohr and Rev Mengle and Karen Hattan and Siddique Shaik},
+  isbn      = {9781119341369},
+  url       = {http://gu.dimensionsystems.com/wp-content/uploads/2017/09/VSAN-0130_Hyperconverged_Infrastructure_For_Dummies_VMware_and_Intel_Special_Edition.pdf},
+}
+
+@Article{Gantz2012,
+  author  = {John Gantz and David Reinsel},
+  title   = {{The digital universe in 2020: Big data, bigger digital shadows, and biggest growth in the far east}},
+  journal = {IDC iView},
+  year    = {2012},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
