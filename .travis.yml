@@ -1,5 +1,16 @@
 sudo: required
-language: generic
-services: docker
+dist: trusty
+before_install:
+- sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended
 script:
-  - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 ../bachproef/bachproef-tin.tex; biber ../bachproef/bachproef-tin; tectonic ../bachproef/bachproef-tin.tex"
+- mkdir _build
+- pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build bachproef/bachproef-tin.tex
+deploy:
+  provider: releases
+  api_key:
+    secure: be401afb8148d7980e9f800824c0158f1b566b5f
+  file:
+  - _build/BAP.pdf
+  skip_cleanup: true
+  on:
+    tags: true
