@@ -2,4 +2,4 @@ sudo: required
 language: generic
 services: docker
 script:
-  - docker run --mount src=$TRAVIS_BUILD_DIR/bachproef,target=/usr/bachproef,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 bachproef-tin.tex; biber bachproef-tin; tectonic bachproef-tin.tex"
+  - docker run --mount src=$TRAVIS_BUILD_DIR/bachproef,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 bachproef-tin.tex; biber bachproef-tin; tectonic bachproef-tin.tex"
