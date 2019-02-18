@@ -1,18 +1,1 @@
-os: linux
-language: r
-sudo: required
-apt_packages:
-  - pdf2djvu
-script:
-  - pdflatex -synctex=1 -interaction=nonstopmode bachproef/bachproef-tin.tex
-#BIBER  - pdflatex -interaction=nonstopmode README.tex
-  - pdflatex -synctex=1 -interaction=nonstopmode bachproef/bachproef-tin.tex
-deploy:
-  provider: releases
-  api_key: 654249aecd5410996ca20108692974fbe20c6a4d
-# the list of files to upload
-  file: 
-    - "bachproef/bachproef-tin.pdf"
-  skip_cleanup: true
-  on:
-    repo: jensdufour/BAP
+
