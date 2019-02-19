@@ -9,7 +9,7 @@ script:
 before_deploy:
  - git config --local user.name "jensdufour"
  - git config --local user.email "jens.dufour.y2321@student.hogent.be"
- - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%d%m%Y - %H%M')}
+ - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%d%m%Y%H%M')}
  - git tag $TRAVIS_TAG
 deploy:
   provider: releases
