@@ -1,4 +1,4 @@
-# Bachelorproef toegepaste informatica
+# Bachelorproef toegepaste informatica [![Build Status](https://travis-ci.com/jensdufour/BAP.svg?token=wVQRmoVqnNmxsb78JHKk&branch=master)](https://travis-ci.com/jensdufour/BAP)
 
 Deze repository bevat LaTeX sjablonen voor gebruik bij het opmaken van je bachelorproef toegepaste informatica:
 
