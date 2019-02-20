@@ -205,4 +205,24 @@
   url     = {https://www.emc-technology.com/collateral/analyst-reports/idc-the-digital-universe-in-2020.pdf},
 }
 
+@Online{,
+  author    = {Jason Gerend and Will Gries and Liza Poggemeyer and Garrett Watumull and Andrew Hansen and Nick Schonning and Kumud Dwivedi and Kirill Nikolaev},
+  title     = {{What's new in Storage in Windows Server}},
+  month     = oct,
+  year      = {2018},
+  note      = {[Online; accessed February 20, 2019]},
+  timestamp = {2019-02-10},
+  url       = {https://docs.microsoft.com/en-us/windows-server/storage/whats-new-in-storage#storage-spaces-direct},
+}
+
+@Online{Gerend2018,
+  author    = {Patti Short},
+  title     = {{Hyper-V Technology Overview}},
+  month     = nov,
+  year      = {2016},
+  note      = {[Online; accessed February 20, 2019]},
+  timestamp = {2019-02-10},
+  url       = {https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/hyper-v-technology-overview},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

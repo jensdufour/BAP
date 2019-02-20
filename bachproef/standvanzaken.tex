@@ -2,6 +2,7 @@
 \chapter{\IfLanguageName{dutch}{Stand van zaken}{State of the art}}
 \label{ch:stand-van-zaken}
 % Tip: Begin elk hoofdstuk met een paragraaf inleiding die beschrijft hoe dit hoofdstuk past binnen het geheel van de bachelorproef. Geef in het bijzonder aan wat de link is met het vorige en volgende hoofdstuk.
+%TODO Nalezen en bronnen hersorteren
 In this chapter the state of affairs will be examined. As mentioned in the introduction, this part of the bachelor's thesis will be used to get an in-depth understanding of the four key themes that incorporate the changes in Windows Server 2019. First, for the key themes mentioned before, a basic understanding of what they are will be established together with how these have been implemented in the latest version of the \acrshort{os}.
 
 \section{Hybrid cloud}
@@ -60,6 +61,7 @@ In a research study done by \textcite{Musto2017} \acrfull{wdatp} was scrutinized
 \end{figure}
 
 \subsection{Security with \acrfull{sdn}}
+\label{sdn}
 As described by \textcite{Shin2016}, \acrfull{sdn} is a state-of-the-art technology that enables developers to design advanced networks effortless. In Windows Server 2019 their have also been new development in this field, these can be boiled down to four features. The discussion of these will be constrained.
 \begin{itemize}
 	\item Encrypted networks
@@ -111,7 +113,7 @@ Kubernetes is a software solution designed to oversee containers. It is a manage
 Containers as a whole have also been improved. There is better support for Windows Authentication inside containers as well as improved application compatibility for the existing Windows Server Core image. Other base images have also been reduced in size and overall performance has been improved. The Windows Admin Center, which was previously mentioned in the subsection about hybrid cloud (\ref{hybrid-cloud-windows-server-2019}) , has made keeping an overview and management of individual containers a breeze.
 %TODO Foto Windows Admin Center Containers
 \subsection*{Encrypted Networks}
-This has been discussed in Security with \acrlong{sdn} (\ref{encrypted-networks}).
+This has been mentioned in Security with \acrlong{sdn} (\ref{encrypted-networks}).
 \subsection*{Network performance improvements for virtual workloads}
 To increase throughput in virtual machines two new features have been introduced:
 \begin{itemize}
@@ -135,9 +137,27 @@ Estimates made in a report by \textcite{Gantz2012} show that the digital univers
 
 %TODO Foto SDDC met Clouds
 \subsection{Hyper-V}
+As mentioned in the introduction an \acrfull{hci} requires a Hypervisor. In Windows Server this is provided by Hyper-V. It can be used to virtualize compute, storage, networking and management components.  It does this by creating \acrshort{vm}s, that act like an entire computer. They all run in their own isolated space, which translates in the ability to run multiple of these on a single hypervisor. The previously mentioned advantages also apply to Hyper-V. The provided services makes place for a scalable and flexible infrastructure. To summarize, Hyper-V provides the Hypervisor that is an essential part of an \acrshort{hci}. \autocite{Short2016}
 \subsection{Storage Spaces Direct}
+Another vital component of \acrshort{hci} is storage. In Windows Server this is done through Storage Spaces Direct. This technology developed to provide flexible and agile software-defined storage. Some key benefits offered are simplicity, performant storage, fault tolerant and scalability. With Windows Server 2019 comes the largest update for Storage Spaces Direct since its introduction with Windows Server 2016. The licensing for this feature is also included in Windows Server 2019 Datacenter Edition, which means that for most clients, it will not involve any extra cost. \autocite{Gerend2018a}
+\begin{description}
+	%TODO Add descriptions
+	\item [Deduplication and compression for ReFS volumes]
+	\item [Native support for persistent memory]
+	\item [Nested resiliency for two-node hyper-converged infrastructure at the edge]
+	\item [Two-server clusters using a USB flash drive as a witness]
+	\item [Performance history]
+	\item [Scale up to 4 PB per cluster]
+	\item [Mirror-accelerated parity is 2X faster]
+	\item [Drive latency outlier detection]
+	\item [Manually delimit the allocation of volumes to increase fault tolerance]
+	\item [Windows Admin Center]
+\end{description}
+\subsection{\acrfull{sdn}}
+As previously mentioned, \acrshort{sdn} gives form to the networking component of \acrshort{hci}. It provides \acrshort{it} administrators with the ability to design advanced networks effortless.
 \subsection{Windows Admin Center}
-%TODO Foto Windows Admin Center HCI
+Windows Admin Center has been mentioned a couple of times, it is an all-in-one management solution for local and remote server management. It is the glue that joins all other components under one dashboard. This tool is also the final part to our \acrshort{hci} environment, as it combines storage (Storage Spaces Direct), network (\acrshort{sdn}) and computing (Hyper-V) components under its management interface. 
+%TODO Foto Windows Admin Center HCI	Components (Hyper-V, Storage Spaces Direct, SDN)
 
 \section{Conclusion}
-Windows Server 2019 is a highly advanced \acrfull{os}. The many new features provide a more fluent and manageable experience to administrators and \acrshort{it} professionals. The four key themes that have been further developed offer many new options that are future-oriented. Furthermore, one can also say with certainty that extended support for Windows Server 2019 will be provided until 2029. This means that the investment does not need to be repeated in the immediate future. In the next chapter we will look at how an upgrade can be performed.  
+Windows Server 2019 is a highly advanced \acrfull{os}. The many new features provide a more fluent and manageable experience to administrators and \acrshort{it} professionals. The four key themes that have been further developed to offer many improvements, as well as many new features that take all parts of the current infrastructure and makes them more flexible, scalable and ready for the future. Furthermore, it can also be said with certainty that extended support for Windows Server 2019 will be provided until 2029. This means that the investment does not need to be repeated in the immediate future. In the next chapter we will look at how an upgrade can be performed.  
