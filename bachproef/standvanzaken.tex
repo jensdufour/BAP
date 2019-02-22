@@ -40,8 +40,17 @@ A hybrid cloud aims to be the solution for every business. It combines the highe
 
 \subsection{Hybrid cloud in Windows Server 2019}
 \label{hybrid-cloud-windows-server-2019}
-As mentioned before, Microsoft offers a hybrid cloud solution that combines the private cloud of an organization with Microsoft Azure, their public cloud solution. Microsoft Azure is offered from 34 sets of data centres all over the world. The difficult part is the integration of it in the in-house private cloud. Microsoft is confident that clients who are running the latest version of Windows Server, and the associated software, can have a hybrid cloud set-up today. A new feature that significantly simplified how to manage this is Windows Admin Center, previously known as Project Honolulu. It was built hybrid cloud, and \acrfull{hci}, as its keystones. This tool built to manage Windows Server and Windows 10 is optimized for usage inside Windows Server 2019. This constitutes an additional argument for a migration to this version.
-%TODO Foto Windows Admin Center Hybrid Cloud
+As mentioned before, Microsoft offers a hybrid cloud solution that combines the private cloud of an organization with Microsoft Azure, their public cloud solution. Microsoft Azure is offered from 34 sets of data centres all over the world. Microsoft is confident that clients who are running the latest version of Windows Server, and the associated software, can have a hybrid cloud set-up almost instantly. This thanks to a new feature that significantly simplified how to manage this is Windows Admin Center, previously known as Project Honolulu. It was built with hybrid cloud, and \acrfull{hci}, as its keystones. This tool, built to manage Windows Server and Windows 10, is optimized for usage inside Windows Server 2019. This constitutes an additional argument for a migration to this version. The entire step-by-step plan for Windows Admin Center Azure Integration is given in Appendix \ref{WACAzure}. Once this has been completed the following features can be leveraged through Windows Admin Center:
+%TODO Add descriptions
+%Bron: https://docs.microsoft.com/en-us/windows-server/manage/windows-admin-center/plan/azure-integration-options
+\begin{description}
+\item [Azure Active Directory authentication] desc
+\item [Manage Azure IaaS virtual machines] desc
+\item [Azure Site Recovery] desc
+\item [Azure Update Management] desc
+\item [Azure Network Adapter] desc
+\end{description}
+
 
 \section{Security}
 With more than 53.000 reported incidents and 2.216 confirmed data breaches \autocite{Verizon2018}, security has become an essential part of \acrshort{it}. The importance of security directly translates into Windows Server 2019 through various parts of the \acrshort{os} that have either been reviewed to make them more resilient and accessible or new features which have been added to further improve security. In the following section all the major elements will be discussed, distributed among three subsections:
@@ -110,8 +119,7 @@ Since Windows Server 2019 it is now possible to run Linux containers on the same
 \subsection*{Building Support for Kubernetes}
 Kubernetes is a software solution designed to oversee containers. It is a management environment for network, computing and data infrastructure. With Windows Server 2019 this has been further developed inside the \acrshort{os} with additional updates in semi-annual channel releases. For now there has been great improvement in container networking but as new versions of Kubernetes are developed more features will be added.
 \subsection*{Container improvements}
-Containers as a whole have also been improved. There is better support for Windows Authentication inside containers as well as improved application compatibility for the existing Windows Server Core image. Other base images have also been reduced in size and overall performance has been improved. The Windows Admin Center, which was previously mentioned in the subsection about hybrid cloud (\ref{hybrid-cloud-windows-server-2019}) , has made keeping an overview and management of individual containers a breeze.
-%TODO Foto Windows Admin Center Containers
+Containers as a whole have also been improved. There is better support for Windows Authentication inside containers as well as improved application compatibility for the existing Windows Server Core image. Other base images have also been reduced in size and overall performance has been improved.
 \subsection*{Encrypted Networks}
 This has been mentioned in Security with \acrlong{sdn} (\ref{encrypted-networks}).
 \subsection*{Network performance improvements for virtual workloads}
@@ -129,17 +137,26 @@ The throughput of existing \acrshort{sdn} gateways has been improved. This by im
 Storage-class memory, or also known as persistent memory, improves latency and delivers a high throughput. To leverage this in \acrshort{vm}s, they can now be directly connected to them.
 \subsection*{New Deployment UI and Windows Admin Center extension for \acrshort{sdn}}
 As already mentioned before (\ref{hybrid-cloud-windows-server-2019}), Windows Admin Center also implements certain features to make managing \acrshort{sdn} easier. It does this through the implementation of an extension.
-%TODO Foto Windows Admin Center SDN
+%TODO Foto Windows Admin Center SDN 
+%(Zit in HCI)
 
 \section{\acrfull{hci}}
 Estimates made in a report by \textcite{Gantz2012} show that the digital universe will consist of 50.000 Exabytes. This means that the infrastructure needs to be ready for the storage of these vast amounts of data. The static and inflexible way of storing data needs to become dynamic and agile to conform to modern standards. This can be achieved through a \acrfull{sddc}. It is developed to further leverage the success that is virtualization. An \acrshort{sddc} can be achieved in multiple ways but the most efficient and popular method is through \acrfull{hci}. It converges the compute, storage, networking and management components through software that is running on the hypervisor. This virtualized platform can be enhanced thanks to the automation and complete network virtualization. In addition to the advantages that come with \acrshort{hci}, they deliver strong support for the deployment of a hybrid cloud, one of the other key themes in Windows Server 2019. 
-\acrshort{hci} reinvents how to store data through \acrfull{sds}), which was one of the most anticipated features to be included in Windows Server 2019. This will be discussed below together with Hyper-V and how this can be managed through Windows Admin Center. \autocite{Haag2016}
+\acrshort{hci} reinvents how to store data through \acrfull{sds}, which was one of the most anticipated features to be included in Windows Server 2019. This will be discussed below together with Hyper-V and how this can be managed through Windows Admin Center. \autocite{Haag2016}
+%TODO Add caption and source
+%https://github.com/MicrosoftDocs/windowsserverdocs/raw/master/WindowsServerDocs/manage/windows-admin-center/media/WindowsAdminCenter1809Poster.pdf
+\begin{figure}[h]
+	\includegraphics[width=0.6\linewidth]{img/HCI.png}
+	\captionsetup{width=0.5\linewidth}
+	\centering		
+	\caption{Click next to upgrade}
+	\label{fig:HCI}
+\end{figure}
 
-%TODO Foto SDDC met Clouds
 \subsection{Hyper-V}
 As mentioned in the introduction an \acrfull{hci} requires a Hypervisor. In Windows Server this is provided by Hyper-V. It can be used to virtualize compute, storage, networking and management components.  It does this by creating \acrshort{vm}s, that act like an entire computer. They all run in their own isolated space, which translates in the ability to run multiple of these on a single hypervisor. The previously mentioned advantages also apply to Hyper-V. The provided services makes place for a scalable and flexible infrastructure. To summarize, Hyper-V provides the Hypervisor that is an essential part of an \acrshort{hci}. \autocite{Short2016}
-\subsection{Storage Spaces Direct}
-Another vital component of \acrshort{hci} is storage. In Windows Server this is done through Storage Spaces Direct. This technology developed to provide flexible and agile software-defined storage. Some key benefits offered are simplicity, performant storage, fault tolerant and scalability. With Windows Server 2019 comes the largest update for Storage Spaces Direct since its introduction with Windows Server 2016. The licensing for this feature is also included in Windows Server 2019 Datacenter Edition, which means that for most clients, it will not involve any extra cost. \autocite{Gerend2018a}
+\subsection{\acrfull{s2d}}
+Another vital component of \acrshort{hci} is storage. In Windows Server this is done through \acrshort{s2d}. This technology developed to provide flexible and agile software-defined storage. Some key benefits offered are simplicity, performant storage, fault tolerant and scalability. With Windows Server 2019 comes the largest update for \acrshort{s2d} since its introduction with Windows Server 2016. The licensing for this feature is also included in Windows Server 2019 Datacenter Edition, which means that for most clients, it will not involve any extra cost. \autocite{Gerend2018a}
 \begin{description}
 	%TODO Add descriptions
 	\item [Deduplication and compression for ReFS volumes]
@@ -156,8 +173,10 @@ Another vital component of \acrshort{hci} is storage. In Windows Server this is 
 \subsection{\acrfull{sdn}}
 As previously mentioned, \acrshort{sdn} gives form to the networking component of \acrshort{hci}. It provides \acrshort{it} administrators with the ability to design advanced networks effortless.
 \subsection{Windows Admin Center}
-Windows Admin Center has been mentioned a couple of times, it is an all-in-one management solution for local and remote server management. It is the glue that joins all other components under one dashboard. This tool is also the final part to our \acrshort{hci} environment, as it combines storage (Storage Spaces Direct), network (\acrshort{sdn}) and computing (Hyper-V) components under its management interface. 
-%TODO Foto Windows Admin Center HCI	Components (Hyper-V, Storage Spaces Direct, SDN)
+Windows Admin Center has been mentioned a couple of times, it is an all-in-one management solution for local and remote server management. It is the glue that joins all other components under one dashboard. This tool is also the final part to our \acrshort{hci} environment, as it combines storage (\acrshort{s2d}), network (\acrshort{sdn}) and computing (Hyper-V) components under its management interface. 
+
 
 \section{Conclusion}
+%TODO Rewrite and conclude
+%In-place upgrades are one of the areas that Microsoft focused heavily during the release. In place upgrades from Windows Server 2016 to 2019, should be relatively safe. As always, make sure you have a backup before attempting an upgrade of this manner.
 Windows Server 2019 is a highly advanced \acrfull{os}. The many new features provide a more fluent and manageable experience to administrators and \acrshort{it} professionals. The four key themes that have been further developed to offer many improvements, as well as many new features that take all parts of the current infrastructure and makes them more flexible, scalable and ready for the future. Furthermore, it can also be said with certainty that extended support for Windows Server 2019 will be provided until 2029. This means that the investment does not need to be repeated in the immediate future. In the next chapter we will look at how an upgrade can be performed.  
