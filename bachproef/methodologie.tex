@@ -2,19 +2,12 @@
 %%=============================================================================
 %% Methodologie
 %%=============================================================================
-
+% TODO Nakijken
 \chapter{\IfLanguageName{dutch}{Methodologie}{Methodology}}
 \label{ch:methodologie}
-% Tip: Begin elk hoofdstuk met een paragraaf inleiding die beschrijft hoe dit hoofdstuk past binnen het geheel van de bachelorproef. Geef in het bijzonder aan wat de link is met het vorige en volgende hoofdstuk.
+% Hoe ben je te werk gegaan? Verdeel je onderzoek in grote fasen, en licht in elke fase toe welke stappen je gevolgd hebt. Verantwoord waarom je op deze manier te werk gegaan bent. Je moet kunnen aantonen dat je de best mogelijke manier toegepast hebt om een antwoord te vinden op de onderzoeksvraag.
 
-% TODO: Hoe ben je te werk gegaan? Verdeel je onderzoek in grote fasen, en licht in elke fase toe welke stappen je gevolgd hebt. Verantwoord waarom je op deze manier te werk gegaan bent. Je moet kunnen aantonen dat je de best mogelijke manier toegepast hebt om een antwoord te vinden op de onderzoeksvraag:
-
-% What are the advantages and disadvantages of a migration from Windows Server 2016 to 2019 in a business environment?
-%% What are the differences between the standard, ServerCore and Nano version of Windows Server 2019? Deze zijn virtualizatiecontainers!
-%% Can we migrate SAP from an existing Windows Server 2016 to 2019 in a business environment?
-%% How can the new features of Windows Server 2019 be leveraged in the migrated infrastructure? 
-
-In this chapter the upgrade from Windows Server 2016 to Windows Server 2019 will be researched. This upgrade will first be performed using the in-place upgrade method after which the process will be repeated using a migration. After this the migration of a typical SAP environment, as described by Delaware, from Windows Server 2016 to Windows Server 2019 will be examined. To continue the different versions of the container images will be analysed and how these can lower virtual machine overhead, and improve virtualization efficiency. Finally, their will be a discussion about how the new features that come with Windows Server 2019 can be leveraged in the migrated infrastructure. But first the used infrastructure will be discussed.
+In this chapter the migration from Windows Server 2016 to Windows Server 2019 will be researched. This upgrade will first be performed using the in-place migration method. Microsoft heavily focused on the improvement for this form of migration. This should make it more resilient and safer to use. Afterwards the process will be repeated using a system migration. After this the migration of a typical SAP environment, as described by Delaware, from Windows Server 2016 to Windows Server 2019 will be examined. To continue the different versions of the container images will be analysed. How these can lower virtual machine overhead, and improve virtualization efficiency will be reviewed. Finally, their will be a discussion about how the new features that come with Windows Server 2019 can be leveraged in the migrated infrastructure. But first the infrastructure that was used for this proof of concept will be discussed.
 
 \section{Technical specifications of the proof of concept setup}
 The proof of concept was made on a bare-metal server running Windows Server 2016. The proof of concept environment was than virtualized using Hyper-V. 
@@ -27,9 +20,9 @@ The proof of concept was made on a bare-metal server running Windows Server 2016
 	\item Administrative rights on the device
 \end{itemize}
 The proof of concept environment was based on the Modern Desktop Deployment and Management Lab Kit provided by Microsoft. \autocite{Gallagher2018}
-This to make replication of the proof of concept simple and efficient.
+This to make replication of the environment simple and efficient.
 \\
-The Modern Desktop Deployment and Management Lab Kit consists of the following components:
+The Modern Desktop Deployment and Management Lab Kit consists of the components in Table \ref{tab:MDDMLK2016}.
 \\
 
 \begin{table}[ht]
@@ -67,12 +60,11 @@ The Modern Desktop Deployment and Management Lab Kit consists of the following c
 	\caption[Lab Kit Components]{Modern Desktop Deployment and Management Lab Kit Components}
 	\scriptsize	
 	Adapted from \cite{MicrosoftCorporation2019}
-	%TODO Bronvermelding correct?
 	\label{tab:MDDMLK2016}
 \end{table}
 
 	
-Only HYD-CLIENT1 will be kept in the proof of concept. Connection to the other \acrshort{vm}s can be made using the following credentials:
+Only HYD-CLIENT1 will be kept in the environment. Connection to the other \acrshort{vm}s can be made using the credentials in Table \ref{tab:MDDMLKC2016}.
 \begin{table}[ht]
 	\centering
 	\begin{adjustbox}{width=1\textwidth}
@@ -86,17 +78,17 @@ Only HYD-CLIENT1 will be kept in the proof of concept. Connection to the other \
 	\caption[Lab Kit Credentials]{Modern Desktop Deployment and Management Lab Kit Credentials}
 	\scriptsize	
 	Adapted from \cite{MicrosoftCorporation2019}
-	%TODO Bronvermelding correct?
-	\label{tab:MDDMLK2016}
+	\label{tab:MDDMLKC2016}
 \end{table}
-
+\\
+Additionally Windows Admin Center will be installed on the gateway server HYD-GW1. 
 \section{Upgrading the \acrshort{os}}
 \subsection{In-place upgrade to Windows Server 2019}
 In this subsection an in-place upgrade will be performed on the \acrfull{dc} from Windows Server 2016 to Windows Server 2019. To continue the operation of the applications running on the \acrshort{dc} and the connections to the other servers in the domain will be verified. Possible problems and solutions will be discussed as they reveal themself.
 % Only upgrading DC and testing if it brakes something in the Lab Kit.
 % In-Place Upgrade does not work with evaluation
 \subsubsection{Prerequisites}
-Before starting the upgrade it is important to verify that the server is backed-up. Be sure to check when the last back-up was performed and if one has ever been succesfully restored. After this it is important to verify that all the third-party applications on the server are supported by the newest version of the \acrshort{os}. Finally, the forest and domain need to be prepared for the upgrade. The installation media provides tools for this. The following code completes this process. Be sure to verify the mounting point of the installation media, in this scenario it has been mounted to D:\textbackslash .
+Before starting the upgrade it is important to verify that the server is backed-up. Be sure to check when the last back-up was performed and if one has ever been succesfully restored. After this it is important to verify that all the third-party applications on the server are supported by the newest version of the \acrshort{os}. Finally, the forest and domain need to be prepared for the upgrade. The installation media provides tools for this. The following code completes this process, as is shown in Figure \ref{fig:inplace1}. Be sure to verify the mounting point of the installation media, in this scenario it has been mounted to D:\textbackslash .
 
 \begin{lstlisting}
 	:d
@@ -113,7 +105,7 @@ Before starting the upgrade it is important to verify that the server is backed-
 \end{figure}
 
 \subsubsection{In-place upgrade}
-After the previous step the setup from the installation is to be launched. From this point on the upgrade process has been visualised through the figures below. If there is no image present of the current screen it is expected to click next and continue the in-place upgrade. Be sure to not use the evaluation version of Windows Server 2019, since this does not support in-place upgrades.
+After the previous step the setup from the installation is to be launched. From this point on the upgrade process has been visualised in Figure \ref{fig:inplace}. If there is no figure present of the current screen it is expected to click next and continue the in-place upgrade. Be sure to not use the evaluation version of Windows Server 2019, since this does not support in-place upgrades.
 \begin{figure}[h]
 	\begin{subfigure}{0.5\textwidth}
 		\includegraphics[width=0.9\linewidth,height=4.3cm]{img/In-Place_WS_2.png}
