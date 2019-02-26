@@ -161,31 +161,57 @@ After the previous step the setup from the installation is to be launched. From 
 \subsubsection{Migration}
 \subsubsection{Verification}
 \subsection{Conclusion}
-% TODO https://raw.githubusercontent.com/coreyp-at-msft/ws-upgrade-center/dev/en-US/media/upgrade-paths-2-small.png
+% TODO Conlusion
+% https://raw.githubusercontent.com/coreyp-at-msft/ws-upgrade-center/dev/en-US/media/upgrade-paths-2-small.png
 % Explain how 2016 -> 2019 is easy but previous version can require consecutive migrations that each bring their own "bagage"
 \section{SAP migration}
 \subsection{Technical specifications of SAP environment}
 \subsection{Migration of SAP}
 \section{Windows, Windows Server Core and Nano Server}
-%TODO Previous version comparison to version 1809: Size and benchmark + Subsection titles revisions
-In this final section a comparison shall be made between the Windows Server, Windows Server Core and Windows Server Nano container images. At first the advantages of the usage of the new version of the images shall be discussed. This involves a comparison, between version 1709 and 1809, of the size of the base images and the performance when performing task XXXX. Afterwards the different purposes of the various images will be analysed. These images have been tested in a Docker environment as described in the following subsection.
+In this final section a comparison shall be made between the Windows Server, Windows Server Core and Windows Server Nano container images. At first the advantages of the new versions of the images will be discussed. This involves a comparison between Windows Server Version 1709 and Windows Server Version 1809. This will consist of comparing the size of the base images and their performance. Afterwards the purposes of the various versions will be analysed. These images have been tested in a Docker environment as described in the following subsection.
 
-\subsection{Technical specifications of Docker environment}
-%TODO: Installatiestappen Azure VM in Appendix
-%TODO: Technische Specificaties Standard DS1 v2 (1 vcpus, 3.5 GB memory)
-% Windows Server 2019
-%docker image pull mcr.microsoft.com/windows:1809
-%docker image pull mcr.microsoft.com/windows/servercore:1809
-%docker image pull mcr.microsoft.com/windows/nanoserver:1809  
-% Windows Server 2016 SAC 1709
-%docker image pull mcr.microsoft.com/windows DOES NOT EXIST 
-%docker image pull mcr.microsoft.com/windows/servercore:1709 
-%docker image pull mcr.microsoft.com/windows/nanoserver:1709   
-% Windows Server 2016 1609
-%docker pull microsoft/windowsservercore
-%TODO docker pull microsoft/nanoserver
-%TODO docker pull microsoft/server
-%TODO Grote vergelijken met docker images --> CSV --> RStudio
+\subsection{Technical specifications of the container environment}
+The proof of concept environment for the Windows Server base container images was built using the Microsoft Azure platform. It used the Standard DS1 v2 (1 vcpus, 3.5 GB memory) Azure \acrshort{vm}, running the Windows Server 2019 Datacenter Server Core and Containers image.
+The following packages will be installed inside the \acrshort{vm}:
+\begin{itemize}
+	\item Docker
+	\item .NET Core SDK
+	\item NuGet Package Manager
+	\item Visual Studio Build Tools  
+\end{itemize}
+The procedure to generate container environment is described in Appendix \ref{Containers_Azure}.
 
 \subsection{The advantages of version 1809}
+With the arrival of version 1809, the \acrfull{sac} equivalent of Windows Server 2019, their have been improvements to the base images. First of all, the overall size of the base images has been significantly reduced. This can be seen in Figure \ref{fig:container_size}. The only exception is the size of the Nano Server, which has grown.
+%TODO Why has Nano Server enlarged?
+The size of the different base images has been obtained by downloading and expanding them as described below. This was done through Windows Powershell from inside the \acrshort{vm} that was created on the Azure platform. 
+
+\begin{verbatim}
+	docker image pull mcr.microsoft.com/windows:1809
+	docker image pull mcr.microsoft.com/windows/servercore:1809
+	docker image pull mcr.microsoft.com/windows/nanoserver:1809  
+	docker image pull mcr.microsoft.com/windows/servercore:1709 
+	docker image pull mcr.microsoft.com/windows/nanoserver:1709   
+	docker images | Out-File .container_images.csv
+	Import-Csv -Path .container_images.csv
+\end{verbatim}
+
+\begin{figure}[h]
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=0.9\linewidth]{img/Container_size.png}
+	\centering
+	\caption{Comparison of the Windows base container image size}
+	\label{fig:container_size}
+\end{figure}
+
+%TODO BenchmarkDotNet Statistics
+%docker build -t dotnetbenchmark
+%docker run --rm dotnetbenchmark
+
+In this paragraph the performance of the images shall be tested. This will be done using \href{https://benchmarkdotnet.org/}{"BenchmarkDotNet"}, a .NET library made for benchmarking. \autocite{Akinshin2019}
+ 
+%TODO Conclusion
+
+As should be clear by now, with the arrival of version 1809 a new base image has been added to the line-up. When looking at the result of the benchmarks, it is clear that version 1809 has the upper hand. It also shows that \textbf{Windows/ServerCore/ServerNano (Choose one)} performed best in the benchmark. This however does not mean that it is the best choice. The use cases of the three available base images will be discussed in the following subsection.
+
 \subsection{Usage of Windows, Windows Server Core and Windows Server Nano}

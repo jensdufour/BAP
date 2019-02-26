@@ -1,0 +1,8 @@
+REPOSITORY TAG "IMAGE ID" CREATED SIZE
+mcr.microsoft.com/windows/servercore 1809 640a8acbeb6f "13 days ago" 4.28GB 
+mcr.microsoft.com/windows/nanoserver 1809 d65434b3ecb4 "13 days ago" 347MB 
+mcr.microsoft.com/windows/servercore 1709 31c1714d6201 "13 days ago" 6.47GB 
+mcr.microsoft.com/windows/nanoserver 1709 ded917ca368c "13 days ago" 339MB 
+microsoft/windowsservercore latest ea9f7aa13d03 "6 weeks ago" 11GB 
+mcr.microsoft.com/windows 1809 05d3297bfa19 "3 months ago" 9.9GB 
+microsoft/nanoserver latest 4c872414bf9d "4 months ago" 1.17GB 
