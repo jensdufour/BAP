@@ -88,11 +88,11 @@ In this subsection an in-place migration will be performed on the \acrfull{dc} f
 \subsubsection{Prerequisites}
 Before starting the migration, it is important to verify that the server is backed-up. Be sure to check when the last back-up was performed and if one has ever been successfully restored. After this it is important to verify that all the third-party applications on the server are supported by the newest version of the \acrshort{os}. Finally, the forest and domain need to be prepared for the migration. The installation media provides tools for this. The following code completes this process, as is shown in Figure \ref{fig:inplace1}. Be sure to verify the mounting point of the installation media, in this scenario it has been mounted to D:\textbackslash .
 
-\begin{lstlisting}
-	:d
-	cd support\adprep
-	adprep /forestprep
-	adprep /domainprep
+\begin{lstlisting}[breaklines]
+:d
+cd support\adprep
+adprep /forestprep
+adprep /domainprep
 \end{lstlisting}
 \begin{figure}[h]
 	\includegraphics[height=8cm]{img/In-Place_WS_1.png}
@@ -175,9 +175,9 @@ The proof of concept environment for the Windows Server base container images wa
 The following packages will be installed inside the \acrshort{vm}:
 \begin{itemize}
 	\item Docker
-	\item .NET Core SDK
-	\item NuGet Package Manager
-	\item Visual Studio Build Tools  
+	\item Hyper-V
+	\item Chocolatey
+	\item Git
 \end{itemize}
 The procedure to generate container environment is described in Appendix \ref{Containers_Azure}.
 
@@ -186,15 +186,15 @@ With the arrival of version 1809, the \acrfull{sac} equivalent of Windows Server
 %TODO Why has Nano Server enlarged?
 The size of the different base images has been obtained by downloading and expanding them as described below. This was done through Windows Powershell from inside the \acrshort{vm} that was created on the Azure platform. 
 
-\begin{verbatim}
-	docker image pull mcr.microsoft.com/windows:1809
-	docker image pull mcr.microsoft.com/windows/servercore:1809
-	docker image pull mcr.microsoft.com/windows/nanoserver:1809  
-	docker image pull mcr.microsoft.com/windows/servercore:1709 
-	docker image pull mcr.microsoft.com/windows/nanoserver:1709   
-	docker images | Out-File .container_images.csv
-	Import-Csv -Path .container_images.csv
-\end{verbatim}
+\begin{lstlisting}[breaklines]
+docker image pull mcr.microsoft.com/windows:1809
+docker image pull mcr.microsoft.com/windows/servercore:1809
+docker image pull mcr.microsoft.com/windows/nanoserver:1809  
+docker image pull mcr.microsoft.com/windows/servercore:1709 
+docker image pull mcr.microsoft.com/windows/nanoserver:1709   
+docker images | Out-File .container_images.csv
+Import-Csv -Path .container_images.csv
+\end{lstlisting}
 
 \begin{figure}[h]
 	\captionsetup{width=0.8\linewidth}
@@ -204,12 +204,23 @@ The size of the different base images has been obtained by downloading and expan
 	\label{fig:container_size}
 \end{figure}
 
-%TODO BenchmarkDotNet Statistics
-%docker build -t dotnetbenchmark
-%docker run --rm dotnetbenchmark
+In this paragraph the performance of the images shall be tested. This will be done using \href{https://benchmarkdotnet.org/}{"BenchmarkDotNet"}, a .NET library made for benchmarking. 
+%TODO Beschrijven gebruik van MD5 en SHA voor Benchmarking
+\autocite{Akinshin2019} 
+\\
+The container will be automatically built using a Dockerfile, each Dockerfile has its own corresponding base container image. This is needed to add the required packages inside the container to successfully run the benchmark. For the Windows and Server Core image these get added manually, for the Nano Server the images provided by Microsoft is used. Following commands need to be executed on the \acrshort{vm} that was created on the Azure Platform to benchmark every container.
+%TODO Hyper-V Isolation is not working --> Rebuild VM and test
+\begin{lstlisting}[breaklines]
+git clone https://github.com/jensdufour/Benchmark.git
+cd Benchmark	
+docker build -t windows1809 --isolation=hyperv -f .\Windows1809.dockerfile .
+docker build -t windowsservercore1809 --isolation=hyperv -f .\WindowsServercore1809.dockerfile .
+docker build -t windowsnanoserver1809 --isolation=hyperv -f .\WindowsNanoserver1809.dockerfile .
+docker build -t windowsservercore1709 --isolation=hyperv -f .\WindowsServercore1709.dockerfile .
+docker build -t windowsnanoserver1709 --isolation=hyperv -f .\WindowsNanoserver1709.dockerfile .
+\end{lstlisting}
+%TODO Graphs to benchmarks
 
-In this paragraph the performance of the images shall be tested. This will be done using \href{https://benchmarkdotnet.org/}{"BenchmarkDotNet"}, a .NET library made for benchmarking. \autocite{Akinshin2019}
- 
 %TODO Conclusion
 
 As should be clear by now, with the arrival of version 1809 a new base image has been added to the line-up. When looking at the result of the benchmarks, it is clear that version 1809 has the upper hand. It also shows that \textbf{Windows/ServerCore/ServerNano (Choose one)} performed best in the benchmark. This however does not mean that it is the best choice. The use cases of the three available base images will be discussed in the following subsection.

@@ -30,17 +30,23 @@
 	\label{fig:Container_VM}
 \end{figure}
 \clearpage
+\section{Installation of Hyper-V and Containers}
+The following commands have to be run through Powershell on the created \acrshort{vm} to install Hyper-V and Windows Containers. These are necessary to run the containers isolated.
+\begin{lstlisting}[breaklines]
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+Enable-WindowsOptionalFeature -Online -FeatureName containers -All
+\end{lstlisting}
+\section{Installation of Git}
+The following commands have to be run through Powershell on the created \acrshort{vm} to install Git. Git is necessary to clone the files needed to run the benchmarks.
+\begin{lstlisting}[breaklines]
+Set-ExecutionPolicy Bypass -Scope Process -Force;iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+choco install git -params '"/GitAndUnixToolsOnPath"'
+refreshenv
+\end{lstlisting}
 \section{Installation of Docker EE}
 The following commands have to be run through Powershell on the created \acrshort{vm} to install Docker EE.
-\begin{verbatim}
-\begin{verbatim}
+\begin{lstlisting}[breaklines]
 Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
 Install-Package -Name docker -ProviderName DockerMsftProvider
 Restart-Computer -Force
-\end{verbatim}
-\section{Installation of Git}
-The following commands have to be run through Powershell on the created \acrshort{vm} to install Git. Git is necessary to clone the files needed to run the benchmarks.
-\begin{verbatim}
-	Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-	choco install git -params '"/GitAndUnixToolsOnPath"'
-\end{verbatim}
+\end{lstlisting}
