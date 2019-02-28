@@ -30,9 +30,11 @@
 	\label{fig:Container_VM}
 \end{figure}
 \clearpage
-\section{Installation of Hyper-V and Containers}
-The following commands have to be run through Powershell on the created \acrshort{vm} to install Hyper-V and Windows Containers. These are necessary to run the containers isolated.
+\section{Installation of nested \acrshort{vm}}
+The following commands have to be run through Powershell on the created \acrshort{vm} to install the requirements needed to run a nested \acrshort{vm}. This is necessary to run the containers isolated.
 \begin{lstlisting}[breaklines]
+Install-WindowsFeature -Name Hyper-V
+Install-WindowsFeature -Name Containers
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 Enable-WindowsOptionalFeature -Online -FeatureName containers -All
 \end{lstlisting}
@@ -40,7 +42,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName containers -All
 The following commands have to be run through Powershell on the created \acrshort{vm} to install Git. Git is necessary to clone the files needed to run the benchmarks.
 \begin{lstlisting}[breaklines]
 Set-ExecutionPolicy Bypass -Scope Process -Force;iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-choco install git -params '"/GitAndUnixToolsOnPath"'
+choco install git -params '"/GitAndUnixToolsOnPath"' -y
 refreshenv
 \end{lstlisting}
 \section{Installation of Docker EE}

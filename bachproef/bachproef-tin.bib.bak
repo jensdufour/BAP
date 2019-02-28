@@ -258,4 +258,22 @@
   url    = {https://github.com/MicrosoftDocs/windowsserverdocs/raw/master/WindowsServerDocs/manage/windows-admin-center/media/WindowsAdminCenter1809Poster.pdf},
 }
 
+@Online{Akinshin2019,
+  author = {Andrey Akinshin and Maksim Yakimets},
+  title  = {{BenchmarkDotNet}},
+  month  = jan,
+  year   = {2019},
+  note   = {[Online; accessed February 26, 2019]},
+  url    = {https://benchmarkdotnet.org/articles/overview.html},
+}
+
+@InProceedings{Enkov2017,
+  author  = {Enkov, Svetoslav and Karavasilev, Tony},
+  title   = {{Benchmarking Hash Functions}},
+  year    = {2017},
+  month   = may,
+  journal = {TechSys 2017},
+  url     = {https://www.researchgate.net/profile/Tony_Karavasilev/publication/315359560_Benchmarking_Hash_Functions/links/59370ed90f7e9b374c1df6f1/Benchmarking-Hash-Functions.pdf?origin=publication_detail},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

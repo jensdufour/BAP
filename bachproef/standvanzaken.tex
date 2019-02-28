@@ -68,6 +68,7 @@ In a research study done by \textcite{Musto2017} \acrshort{wdatp} was scrutinize
 \end{figure}
 
 \subsection{Security with \acrshort{sdn}}
+\label{encrypted-networks}
 \label{sdn}
 As described by \textcite{Shin2016}, \acrshort{sdn} is a state-of-the-art technology that enables developers to design advanced networks effortlessly. In Windows Server 2019 there have been new developments in this field. These can be boiled down to four features: 
 \begin{itemize}
@@ -78,7 +79,6 @@ As described by \textcite{Shin2016}, \acrshort{sdn} is a state-of-the-art techno
 \end{itemize} 
 The discussion of these will be kept constrained.
 \subsubsection{Encrypted networks}
-\label{encrypted-networks}
 Encrypted networks, or more specifically virtual encrypted networks, enable the encryption of network traffic between different \acrshort{vm}s. It does this through the usage of \acrfull{dtls}. \acrshort{dtls} was built as close to \acrfull{tls} as possible, which makes it ideal at securing connections. However, for the connection between \acrshort{vm}s \acrshort{dtls} is preferred, since these connections are delay sensitive.\autocite{Modadugu2004}
 
 \subsubsection{Firewall auditing}
@@ -123,7 +123,7 @@ Kubernetes is a software solution designed to oversee containers. It is a manage
 \subsection*{Container improvements}
 Containers as a whole have also been improved. There is better support for Windows Authentication inside containers as well as improved application compatibility for the existing Windows Server Core image. Other base images have also been reduced in size and overall performance has been improved.
 \subsection*{Encrypted Networks}
-This has been discussed in Security with \acrshort{sdn} (\ref{encrypted-networks}).
+This has been discussed in Subsection \ref{encrypted-networks}.
 \subsection*{Network performance improvements for virtual workloads}
 To increase throughput in virtual machines two new features have been introduced:
 \begin{itemize}
@@ -138,7 +138,7 @@ The throughput of existing \acrshort{sdn} gateways has been improved. This by im
 \subsection*{Persistent Memory support for Hyper-V VMs}
 Storage-class memory, or also known as persistent memory, improves latency and delivers a high throughput. To leverage this in \acrshort{vm}s, the two can now be directly connected.
 \subsection*{New Deployment UI and Windows Admin Center extension for \acrshort{sdn}}
-As already mentioned before (\ref{hybrid-cloud-windows-server-2019}), Windows Admin Center also implements certain features to make managing \acrshort{sdn} easier. The extension that provides this is only available in an \acrshort{hci}.
+As already mentioned before , in Subsection \ref{hybrid-cloud-windows-server-2019}, Windows Admin Center also implements certain features to make managing \acrshort{sdn} easier. The extension that provides this is only available in an \acrshort{hci}.
 
 \clearpage
 
@@ -160,7 +160,7 @@ As mentioned in the introduction, an \acrshort{hci} requires a Hypervisor. In Wi
 \subsection{\acrfull{s2d}}
 Another vital component of \acrshort{hci} is \acrfull{sds}. In Windows Server, this is done through \acrshort{s2d}. This technology developed to provide flexible and agile \acrshort{sds}. Some key benefits offered are simplicity, performant storage, fault tolerant and scalability. With Windows Server 2019 comes the largest update for \acrshort{s2d} since its introduction with Windows Server 2016. The licensing for this feature is also included in Windows Server 2019 Datacenter Edition, which means that for most clients, it will not involve an additional cost. \autocite{Gerend2018a}
 \subsection{\acrshort{sdn}}
-As previously mentioned in Security with \acrshort{sdn} (\ref{encrypted-networks}) , \acrshort{sdn} gives form to the networking component of \acrshort{hci}. It provides \acrshort{it} administrators with the ability to design advanced networks effortlessly.
+As previously mentioned in Subsection \ref{encrypted-networks}, \acrshort{sdn} gives form to the networking component of \acrshort{hci}. It provides \acrshort{it} administrators with the ability to design advanced networks effortlessly.
 \subsection{Windows Admin Center}
 Windows Admin Center is an all-in-one platform for local and remote server management. The key components it consists of, which are listed below, make it no surprise that it has been mentioned before. 
 \begin{itemize}
