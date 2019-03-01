@@ -168,7 +168,7 @@ After the previous step the setup from the installation is to be launched. From 
 \subsection{Technical specifications of SAP environment}
 \subsection{Migration of SAP}
 \section{Windows, Windows Server Core and Nano Server}
-In this final section a comparison shall be made between the Windows, Windows Server Core and Windows Server Nano container images. At first the advantages of the new versions of the images will be discussed. This involves a comparison between version 1709 of the and version 1809 of the base container images. This will consist of comparing the size of the base images and their performance. Afterwards the different use cases of the various versions will be discussed. These images have been tested in an environment as described in the following subsection.
+In this final section a comparison shall be made between the Windows, Windows Server Core and Windows Nano Server container images. At first the advantages of the new versions of the images will be discussed. This involves a comparison between version 1709 of the and version 1809 of the base container images. This will consist of comparing the size of the base images and their performance. Afterwards the different use cases of the various versions will be discussed. These images have been tested in an environment as described in the following subsection.
 
 \subsection{Technical specifications of the container environment}
 The proof of concept environment for the Windows Server base container images was built using the Microsoft Azure platform. It uses the Standard D2s v3 (2 vcpus, 8 GB memory) Azure \acrshort{vm}, running the Windows Server 2019 Datacenter Server Core and Containers image.
@@ -202,7 +202,7 @@ Import-Csv -Path .container_images.csv
 	\includegraphics[width=0.9\linewidth]{img/Container_size.png}
 	\centering
 	\caption{Comparison of the Windows base container image size}
-	\label{fig:container_size}
+	\label{fig:container_size}	
 \end{figure}
 
 In this paragraph the performance of the images shall be tested. This will be done using \href{https://benchmarkdotnet.org/}{"BenchmarkDotNet"}, a .NET library made for benchmarking. \autocite{Akinshin2019} Benchmarking using this library is done by calculating \acrfull{md5} and \acrfull{sha} hash functions. The former is mostly used in the genereation of identifiers, as it is not deemed secure enough for data security. The latter is better suited for this, but has since been improved by \acrfull{sha3}. \autocite{Enkov2017}
@@ -211,15 +211,23 @@ The container will be automatically built using a Dockerfile, each Dockerfile ha
 \begin{lstlisting}[breaklines]
 git clone https://github.com/jensdufour/Benchmark.git
 cd Benchmark	
-docker build -t windowsnanoserver1709 --isolation=hyperv -f .\WindowsNanoserver1709.dockerfile .
-docker build -t windowsservercore1709 --isolation=hyperv -f .\WindowsServercore1709.dockerfile .
-docker build -t windowsnanoserver1809 --isolation=hyperv -f .\WindowsNanoserver1809.dockerfile .
-docker build -t windowsservercore1809 --isolation=hyperv -f .\WindowsServercore1809.dockerfile .
-docker build -t windows1809 --isolation=hyperv -f .\Windows1809.dockerfile .
+docker build -t benchmark1 --isolation=hyperv -f .\WindowsNanoserver1709.dockerfile .
+docker build -t benchmark2 --isolation=hyperv -f .\WindowsServercore1709.dockerfile .
+docker build -t benchmark3 --isolation=hyperv -f .\WindowsNanoserver1809.dockerfile .
+docker build -t benchmark4 --isolation=hyperv -f .\WindowsServercore1809.dockerfile .
+docker build -t benchmark5 --isolation=hyperv -f .\Windows1809.dockerfile .
 \end{lstlisting}
 %TODO Graphs to benchmarks
 
- When looking at the result of the benchmarks of Server Core and Nano Server, it is clear that the performance of both versions is along the same lines. However, the overall reduction in size and the additional functions that have been added, as discussed in Chapter \ref{ch:stand-van-zaken}, make a strong case for the deployment of the latter version. Also, the arrival of the Windows base container image opens a whole array of new possibilities. The use case for each of those images will be discussed in the following subsection.
+ When looking at the result of the benchmarks of Server Core and Nano Server, it is clear that the performance of both versions is along the same lines. However, the overall reduction in size and the additional functions that have been added, as discussed in Chapter \ref{ch:stand-van-zaken}, make a strong case for the deployment of the latter. It is important to note that the kernel version of the \acrshort{os} must match the Windows image. While using Hyper-V isolation can circumvent this, it is not recommended since the additional virtualization of the kernel will lower the performance of the container. The latest of images also includes the Windows base container. This opens a whole array of new possibilities. The use case of this one, and the others, will be discussed in the following subsection.
 
-\subsection{Usage of Windows, Windows Server Core and Windows Server Nano}
-%https://stefanscherer.github.io/docker-on-windows-server-2019/
+\subsection{Usage of Windows, Windows Server Core and Windows Nano Server}
+The smallest one that is offered is the Nano Server. This image is aimed at rapid and lightweight deployment using containers. It has been specifically designed for "born in the cloud" applications. This is a term that has multiple usages, it refers to applications that are not legacy products. Applications that provide an agile deployment and offer on-demand availability. It is in no way meant to run typical Windows services. The bigger brother of Nano Server, Server Core, is more suited for this. 
+This image offers application compatibility and has a wide array of built-in Windows roles and features. On top of this it has full .NET Framework support instead of the basic .NET Core that is offered by the Nano Server. 
+The final image that is offered is the new kid on the block. The Windows image offers almost all the Windows components in a lightweight package. This makes it exceptionally useful for the automation of workloads. 
+\\
+Thanks to the further development to these images their footprint has been reduced significantly. Although, older containers from Windows Server 2016 can still be run through Hyper-V isolation, it is recommended to rebuild them with the latest available images.
+
+
+
+
