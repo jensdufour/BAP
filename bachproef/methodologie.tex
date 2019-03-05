@@ -155,18 +155,77 @@ After the previous step the setup from the installation is to be launched. From 
 	\label{fig:inplace}
 \end{figure}
 \subsubsection{Verification}
-% nltest /sc_query:corp.contoso.com
+In this paragraph the connection between the client and the \acrshort{dc}. First the \acrfull{rdp} file will be downloaded through Windows Admin Center. Using this file a connection to a Hyper-V \acrshort{vm} can be made easily. After the connection has been made, the ability to login as a domain user is a first indication of a succesfull migration. After this, the domain will be checked through the Control Panel and finally, through Powershell. In this final verification the logon server will be checked as well as how the client is connected to the domain. It is expected that the client is connected through the recently migrated \acrshort{dc}.
+The commands, that have been used to verify this, and their expected output can be found below.
+\begin{lstlisting}[breaklines]
+PS C:\Windows\system32> $env:LOGONSERVER
+\\DC1
+PS C:\Windows\system32> nltest /sc_query:corp.contoso.com
+Flags: 30 HAS_IP HAS_TIMESERV
+Trusted DC Name \DC1.corp.contoso.com
+Trusted DC Connection Status Status = 0 0x0 NERR_Success
+The command completed successfully
+\end{lstlisting}
+
+\begin{figure}[h]
+	\begin{subfigure}{0.5\textwidth}
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=0.9\linewidth]{img/Verification_WS_0.png}
+	\centering
+	\caption{Download and open the \acrshort{rdp} file}
+	\label{fig:verification0}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=0.9\linewidth]{img/Verification_WS_1.png} 
+	\centering
+	\caption{Logon as a domain user}
+	\label{fig:verification1}
+\end{subfigure}
+\end{figure}
+\begin{figure}[h]\ContinuedFloat
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Verification_WS_2.png}
+		\centering
+		\caption{Verify the DC through the GUI}
+		\label{fig:verification2}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Verification_WS_3.png} 
+		\centering
+		\caption{Verify the DC through PowerShell}
+		\label{fig:verification3}
+	\end{subfigure}
+	\caption{Verifying the connection to the migrated DC}
+	\label{fig:verification}
+\end{figure}
+\clearpage
+
 \subsection{Migration to Windows Server 2019}
 \subsubsection{Prerequisites}
 \subsubsection{Migration}
+% Make VM for 2019
+% Install ADDC on VM
+% Promote to DC 2019
+% Verify connection
+% Remove DC 2016 from environment
+% Verify DC 2019
 \subsubsection{Verification}
 \subsection{Conclusion}
 % TODO Conlusion
 % https://raw.githubusercontent.com/coreyp-at-msft/ws-upgrade-center/dev/en-US/media/upgrade-paths-2-small.png
 % Explain how 2016 -> 2019 is easy but previous version can require consecutive migrations that each bring their own "bagage"
+
+\clearpage
+
 \section{SAP migration}
 \subsection{Technical specifications of SAP environment}
 \subsection{Migration of SAP}
+
+\clearpage
+
 \section{Windows, Windows Server Core and Nano Server}
 In this final section a comparison shall be made between the Windows, Windows Server Core and Windows Nano Server container images. At first the advantages of the new versions of the images will be discussed. This involves a comparison between version 1709 of the and version 1809 of the base container images. This will consist of comparing the size of the base images and their performance. Afterwards the different use cases of the various versions will be discussed. These images have been tested in an environment as described in the following subsection.
 
@@ -205,9 +264,10 @@ Import-Csv -Path .container_images.csv
 	\label{fig:container_size}	
 \end{figure}
 
-In this paragraph the performance of the images shall be tested. This will be done using \href{https://benchmarkdotnet.org/}{"BenchmarkDotNet"}, a .NET library made for benchmarking. \autocite{Akinshin2019} Benchmarking using this library is done by calculating \acrfull{md5} and \acrfull{sha} hash functions. The former is mostly used in the genereation of identifiers, as it is not deemed secure enough for data security. The latter is better suited for this, but has since been improved by \acrfull{sha3}. \autocite{Enkov2017}
+In this paragraph the performance of the images shall be tested. This will be done using \href{https://benchmarkdotnet.org/}{"BenchmarkDotNet"}, a .NET library made for benchmarking. \autocite{Akinshin2019} Benchmarking using this library is done by calculating \acrfull{md5} and \acrfull{sha} hash functions. The former is mostly used in the generation of identifiers, as it is not deemed secure enough for data security. The latter is better suited for this, but has since been improved by \acrfull{sha3}. \autocite{Enkov2017}
 \\
-The container will be automatically built using a Dockerfile, each Dockerfile has its own corresponding base container image. This is needed to add the required packages inside the container to successfully perform the benchmark. For the Windows and Server Core image these get added manually, the Nano Server images were provided by Microsoft. Following commands need to be executed on the \acrshort{vm} that was created on the Azure platform to benchmark every container individually.
+The container will be automatically built using a Dockerfile, each of these corresponds with a base container image. This is needed to add the required packages inside the container to successfully perform the benchmark. For the Windows and Server Core image these get added manually, the Nano Server images were provided by Microsoft. Following commands need to be executed on the \acrshort{vm} that was created on the Azure platform to benchmark every container individually. It is important to note that the kernel version of the \acrshort{os} must match the Windows image. While using Hyper-V isolation can circumvent this, it is not recommended since the additional virtualization of the kernel will lower the performance of the container. For the unambiguity of the benchmarks this has been done in these below.
+
 \begin{lstlisting}[breaklines]
 git clone https://github.com/jensdufour/Benchmark.git
 cd Benchmark	
@@ -218,8 +278,8 @@ docker build -t benchmark4 --isolation=hyperv -f .\WindowsServercore1809.dockerf
 docker build -t benchmark5 --isolation=hyperv -f .\Windows1809.dockerfile .
 \end{lstlisting}
 
-%TODO Inleiding eerste grafiek
 The results of running the individual benchmarks have been visualized in Figure \ref{fig:MD5} for MD5 and in Figure \ref{fig:SHA} for SHA-256. The figures show the average results after running the benchmarks twenty times. In Appendix \ref{benchmarkdata}, all the data can be found, as well as the initial results after running the benchmarks ten times. Eventual outliers have been removed. 
+As can be seen in Figure \ref{fig:MD5} their is no significant difference in performance between the two versions of Nano Server and Server Core. It is although important to note that version 1709 was more efficient, as these results are the lower the better. This does not, however, offer any resistance to the considerable reduction in the size of the base container images. 
 
 \begin{figure}[h]
 	\captionsetup{width=0.8\linewidth}
@@ -229,9 +289,7 @@ The results of running the individual benchmarks have been visualized in Figure 
 	\label{fig:MD5}
 \end{figure}
 
-%TODO Inleiding tweede grafiek
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porta, turpis at gravida ultrices, dolor lacus ornare ipsum, quis consectetur risus nunc ac lorem. Mauris fermentum elit non dictum feugiat. Nullam at metus ultricies, ultrices metus sit amet, hendrerit tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vehicula cursus nunc nec vestibulum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In ac faucibus purus, sed viverra turpis. Donec dolor massa, molestie ut eleifend id, porta quis nisl. Vivamus suscipit eu odio gravida euismod. Fusce nec lectus finibus, elementum nulla quis, ultricies magna.
-Donec dolor massa, molestie ut eleifend id, porta quis nisl. Vivamus suscipit eu odio gravida euismod. Fusce nec lectus finibus, elementum nulla quis, ultricies magna.
+In Figure \ref{fig:SHA} similar results can be found. 
 
 \begin{figure}[h]
 	\captionsetup{width=0.8\linewidth}
@@ -241,8 +299,7 @@ Donec dolor massa, molestie ut eleifend id, porta quis nisl. Vivamus suscipit eu
 	\label{fig:SHA}
 \end{figure}
 
-%TODO Conclusie herschrijven aan de hand van bovenstaande grafieken
- When looking at the result of the benchmarks of Server Core and Nano Server, it is clear that the performance of both versions is along the same lines. However, the overall reduction in size and the additional functions that have been added, as discussed in Chapter \ref{ch:stand-van-zaken}, make a strong case for the deployment of the latter. It is important to note that the kernel version of the \acrshort{os} must match the Windows image. While using Hyper-V isolation can circumvent this, it is not recommended since the additional virtualization of the kernel will lower the performance of the container. The latest of images also includes the Windows base container. This opens a whole array of new possibilities. The use case of this one, and the others, will be discussed in the following subsection.
+ When looking at the result of the benchmarks of Server Core and Nano Server, it is clear that the performance of both versions is along the same lines. However, the overall reduction in size and the additional functions that have been added, as discussed in Chapter \ref{ch:stand-van-zaken}, make a strong case for the deployment of the latest one, version 1809. The latest of images also includes the Windows base container. This opens a whole array of new possibilities. The use case of this one, and the others, will be discussed in the following subsection.
 
 \subsection{Usage of Windows, Windows Server Core and Windows Nano Server}
 The smallest one that is offered is the Nano Server. This image is aimed at rapid and lightweight deployment using containers. It has been specifically designed for "born in the cloud" applications. This is a term that has multiple usages, it refers to applications that are not legacy products. Applications that provide an agile deployment and offer on-demand availability. It is in no way meant to run typical Windows services. The bigger brother of Nano Server, Server Core, is more suited for this. 
