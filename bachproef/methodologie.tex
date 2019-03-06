@@ -84,7 +84,8 @@ Only HYD-CLIENT1 will be kept in the environment. Connection to the other \acrsh
 Additionally Windows Admin Center will be installed on the gateway server HYD-GW1. 
 \section{Upgrading the \acrshort{os}}
 \subsection{In-place migration to Windows Server 2019}
-In this subsection an in-place migration will be performed on the \acrfull{dc} from Windows Server 2016 to Windows Server 2019. To continue the operation of the applications running on the \acrshort{dc} and the connections to the other servers in the domain will be verified. Possible problems and solutions will be discussed as they reveal themself.
+\label{subsection:inplace}
+In this subsection an in-place migration will be performed on the \acrfull{dc} from Windows Server 2016 to Windows Server 2019. To continue the operation of the services running on the \acrshort{dc} and the connections to the other servers in the domain will be verified. Possible problems and solutions will be discussed as they reveal themself.
 \subsubsection{Prerequisites}
 Before starting the migration, it is important to verify that the server is backed-up. Be sure to check when the last back-up was performed and if one has ever been successfully restored. After this it is important to verify that all the third-party applications on the server are supported by the newest version of the \acrshort{os}. Finally, the forest and domain need to be prepared for the migration. The installation media provides tools for this. The following code completes this process, as is shown in Figure \ref{fig:inplace1}. Be sure to verify the mounting point of the installation media, in this scenario it has been mounted to D:\textbackslash .
 
@@ -95,18 +96,18 @@ adprep /forestprep
 adprep /domainprep
 \end{lstlisting}
 \begin{figure}[h]
-	\includegraphics[height=8cm]{img/In-Place_WS_1.png}
+	\includegraphics[height=8cm]{img/Methodologie/Prerequisites0.png}
 	\captionsetup{width=0.8\linewidth}
 	\centering		
 	\caption{Preparing the forest and domain}
 	\label{fig:inplace1}
 \end{figure}
 
-\subsubsection{In-place migration}
+\subsubsection{In-place migration to Windows Server 2019}
 After the previous step the setup from the installation is to be launched. From this point on the migration process has been visualized in Figure \ref{fig:inplace}. If there is no figure present of the current screen it is expected to click next and continue the in-place migration. Be sure to not use the evaluation version of Windows Server 2019, since this does not support in-place migrations.
 \begin{figure}[h]
 	\begin{subfigure}{0.5\textwidth}
-		\includegraphics[width=0.9\linewidth,height=4.3cm]{img/In-Place_WS_2.png}
+		\includegraphics[width=0.9\linewidth,height=4.3cm]{img/Methodologie/InPlace0.png}
 		\captionsetup{width=0.8\linewidth}
 		\centering		
 		\caption{Click next to migrate}
@@ -114,7 +115,7 @@ After the previous step the setup from the installation is to be launched. From 
 	\end{subfigure}
 	\begin{subfigure}{0.5\textwidth}
 		\captionsetup{width=0.8\linewidth}
-		\includegraphics[width=0.9\linewidth,height=4.3cm]{img/In-Place_WS_3.png}
+		\includegraphics[width=0.9\linewidth,height=4.3cm]{img/Methodologie/InPlace1.png}
 		\centering
 		\caption{Enter the product key}
 		\label{fig:inplace3}
@@ -123,14 +124,14 @@ After the previous step the setup from the installation is to be launched. From 
 \begin{figure}[h]\ContinuedFloat
 	\begin{subfigure}{0.5\textwidth}
 		\captionsetup{width=0.8\linewidth}
-		\includegraphics[width=0.9\linewidth,height=4.3cm]{img/In-Place_WS_4.png} 
+		\includegraphics[width=0.9\linewidth,height=4.3cm]{img/Methodologie/InPlace2.png} 
 		\centering
 		\caption{Select a version of choice}
 		\label{fig:inplace4}
 	\end{subfigure}
 	\begin{subfigure}{0.5\textwidth}
 		\captionsetup{width=0.8\linewidth}
-		\includegraphics[width=0.9\linewidth,height=4.3cm]{img/In-Place_WS_5.png}
+		\includegraphics[width=0.9\linewidth,height=4.3cm]{img/Methodologie/InPlace3.png}
 		\centering
 		\caption{Accept the licence terms}
 		\label{fig:inplace5}
@@ -139,14 +140,14 @@ After the previous step the setup from the installation is to be launched. From 
 \begin{figure}[h]\ContinuedFloat
 	\begin{subfigure}{0.5\textwidth}
 		\captionsetup{width=0.8\linewidth}
-		\includegraphics[width=0.9\linewidth,height=4.3cm]{img/In-Place_WS_6.png} 
+		\includegraphics[width=0.9\linewidth,height=4.3cm]{img/Methodologie/InPlace4.png} 
 		\centering
 		\caption{Select "Keep personal files and apps" to perform an in-place migration}
 		\label{fig:inplace6}
 	\end{subfigure}
 	\begin{subfigure}{0.5\textwidth}
 		\captionsetup{width=0.8\linewidth}
-		\includegraphics[width=0.9\linewidth,height=4.3cm]{img/In-Place_WS_7.png}
+		\includegraphics[width=0.9\linewidth,height=4.3cm]{img/Methodologie/InPlace5.png}
 		\centering
 		\caption{Review the settings and start the installation}
 		\label{fig:inplace7}
@@ -155,7 +156,7 @@ After the previous step the setup from the installation is to be launched. From 
 	\label{fig:inplace}
 \end{figure}
 \subsubsection{Verification}
-In this paragraph the connection between the client and the \acrshort{dc}. First the \acrfull{rdp} file will be downloaded through Windows Admin Center. Using this file a connection to a Hyper-V \acrshort{vm} can be made easily. After the connection has been made, the ability to login as a domain user is a first indication of a succesfull migration. After this, the domain will be checked through the Control Panel and finally, through Powershell. In this final verification the logon server will be checked as well as how the client is connected to the domain. It is expected that the client is connected through the recently migrated \acrshort{dc}.
+In this paragraph the connection between the client and the \acrshort{dc} will be verified. First the \acrfull{rdp} file will be downloaded through Windows Admin Center. Using this file a connection to a Hyper-V \acrshort{vm} can be made easily. After the connection has been made, the ability to login as a domain user is a first indication of a succesfull migration. After this, the domain will be checked through the Control Panel and finally, through Powershell. In this final verification the logon server will be checked as well as how the client is connected to the domain. It is expected that the client is connected through the recently migrated \acrshort{dc}.
 The commands, that have been used to verify this, and their expected output can be found below.
 \begin{lstlisting}[breaklines]
 PS C:\Windows\system32> $env:LOGONSERVER
@@ -170,14 +171,14 @@ The command completed successfully
 \begin{figure}[h]
 	\begin{subfigure}{0.5\textwidth}
 	\captionsetup{width=0.8\linewidth}
-	\includegraphics[width=0.9\linewidth]{img/Verification_WS_0.png}
+	\includegraphics[width=0.9\linewidth]{img/Methodologie/Verification0.png}
 	\centering
 	\caption{Download and open the \acrshort{rdp} file}
 	\label{fig:verification0}
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}
 	\captionsetup{width=0.8\linewidth}
-	\includegraphics[width=0.9\linewidth]{img/Verification_WS_1.png} 
+	\includegraphics[width=0.9\linewidth]{img/Methodologie/Verification1.png} 
 	\centering
 	\caption{Logon as a domain user}
 	\label{fig:verification1}
@@ -186,38 +187,117 @@ The command completed successfully
 \begin{figure}[h]\ContinuedFloat
 	\begin{subfigure}{0.5\textwidth}
 		\captionsetup{width=0.8\linewidth}
-		\includegraphics[width=0.9\linewidth]{img/Verification_WS_2.png}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Verification2.png}
 		\centering
-		\caption{Verify the DC through the GUI}
+		\caption{Verify the \acrshort{dc} through the GUI}
 		\label{fig:verification2}
 	\end{subfigure}
 	\begin{subfigure}{0.5\textwidth}
 		\captionsetup{width=0.8\linewidth}
-		\includegraphics[width=0.9\linewidth]{img/Verification_WS_3.png} 
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Verification3.png} 
 		\centering
-		\caption{Verify the DC through PowerShell}
+		\caption{Verify the \acrshort{dc} through PowerShell}
 		\label{fig:verification3}
 	\end{subfigure}
-	\caption{Verifying the connection to the migrated DC}
+	\caption{Verifying the connection to the migrated \acrshort{dc}}
 	\label{fig:verification}
 \end{figure}
 \clearpage
 
 \subsection{Migration to Windows Server 2019}
+In this subsection a migration to Windows Server 2019 will be performed on the \acrshort{dc} from Windows Server 2016. At first the connection between the client and the \acrshort{dc} will be verified. After this, the migration will be performed by creating a new \acrshort{vm} on which Windows Server 2019 will be installed and configured. This \acrshort{vm} will replace the Windows Server 2016 \acrshort{dc}. Finally, the connection between the new Windows Server 2019 \acrshort{dc} and the client will be checked.
 \subsubsection{Prerequisites}
+The connection between the \acrshort{dc} and the client will be verified as was done in Subsection \ref{subsection:inplace}. Additionally, the Windows edition will be checked.
+
+\begin{figure}[h]
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Prerequisites1.png}
+		\centering
+		\caption{Login as domain user}
+		\label{fig:migration0}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Prerequisites2.png} 
+		\centering
+		\caption{Verify the \acrshort{dc} through the GUI}
+		\label{fig:migration1}
+	\end{subfigure}
+\end{figure}
+\begin{figure}[h]\ContinuedFloat
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Prerequisites3.png}
+		\centering
+		\caption{Verify the \acrshort{dc} through PowerShell}
+		\label{fig:migration2}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Prerequisites4.png} 
+		\centering	
+		\caption{Verifying the Windows edition}
+		\label{fig:migration3}
+	\end{subfigure}
+	\caption{Verifying the client and \acrshort{dc}}
+	\label{fig:migration}
+\end{figure}
 \subsubsection{Migration}
-% Make VM for 2019
-% Install ADDC on VM
-% Promote to DC 2019
-% Verify connection
-% Remove DC 2016 from environment
-% Verify DC 2019
+The migration to the new Windows Server 2019 \acrshort{dc} can be divided into seven parts:
+\begin{enumerate}
+	\item Creating the \acrshort{vm}
+	\item Installing Windows Server 2019
+	\item Join the existing domain
+	\item Promoting the new \acrshort{vm} to \acrshort{dc}
+	\item Migrating the FSMO roles
+	\item Configuring DNS and DHCP
+	\item Decommissioning the old \acrshort{dc} 
+\end{enumerate}
+Figure \ref{fig:MigrationFull} shows the highlights of the migration process. The full process can be found in Appendix \ref{Migration}. 
+% TODO MIGRATIE EN APPENDIX MIGRATIE
+%Figure \label{fig:MigrationFull}
+
 \subsubsection{Verification}
+\begin{figure}[h]
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Verification4.png}
+		\centering
+		\caption{Download and open the \acrshort{rdp} file}
+		\label{fig:verificationMIG0}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Verification5.png} 
+		\centering
+		\caption{Logon as a domain user}
+		\label{fig:verificationMIG1}
+	\end{subfigure}
+\end{figure}
+\begin{figure}[h]\ContinuedFloat
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Verification6.png}
+		\centering
+		\caption{Verify the \acrshort{dc} through the GUI}
+		\label{fig:verificationMIG2}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Verification7.png} 
+		\centering
+		\caption{Verify the \acrshort{dc} through PowerShell}
+		\label{fig:verificationMIG3}
+	\end{subfigure}
+	\caption{Verifying the connection to the migrated \acrshort{dc}}
+	\label{fig:verificationMIG}
+\end{figure}
 \subsection{Conclusion}
 % TODO Conlusion
 % https://raw.githubusercontent.com/coreyp-at-msft/ws-upgrade-center/dev/en-US/media/upgrade-paths-2-small.png
 % Explain how 2016 -> 2019 is easy but previous version can require consecutive migrations that each bring their own "bagage"
-
+%https://raw.githubusercontent.com/coreyp-at-msft/ws-upgrade-center/dev/en-US/media/9a877f6eef7ced554fb1b6e613eb70d6.png
 \clearpage
 
 \section{SAP migration}
@@ -258,7 +338,7 @@ Import-Csv -Path .container_images.csv
 
 \begin{figure}[h]
 	\captionsetup{width=0.8\linewidth}
-	\includegraphics[width=0.9\linewidth]{img/Container_size.png}
+	\includegraphics[width=0.9\linewidth]{img/Methodologie/Containers0.png}
 	\centering
 	\caption{Comparison of the Windows base container image size}
 	\label{fig:container_size}	
@@ -283,7 +363,7 @@ As can be seen in Figure \ref{fig:MD5} their is no significant difference in per
 
 \begin{figure}[h]
 	\captionsetup{width=0.8\linewidth}
-	\includegraphics[width=0.9\linewidth]{img/MD5_20.png}
+	\includegraphics[width=0.9\linewidth]{img/Methodologie/Containers1.png}
 	\centering
 	\caption{Windows Base Container Image MD5 Benchmark (N=20)}
 	\label{fig:MD5}
@@ -293,7 +373,7 @@ In Figure \ref{fig:SHA} similar results can be found.
 
 \begin{figure}[h]
 	\captionsetup{width=0.8\linewidth}
-	\includegraphics[width=0.9\linewidth]{img/SHA_20.png}
+	\includegraphics[width=0.9\linewidth]{img/Methodologie/Containers2.png}
 	\centering
 	\caption{Windows Base Container Image SHA-256 Benchmark (N=20)}
 	\label{fig:SHA}
