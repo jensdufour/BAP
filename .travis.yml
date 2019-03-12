@@ -20,10 +20,3 @@ deploy:
    on:
      repo: jensdufour/BAP
      tags: true
- - provider: pages
-   github-token: 5e8af218b2ce1fd95a469d785347d96aaf8c0c7e
-   file:
-     - "bachproef/bachproef-tin.pdf"
-     - "poster/conference_poster.pdf"
-     - "voorstel/dufour_jens_voorstel.pdf"
-   skip_cleanup: true
