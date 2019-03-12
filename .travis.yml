@@ -9,22 +9,22 @@ script:
  - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 poster/conference_poster.tex; biber poster/conference_poster; tectonic poster/conference_poster.tex"
  - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 voorstel/dufour_jens_voorstel.tex; biber voorstel/dufour_jens_voorstel; tectonic voorstel/dufour_jens_voorstel.tex"
 deploy:
-  provider: releases
-  api_key:
-    secure: kwPiCfRaA54aRqdDoFaLc/EAc4ik4eHS6L8D4akPBtWCN4TFdZ5Mblrz7pGDspzIc9J+fHG8sVsrSoNcWrAuoLWtGm3ZW7nZAP+Iw+JNR7S4mJpmhaJpQVsEVQv9m93Eu8dDJzWSMEFlrZfkLuBihRhC28drxCJRuecmbWdgfXCGOzD0Z+DrKgrLdZT1FPzP4dDv77Gz98l2hK7z1k6drRp95f/eiIad3pdvXv0MD3VLU5TO6u+eT/YNs8NikwyKs8GkzkPCtdE12mahx1RzjGqHcQiNUTfNptWt4k9RepyOWvpoIF9L5fVTNXkg3jd0AZWusFJu8wzl7r4mvJW2pXv5bdOzACwEAJsBXCkKbJqslhDZRS3B8Ru794m54g1J6IBzfhusIANXhzn4L5ySbos89nZ1XibHqwyyxJIP1FbAyHbDu+6G9rsx4KKagDgnMDgO+fAL6K3kTPSHNC6AQodtlfyA22vD+TB1kk1qhKmFhqcOwmWfxK4F8IuTjoHmMvPQ9TMsv9CDkGg+XAEF9MGl1RMEQuLdY/kgcNnhTekkjue3lwme4xa0wv27txbQQXkHMJ0wzknHGOTxqesX/v3GQa+erWDkA0jnNIpuwPUBeNz1uFiVi5PoHj3A19EMqT0siNqFItVko9U6+NsqksdQiDO31eZWABsJce+qoT4=
-  file:
-    - "bachproef/bachproef-tin.pdf"
-    - "poster/conference_poster.pdf"
-    - "voorstel/dufour_jens_voorstel.pdf"
-  skip_cleanup: true
-  on:
-    repo: jensdufour/BAP
-    tags: true
-  provider: pages
-  api_key:
-    secure: kwPiCfRaA54aRqdDoFaLc/EAc4ik4eHS6L8D4akPBtWCN4TFdZ5Mblrz7pGDspzIc9J+fHG8sVsrSoNcWrAuoLWtGm3ZW7nZAP+Iw+JNR7S4mJpmhaJpQVsEVQv9m93Eu8dDJzWSMEFlrZfkLuBihRhC28drxCJRuecmbWdgfXCGOzD0Z+DrKgrLdZT1FPzP4dDv77Gz98l2hK7z1k6drRp95f/eiIad3pdvXv0MD3VLU5TO6u+eT/YNs8NikwyKs8GkzkPCtdE12mahx1RzjGqHcQiNUTfNptWt4k9RepyOWvpoIF9L5fVTNXkg3jd0AZWusFJu8wzl7r4mvJW2pXv5bdOzACwEAJsBXCkKbJqslhDZRS3B8Ru794m54g1J6IBzfhusIANXhzn4L5ySbos89nZ1XibHqwyyxJIP1FbAyHbDu+6G9rsx4KKagDgnMDgO+fAL6K3kTPSHNC6AQodtlfyA22vD+TB1kk1qhKmFhqcOwmWfxK4F8IuTjoHmMvPQ9TMsv9CDkGg+XAEF9MGl1RMEQuLdY/kgcNnhTekkjue3lwme4xa0wv27txbQQXkHMJ0wzknHGOTxqesX/v3GQa+erWDkA0jnNIpuwPUBeNz1uFiVi5PoHj3A19EMqT0siNqFItVko9U6+NsqksdQiDO31eZWABsJce+qoT4=
-  file:
-    - "bachproef/bachproef-tin.pdf"
-    - "poster/conference_poster.pdf"
-    - "voorstel/dufour_jens_voorstel.pdf"
-  skip_cleanup: true
+ - provider: releases
+   api_key:
+     secure: kwPiCfRaA54aRqdDoFaLc/EAc4ik4eHS6L8D4akPBtWCN4TFdZ5Mblrz7pGDspzIc9J+fHG8sVsrSoNcWrAuoLWtGm3ZW7nZAP+Iw+JNR7S4mJpmhaJpQVsEVQv9m93Eu8dDJzWSMEFlrZfkLuBihRhC28drxCJRuecmbWdgfXCGOzD0Z+DrKgrLdZT1FPzP4dDv77Gz98l2hK7z1k6drRp95f/eiIad3pdvXv0MD3VLU5TO6u+eT/YNs8NikwyKs8GkzkPCtdE12mahx1RzjGqHcQiNUTfNptWt4k9RepyOWvpoIF9L5fVTNXkg3jd0AZWusFJu8wzl7r4mvJW2pXv5bdOzACwEAJsBXCkKbJqslhDZRS3B8Ru794m54g1J6IBzfhusIANXhzn4L5ySbos89nZ1XibHqwyyxJIP1FbAyHbDu+6G9rsx4KKagDgnMDgO+fAL6K3kTPSHNC6AQodtlfyA22vD+TB1kk1qhKmFhqcOwmWfxK4F8IuTjoHmMvPQ9TMsv9CDkGg+XAEF9MGl1RMEQuLdY/kgcNnhTekkjue3lwme4xa0wv27txbQQXkHMJ0wzknHGOTxqesX/v3GQa+erWDkA0jnNIpuwPUBeNz1uFiVi5PoHj3A19EMqT0siNqFItVko9U6+NsqksdQiDO31eZWABsJce+qoT4=
+   file:
+     - "bachproef/bachproef-tin.pdf"
+     - "poster/conference_poster.pdf"
+     - "voorstel/dufour_jens_voorstel.pdf"
+   skip_cleanup: true
+   on:
+     repo: jensdufour/BAP
+     tags: true
+ - provider: pages
+   api_key:
+     secure: kwPiCfRaA54aRqdDoFaLc/EAc4ik4eHS6L8D4akPBtWCN4TFdZ5Mblrz7pGDspzIc9J+fHG8sVsrSoNcWrAuoLWtGm3ZW7nZAP+Iw+JNR7S4mJpmhaJpQVsEVQv9m93Eu8dDJzWSMEFlrZfkLuBihRhC28drxCJRuecmbWdgfXCGOzD0Z+DrKgrLdZT1FPzP4dDv77Gz98l2hK7z1k6drRp95f/eiIad3pdvXv0MD3VLU5TO6u+eT/YNs8NikwyKs8GkzkPCtdE12mahx1RzjGqHcQiNUTfNptWt4k9RepyOWvpoIF9L5fVTNXkg3jd0AZWusFJu8wzl7r4mvJW2pXv5bdOzACwEAJsBXCkKbJqslhDZRS3B8Ru794m54g1J6IBzfhusIANXhzn4L5ySbos89nZ1XibHqwyyxJIP1FbAyHbDu+6G9rsx4KKagDgnMDgO+fAL6K3kTPSHNC6AQodtlfyA22vD+TB1kk1qhKmFhqcOwmWfxK4F8IuTjoHmMvPQ9TMsv9CDkGg+XAEF9MGl1RMEQuLdY/kgcNnhTekkjue3lwme4xa0wv27txbQQXkHMJ0wzknHGOTxqesX/v3GQa+erWDkA0jnNIpuwPUBeNz1uFiVi5PoHj3A19EMqT0siNqFItVko9U6+NsqksdQiDO31eZWABsJce+qoT4=
+   file:
+     - "bachproef/bachproef-tin.pdf"
+     - "poster/conference_poster.pdf"
+     - "voorstel/dufour_jens_voorstel.pdf"
+   skip_cleanup: true
