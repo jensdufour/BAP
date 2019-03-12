@@ -2,7 +2,6 @@
 %===============================================================================
 % LaTeX sjabloon voor de bachelorproef toegepaste informatica aan HOGENT
 % Meer info op https://github.com/HoGentTIN/bachproef-latex-sjabloon
-% 30 bladzijden en 10.000 woorden
 %===============================================================================
 \documentclass{bachproef-tin}
 \usepackage{hogent-thesis-titlepage} % Titelpagina conform aan HOGENT huisstijl
@@ -12,6 +11,7 @@
 \usepackage{subcaption}
 \usepackage{listings}
 \usepackage{hyperref}
+\usepackage[section]{placeins}
 
 \input{woordenlijst}
 %%---------- Documenteigenschappen ---------------------------------------------
@@ -33,7 +33,7 @@
 %===============================================================================
 % Inhoud document
 %===============================================================================
-\begin{document}
+\begin{document}	
 %---------- Taalselectie -------------------------------------------------------
 % Als je je bachelorproef in het Engels schrijft, haal dan onderstaande regel
 % uit commentaar.
@@ -94,6 +94,9 @@ The subject of this bachelor's thesis is based on a research proposal that has b
 %%---------- Benchmark data --------------------------------------------------
 \chapter{Benchmark Data}
 \input{Benchmark_Data}
+%%---------- Migration --------------------------------------------------
+\chapter{Migration}
+\input{Migration}
 %%---------- Andere bijlagen --------------------------------------------------
 % TODO: Voeg hier eventuele andere bijlagen toe
 %\input{...}

@@ -1,0 +1,255 @@
+\label{Migration}
+\section{\acrshort{vm} creation}
+\begin{figure}[!htb]
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration0.png}
+		\centering
+		\caption{Specify name and location}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration1.png} 
+		\centering
+		\caption{Configure connection to the internal network}
+	\end{subfigure}
+\end{figure}
+\begin{figure}[!htb]\ContinuedFloat
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration2.png}
+		\centering
+		\caption{Install an \acrshort{os} from a bootable image file}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration3.png} 
+		\centering	
+		\caption{Verify the \acrshort{vm}}
+	\end{subfigure}
+	\caption[\acrshort{vm} Creation]{Creation of the \acrshort{vm} in Hyper-V}
+	\label{fig:VMCreation}
+\end{figure}
+\section{Windows Server Installation}
+\begin{figure}[!htb]
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration4.png}
+		\centering
+		\caption{Start Windows Server installation}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration5.png} 
+		\centering
+		\caption{Provide a Windows Server 2019 product key}
+	\end{subfigure}
+\end{figure}
+\begin{figure}[!htb]\ContinuedFloat
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration6.png}
+		\centering
+		\caption{Select Windows Server 2019 Datacenter (Desktop Experience)}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration7.png} 
+		\centering
+		\caption{Agree with the license terms}
+	\end{subfigure}
+\end{figure}
+\begin{figure}[!htb]\ContinuedFloat
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration8.png}
+		\centering
+		\caption{Install Windows only}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration9.png} 
+		\centering	
+		\caption{Choose and verify a strong and secure password}
+	\end{subfigure}
+	\caption[Installing Windows Server]{Installing Windows Server 2019 Datacenter Edition on the \acrshort{vm}}
+	\label{fig:WSInstallation}
+\end{figure}
+\clearpage
+\section{Joining the domain}
+\begin{figure}[!htb]
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration10.png}
+		\centering
+		\caption{Click the current Workgroup}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration11.png} 
+		\centering
+		\caption{Select and enter the required domain}
+	\end{subfigure}
+\end{figure}
+\begin{figure}[!htb]\ContinuedFloat
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration12.png}
+		\centering
+		\caption{Provide domain credentials}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration13.png} 
+		\centering	
+		\caption{Verify the domain changes}
+	\end{subfigure}
+	\caption[Joining the domain]{Joining the corp.contoso.com domain}
+	\label{fig:Domain}
+\end{figure}
+\section{Promoting the server to \acrshort{dc}}
+\begin{figure}[!htb]
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration15.png}
+		\centering
+		\caption{Start the roles and services installation process}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration16.png} 
+		\centering
+		\caption{Select the current server}
+	\end{subfigure}
+\end{figure}
+\begin{figure}[!htb]\ContinuedFloat
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration17.png}
+		\centering
+		\caption{Select the required server roles}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration18.png} 
+		\centering
+		\caption{After installation promote the server to \acrshort{dc}}
+	\end{subfigure}
+\end{figure}
+\begin{figure}[!htb]\ContinuedFloat
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration19.png}
+		\centering
+		\caption{Add a new \acrshort{dc} to an existing domain}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration20.png} 
+		\centering
+		\caption{Verify DSRM password}
+	\end{subfigure}
+\end{figure}
+\begin{figure}[!htb]\ContinuedFloat
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration21.png}
+		\centering
+		\caption{Replicate from the previous \acrshort{dc}}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration22.png} 
+		\centering	
+		\caption{Verifying and proceed with the promotion}
+	\end{subfigure}
+	\caption[\acrshort{dc} promotion]{Promoting the server to \acrshort{dc}}
+	\label{fig:Promotion}
+\end{figure}
+\clearpage
+\section{Migrating FSMO roles}
+\begin{figure}[!htb]
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration23.png} 
+		\centering	
+		\caption[FSMO migration]{Migrate the FSMO roles to the new \acrshort{dc}}
+		\label{fig:FSMO}
+\end{figure}
+\clearpage
+\section{Configuring DNS and DHCP}
+\begin{figure}[!htb]
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration24.png}
+		\centering
+		\caption{DNS is automatically replicated from the previous \acrshort{dc}}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration25.png} 
+		\centering
+		\caption{Export the DHCP configuration}
+	\end{subfigure}
+\end{figure}
+\begin{figure}[!htb]\ContinuedFloat
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration26.png}
+		\centering
+		\caption{ Install the required roles on the new \acrshort{dc}}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration27.png} 
+		\centering	
+		\caption{Import the DHCP configuration}
+	\end{subfigure}
+	\caption[Configuring DHCP \& DNS]{Configuring DNS and DHCP on the new \acrshort{dc}}
+	\label{fig:DNSDHCP}
+\end{figure}
+\clearpage
+\section{Decommisioning the old \acrshort{dc}}
+\begin{figure}[!htb]
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration29.png}
+		\centering
+		\caption{Remove roles and features}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration30.png} 
+		\centering
+		\caption{Select the current \acrshort{dc}}
+	\end{subfigure}
+\end{figure}
+\begin{figure}[!htb]\ContinuedFloat
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration31.png}
+		\centering
+		\caption{Demote the old \acrshort{dc}}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration32.png} 
+		\centering
+		\caption{Verify the removal of the \acrshort{dc}}
+	\end{subfigure}
+\end{figure}
+\begin{figure}[!htb]\ContinuedFloat
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration33.png}
+		\centering
+		\caption{Uncheck the removal of the DNS Delegation}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\captionsetup{width=0.8\linewidth}
+		\includegraphics[width=0.9\linewidth]{img/Methodologie/Migration34.png} 
+		\centering	
+		\caption{Demote the \acrshort{dc}}
+	\end{subfigure}
+	\caption[Decommissioning the \acrshort{dc}]{Decommissioning the old \acrshort{dc}}
+	\label{fig:Decomissioning}
+\end{figure}
