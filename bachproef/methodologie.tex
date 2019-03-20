@@ -2,7 +2,6 @@
 %%=============================================================================
 %% Methodologie
 %%=============================================================================
-% TODO Nakijken
 \chapter{\IfLanguageName{dutch}{Methodologie}{Methodology}}
 \label{ch:methodologie}
 
@@ -10,7 +9,7 @@ In this chapter the migration from Windows Server 2016 to Windows Server 2019 wi
 
 \section{Technical specifications of the proof of concept setup}
 The proof of concept was made using a bare-metal server running Windows Server 2016. The proof of concept environment was than virtualized using Hyper-V. 
-Additionally, Windows Admin Center was also installed. The specifications of the server are the following:
+Additionally, \acrlong{wac} was also installed. The specifications of the server are the following:
 
 \begin{itemize}
 	\item CPU: Intel Xeon E5620
@@ -153,7 +152,7 @@ After preparing the forest and domain for the in-place migration, the setup from
 	\label{fig:Inplace}
 \end{figure}
 \subsubsection{Verification}
-In this paragraph the services of the \acrshort{dc}, as well as the connection between the client and the server, will be verified. First the \acrfull{rdp} file will be downloaded through Windows Admin Center. Using this file a connection to the Hyper-V \acrshort{vm} can easily be made. After this, the ability to login as a domain user is verified, as the \acrshort{dc} provides the login server. After this, the domain will be checked through the Control Panel and finally, using Powershell. In this final verification the logon server will be checked as well as how the client is connected to the domain. It is expected that the client is connected through the recently migrated \acrshort{dc}.
+In this paragraph the services of the \acrshort{dc}, as well as the connection between the client and the server, will be verified. First the \acrfull{rdp} file will be downloaded through \acrlong{wac}. Using this file a connection to the Hyper-V \acrshort{vm} can easily be made. After this, the ability to login as a domain user is verified, as the \acrshort{dc} provides the login server. After this, the domain will be checked through the Control Panel and finally, using Powershell. In this final verification the logon server will be checked as well as how the client is connected to the domain. It is expected that the client is connected through the recently migrated \acrshort{dc}.
 The commands, that have been used to verify this, and their expected output can be found below. This is also visualized in Figure \ref{fig:Verification}
 \begin{lstlisting}[breaklines]
 PS C:\Windows\system32> $env:LOGONSERVER
@@ -287,7 +286,7 @@ Migrating from older versions of the \acrshort{os} might require multiple consec
 \section{SAP migration}
 \subsection{Technical specifications of SAP environment}
 \subsection{Migration of SAP}
-
+%TODO SAP Migration
 \clearpage
 
 \section{Windows, Windows Server Core and Nano Server}
