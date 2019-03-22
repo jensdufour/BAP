@@ -278,15 +278,22 @@ Since the magnitude of this migration process it is not included in the main par
 \end{figure}
 
 \subsection{Conclusion}
-After performing the migration from Windows Server 2016 to Windows Server 2019 using both methods, it is clear that either of them have their own advantages and disadvantages. While an in-place migration may seem easier to perform at first glance, it is important to remember that every \acrshort{os} has a certain amount of baggage. Using this technique these unnecessary files, such as old uninstallers or temporary files, will be transferred from the previous installation to the new one. This eventually can have an impact on the performance of the \acrshort{os}. It is also important to keep in mind that even though an in-place migration might be easier, it can not be performed from every version.
+After performing the migration from Windows Server 2016 to Windows Server 2019 using both methods, it is clear that either of them have their own advantages and disadvantages. While an in-place migration may seem easier to perform at first glance, it is important to remember that every \acrshort{os} has a certain amount of baggage. Using this technique these unnecessary files, such as old uninstallers and temporary files, will be transferred from the previous installation to the new one. This eventually can have an impact on the performance of the \acrshort{os}. It is also important to keep in mind that even though an in-place migration might be easier, it can not be performed from every version.
 \\
-Migrating from older versions of the \acrshort{os} might require multiple consecutive migrations. These all increase the additional baggage that gets transferred. When choosing for a full migration this is not the case. Only the necessary files and services get transferred to the new \acrshort{os}. When choosing for this approach the old infrastructure or \acrshort{vm} can be kept online, so that in case of failure everything remains operational. Only after extensive testing, the old infrastructure can be taken offline, so that it gets replaced by the newer one. This provides an additional fallback in case of any problems. The approach is, however, much broader and requires more research in advance. In this part of the proof of concept, only, the domain controller was migrated. The research that is required to migrate a business application will be done in the following section, in particular for an SAP infrastructure. 
+Migrating from older versions of the \acrshort{os} might require multiple consecutive migrations. These all increase the additional baggage that gets transferred. When choosing for a full migration this is not the case. Only the necessary files and services get transferred to the new \acrshort{os}. When choosing for this approach the old infrastructure or \acrshort{vm} can be kept online, so that in case of failure everything remains operational. Only after extensive testing, the old infrastructure can be taken offline, so that it gets replaced by the newer one. This provides an additional fallback in case of any problems. The approach is, however, much broader and requires more research in advance. In this part of the proof of concept, only, the \acrshort{dc} was migrated. This was done effortlessly thanks to the secondary \acrshort{dc}. The research that is required to migrate a Windows Server to the latest version in an business environment will be done in the following section, in particular for an SAP environment. 
 \clearpage
 
 \section{SAP migration}
+When migrating a server, it is of great importance that the environment around the specific server is mapped entirely. This to ensure that all the dependencies have been met. Afterwards, all of those should be verified. In this section, the migration from Windows Server 2016 to Windows Server 2019 will be done in an SAP environment. This to provide an example of the additional research that comes with migration of a server that is performing a critical task in the environment. 
+
 \subsection{Technical specifications of SAP environment}
+%TODO SAP ARM Template in Appendix
+The proof of concept environment has been made using Microsoft Azure. This was setup using the three-tier model, in which the database and application are separated in two different servers. The application server is running the latest version of  SAP NetWeaver, version 7.5 SPS14. The database server is running Micrsoft SQL Server 2017. Both of these are using the Standard A5 (2 vcpus, 14 GB memory) Azure \acrshort{vm}, running the Windows Server 2016 Datacenter image. 
+
 \subsection{Migration of SAP}
 %TODO SAP Migration
+In this subsection the full migration of the SAP Application Server will be performed. This means adding a \acrshort{vm}, with the latest version of Windows Server, to the environment. 
+
 \clearpage
 
 \section{Windows, Windows Server Core and Nano Server}
@@ -305,8 +312,8 @@ The following packages will be installed inside the \acrshort{vm}:
 The procedure to generate container environment is described in Appendix \ref{Containers_Azure}.
 
 \subsection{The advantages of version 1809}
-With the arrival of version 1809, the \acrfull{sac} equivalent of Windows Server 2019, their have been improvements to the base images. First of all, the overall size of the base images has been significantly reduced. This can be seen in Figure \ref{fig:Containers}. The only exception is the size of the Nano Server, which has slightly increased in comparison to its previous version. 
-%TODO Why has Nano Server enlarged?
+With the arrival of version 1809, the \acrfull{sac} equivalent of Windows Server 2019, their have been improvements to the base images. First of all, the overall size of the base images has been significantly reduced. This can be seen in Figure \ref{fig:Containers}. The only exception is the size of the Nano Server, which has slightly increased in comparison to its previous version. This is due to the addition of new features, such as major improvements for Linux containers and container networking through Kubernetes.
+% TODO Webinar avavin@microsoft.com 
 The size of the different base images has been obtained by downloading and expanding them as described below. This was done through Windows Powershell from inside the \acrshort{vm} that was previously created on the Azure platform. 
 
 \begin{lstlisting}[breaklines]
@@ -367,9 +374,9 @@ In Figure \ref{fig:SHA} similar results can be found.
 \subsection{Use cases of Windows, Windows Server Core and Windows Nano Server}
 The smallest one offered, is the Nano Server. This image is aimed at rapid and lightweight deployment using containers. It has been specifically designed for "born in the cloud" applications. This is a term that has multiple usages, it refers to applications that are not legacy products. Applications that provide an agile deployment and offer on-demand availability. It is in no way meant to run typical Windows services. The bigger brother of Nano Server, Server Core, is more suited for this. 
 This image offers application compatibility and has a wide array of built-in Windows roles and features. On top of this it has full .NET Framework support instead of the basic .NET Core that is offered by the Nano Server. 
-The final image that is offered is the new kid on the block. The Windows image offers almost all the Windows components in a lightweight package. This makes it exceptionally useful for the automation of workloads. 
+The final image that is offered is the new kid on the block. The Windows image offers almost all the Windows components in a lightweight package. This makes it exceptionally useful for the automation of workloads. It also includes a lot of dependencies which make it usable with out-of-date applications which won't be supported in the latest version of Windows Server Core and Windows Nano Server. 
 \\
-Thanks to the further development to these images their footprint has been reduced significantly. Although, older containers from Windows Server 2016 can still run through Hyper-V isolation, it is recommended to rebuild them with the latest available images.
+Thanks to the further development to these images their footprint has been reduced significantly. Although, older containers from Windows Server 2016 can still run through Hyper-V isolation on Windows Server 2019, it is recommended to rebuild them with the latest available images.
 
 
 
