@@ -284,15 +284,33 @@ Migrating from older versions of the \acrshort{os} might require multiple consec
 \clearpage
 
 \section{SAP migration}
-When migrating a server, it is of great importance that the environment around the specific server is mapped entirely. This to ensure that all the dependencies have been met. Afterwards, all of those should be verified. In this section, the migration from Windows Server 2016 to Windows Server 2019 will be done in an SAP environment. This to provide an example of the additional research that comes with migration of a server that is performing a critical task in the environment. 
+When migrating a server, it is of great importance that the environment around the specific server is entirely mapped. This to ensure that all the dependencies have been met. Afterwards, all of those should be verified. In this section, the migration from Windows Server 2016 to Windows Server 2019 will be done in an SAP environment. This to provide an example of the additional research that comes with migration of a server that is performing a critical task in the environment. 
 
 \subsection{Technical specifications of SAP environment}
-%TODO SAP ARM Template in Appendix
-The proof of concept environment has been made using Microsoft Azure. This was setup using the three-tier model, in which the database and application are separated in two different servers. The application server is running the latest version of  SAP NetWeaver, version 7.5 SPS14. The database server is running Micrsoft SQL Server 2017. Both of these are using the Standard A5 (2 vcpus, 14 GB memory) Azure \acrshort{vm}, running the Windows Server 2016 Datacenter image. 
+The proof of concept environment has been made using Microsoft Azure. It was partially based on the available resources on SAP \acrfull{cal}, adapted to the small size for this environment. A three-tier model was used as the basis of the environment. This means that it consists of the following: 
+
+\begin{description}
+	\item[Database server] SAP HANA Express Edition (Linux)
+	\item[Application server] SAP Business Suite 4  (Windows Server)
+	\item[Client] SAP GUI (Windows)
+\end{description}
+
+The database server can be deployed using Microsoft Azure, as described by \textcite{LuciaSubatin2019}.
+
+The application server will consist of the following components:
+\begin{itemize}
+	\item \acrfull{cm} 2.0 add-on 
+	\item 1809 core
+	\item Gateway \& Fiori
+	\item SAP NetWeaver 7.XX
+	\item Cloud Connector
+\end{itemize}
+
+This will be installed by utilizing SAP Software Provisioning Manager. 
 
 \subsection{Migration of SAP}
 %TODO SAP Migration
-In this subsection the full migration of the SAP Application Server will be performed. This means adding a \acrshort{vm}, with the latest version of Windows Server, to the environment. 
+In this subsection the full migration of the SAP application Server will be performed. This means adding a \acrshort{vm}, with the latest version of Windows Server, to the environment and installing the required packages to this server. It is important to verify that everything is supported using the SAP \acrfull{pam}.  Since the HANA database is currently only supported on Linux, this will not be migrated. With the database host not changing, the data does not need to be migrated.
 
 \clearpage
 

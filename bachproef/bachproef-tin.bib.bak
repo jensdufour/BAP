@@ -268,12 +268,21 @@
 }
 
 @InProceedings{Enkov2017,
-  author  = {Enkov, Svetoslav and Karavasilev, Tony},
-  title   = {{Benchmarking Hash Functions}},
-  year    = {2017},
-  month   = may,
-  journal = {TechSys 2017},
-  url     = {https://www.researchgate.net/profile/Tony_Karavasilev/publication/315359560_Benchmarking_Hash_Functions/links/59370ed90f7e9b374c1df6f1/Benchmarking-Hash-Functions.pdf?origin=publication_detail},
+  author    = {Enkov, Svetoslav and Karavasilev, Tony},
+  title     = {{Benchmarking Hash Functions}},
+  booktitle = {TechSys 2017},
+  year      = {2017},
+  month     = may,
+  url       = {https://www.researchgate.net/profile/Tony_Karavasilev/publication/315359560_Benchmarking_Hash_Functions/links/59370ed90f7e9b374c1df6f1/Benchmarking-Hash-Functions.pdf?origin=publication_detail},
+}
+
+@Online{LuciaSubatin2019,
+  author = {Lucia Subatin},
+  title  = {{SAP HANA, express edition (Database services) - Getting started with the Marketplace on Microsoft Azure}},
+  month  = jan,
+  year   = {2019},
+  note   = {[Online; accessed March 26, 2019]},
+  url    = {https://developers.sap.com/tutorials/hxe-ms-azure-marketplace-getting-started.html},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
