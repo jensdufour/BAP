@@ -5,11 +5,21 @@
 \chapter{\IfLanguageName{dutch}{Methodologie}{Methodology}}
 \label{ch:methodologie}
 
-In this chapter the migration from Windows Server 2016 to Windows Server 2019 will be researched. This migration will first be performed using the in-place migration method. Microsoft heavily focused on the improvement of this method. This should make it more resilient and safer to use. Afterwards, the process will be repeated using a traditional full system migration. After this the migration of a typical SAP environment, as described by Delaware, from Windows Server 2016 to 2019 will be examined. Finally, the different versions of the container images will be analysed. How these can lower virtual machine overhead and improve virtualization efficiency, will be reviewed. But first, the infrastructure that was used for this proof of concept, will be discussed.
+In this chapter the migration from Windows Server 2016 to Windows Server 2019 will be executed. 
+This migration will first be performed using the in-place migration method. 
+Microsoft heavily focused on the improvement of this method. 
+This should make it more resilient and safer to use. 
+Afterwards, the process will be repeated using a traditional full system migration. 
+After this the migration of a typical SAP environment, as described by Delaware, from Windows Server 2016 to Windows Server 2019 will be performed. 
+Finally, the different versions of the container images will be analysed. 
+How these can lower virtual machine overhead and improve virtualization efficiency, will be reviewed. 
+But first, the infrastructure that was used for the majority of this proof of concept, will be discussed.
 
 \section{Technical specifications of the proof of concept setup}
-The proof of concept was made using a bare-metal server running Windows Server 2016. The proof of concept environment was than virtualized using Hyper-V. 
-Additionally, \acrlong{wac} was also installed. The specifications of the server are the following:
+The proof of concept was made using a bare-metal server running Windows Server 2016. 
+The proof of concept environment was than virtualized using Hyper-V. 
+Additionally, \acrlong{wac} was also installed, this to make the management of the resources easier and more efficient.
+The specifications of the server are the following:
 
 \begin{itemize}
 	\item CPU: Intel Xeon E5620
@@ -20,7 +30,7 @@ Additionally, \acrlong{wac} was also installed. The specifications of the server
 	\item Administrative rights on the device
 \end{itemize}
 
-The proof of concept environment was based on the Modern Desktop Deployment and Management Lab Kit provided by Microsoft. \autocite{Gallagher2018}
+The proof of concept environment was based on the Modern Desktop Deployment and Management Lab Kit provided by Microsoft.\autocite{Gallagher2018}
 This to make replication of the environment simple and efficient.
 \\
 The Modern Desktop Deployment and Management Lab Kit consists of the components in Table \ref{tab:LKC}.
@@ -65,7 +75,8 @@ The Modern Desktop Deployment and Management Lab Kit consists of the components 
 \end{table}
 
 	
-Only HYD-CLIENT1 will be kept in the environment, since there is no need for additional clients. Connection to the \acrshort{vm}s can be made using the credentials in Table \ref{tab:LKCred}.
+Only HYD-CLIENT1 will be kept in the environment, since there is no need for any additional clients. 
+Connection to the \acrshort{vm}s can be made using the credentials in Table \ref{tab:LKCred}.
 
 \begin{table}[ht]
 	\centering
@@ -86,9 +97,16 @@ Only HYD-CLIENT1 will be kept in the environment, since there is no need for add
 \section{Upgrading the \acrshort{os}}
 \subsection{In-place migration to Windows Server 2019}
 \label{subsection:Inplace}
-In this subsection an in-place migration will be performed on the \acrfull{dc}, HYD-DC1, from Windows Server 2016 to Windows Server 2019. At first, the operation and services running on the \acrshort{dc}, as well as the connection to the other servers and clients in the domain, will be verified.
+In this subsection an in-place migration will be performed on the \acrfull{dc}, HYD-DC1, from Windows Server 2016 to Windows Server 2019. 
+At first, the operation and services running on the \acrshort{dc}, as well as the connection to the other servers and clients in the domain, will be verified.
 \subsubsection{Prerequisites}
-Before starting the migration, it is important to verify that the server is backed-up. Be sure to check when the last back-up was performed and if one has ever been successfully restored. After this, it is important to verify that all of the third-party applications on the server are supported by the newest version of the \acrshort{os}. Finally, the forest and domain need to be prepared for the migration. The Windows Server 2019 installation media provides the necessary tools for this. The following commands complete this process, as is shown in Figure \ref{fig:Prerequisites}. Be sure to verify the mounting point of the installation media, in this scenario it has been mounted to D:\textbackslash{}, change this accordingly on the first line of the commands.
+Before starting the migration, it is important to verify that the server is backed-up. 
+Be sure to check when the last back-up was performed and if it can be restored. 
+After this, it is important to verify that all the third-party applications on the server are supported by the newest version of the \acrshort{os}, this will be examined for SAP in Section \ref{sec:SAP}. 
+Finally, the forest and domain need to be prepared for the migration. 
+The Windows Server 2019 installation media provides the necessary tools for this. 
+The following commands complete this process, as is shown in Figure \ref{fig:Prerequisites}. 
+Be sure to verify the mounting point of the installation media, in this scenario it has been mounted to D:\textbackslash{}, change this accordingly on the first line of the commands.
 
 \begin{lstlisting}[breaklines]
 :d
@@ -106,7 +124,10 @@ adprep /domainprep
 \end{figure}
 
 \subsubsection{In-place migration to Windows Server 2019}
-After preparing the forest and domain for the in-place migration, the setup from the installation is to be launched. From this point on, the migration process has been visualized in Figure \ref{fig:Inplace}. Be sure not to use the evaluation version of Windows Server 2019, since this does not support in-place migrations.
+After preparing the forest and domain for the in-place migration, the setup from the installation media is to be launched. 
+From this point on, the migration process has been visualized in Figure \ref{fig:Inplace}. 
+Be sure not to use the evaluation version of Windows Server 2019, since this does not support in-place migrations.
+
 \begin{figure}[h]
 	\begin{subfigure}{0.5\textwidth}
 		\includegraphics[width=0.9\linewidth,height=4.3cm]{img/Methodologie/InPlace0.png}
@@ -151,9 +172,18 @@ After preparing the forest and domain for the in-place migration, the setup from
 	\caption[In-place migration]{The in-place migration process}
 	\label{fig:Inplace}
 \end{figure}
+
 \subsubsection{Verification}
-In this paragraph the services of the \acrshort{dc}, as well as the connection between the client and the server, will be verified. First the \acrfull{rdp} file will be downloaded through \acrlong{wac}. Using this file a connection to the Hyper-V \acrshort{vm} can easily be made. After this, the ability to login as a domain user is verified, as the \acrshort{dc} provides the login server. After this, the domain will be checked through the Control Panel and finally, using Powershell. In this final verification the logon server will be checked as well as how the client is connected to the domain. It is expected that the client is connected through the recently migrated \acrshort{dc}.
-The commands, that have been used to verify this, and their expected output can be found below. This is also visualized in Figure \ref{fig:Verification}
+In this paragraph the services of the \acrshort{dc}, as well as the connection between the client and server, will be verified. 
+First the \acrfull{rdp} file will be downloaded through \acrlong{wac}. 
+Using this file a connection to the Hyper-V \acrshort{vm} can easily be made. 
+After this, the ability to login as a domain user is verified, as the \acrshort{dc} provides the login server. 
+Afterwards, the domain will be checked through the Control Panel and finally, using Powershell. 
+In this final verification the logon server will be checked as well as how the client is connected to the domain. 
+It is expected that the client is connected through the recently migrated \acrshort{dc}.
+The commands, that have been used to verify this, and their expected output can be found below. 
+This is also visualized in Figure \ref{fig:Verification}
+
 \begin{lstlisting}[breaklines]
 PS C:\Windows\system32> $env:LOGONSERVER
 \\DC1
@@ -197,7 +227,12 @@ The command completed successfully
 \clearpage
 
 \subsection{Migration to Windows Server 2019}
-In this subsection a migration to Windows Server 2019 will be performed on the \acrshort{dc} from Windows Server 2016. At first the connection between the client and the \acrshort{dc} will be verified. After this, the migration will be performed by creating a new \acrshort{vm} on which Windows Server 2019 will be installed and configured. This \acrshort{vm} will, eventually, replace the Windows Server 2016 \acrshort{dc}. Finally, the connection between the new Windows Server 2019 \acrshort{dc} and the client will be checked.
+In this subsection a migration to Windows Server 2019 will be performed on the \acrshort{dc} from Windows Server 2016. 
+At first the connection between the client and the \acrshort{dc} will be verified. 
+After this, the migration will be performed by creating a new \acrshort{vm} on which Windows Server 2019 will be installed and configured. 
+This \acrshort{vm} will, eventually, replace the Windows Server 2016 \acrshort{dc}. 
+Finally, the connection between the new Windows Server 2019 \acrshort{dc} and the client will be checked.
+
 \subsubsection{Prerequisites}
 The connection between the \acrshort{dc} and the client will be verified as was done in Subsection \ref{subsection:Inplace}. Additionally, the Windows edition will be checked. The prerequisites are shown in Figure \ref{fig:PrerequisitesMigration}.
 
@@ -243,7 +278,8 @@ The migration to the new Windows Server 2019 \acrshort{dc}, that will be perform
 	\item Configuring DNS and DHCP
 	\item Decommissioning the old \acrshort{dc} 
 \end{enumerate}
-Since the magnitude of this migration process it is not included in the main part of this Bachelor's Thesis. However, it can be found in Appendix \ref{Migration}. 
+Considering the magnitude of this migration process it is not included in the main part of this bachelor's thesis. 
+However, it can be found in Appendix \ref{Migration}. 
 
 \subsubsection{Verification}
 \begin{figure}[h]
@@ -278,16 +314,37 @@ Since the magnitude of this migration process it is not included in the main par
 \end{figure}
 
 \subsection{Conclusion}
-After performing the migration from Windows Server 2016 to Windows Server 2019 using both methods, it is clear that either of them have their own advantages and disadvantages. While an in-place migration may seem easier to perform at first glance, it is important to remember that every \acrshort{os} has a certain amount of baggage. Using this technique these unnecessary files, such as old uninstallers and temporary files, will be transferred from the previous installation to the new one. This eventually can have an impact on the performance of the \acrshort{os}. It is also important to keep in mind that even though an in-place migration might be easier, it can not be performed from every version.
+After performing the migration from Windows Server 2016 to Windows Server 2019 using both methods, it is clear that either of them have their own advantages and disadvantages. 
+While an in-place migration may seem easier to perform at first glance, it is important to remember that every \acrshort{os} has a certain amount of baggage.
+Using this technique these unnecessary files, such as old uninstallers and temporary files, will be transferred from the previous installation to the new one. 
+This eventually can have an impact on the performance of the \acrshort{os}. 
+It is also important to keep in mind that even though an in-place migration might be easier, it can not be performed from every version to Windows Server 2019.
 \\
-Migrating from older versions of the \acrshort{os} might require multiple consecutive migrations. These all increase the additional baggage that gets transferred. When choosing for a full migration this is not the case. Only the necessary files and services get transferred to the new \acrshort{os}. When choosing for this approach the old infrastructure or \acrshort{vm} can be kept online, so that in case of failure everything remains operational. Only after extensive testing, the old infrastructure can be taken offline, so that it gets replaced by the newer one. This provides an additional fallback in case of any problems. The approach is, however, much broader and requires more research in advance. In this part of the proof of concept, only, the \acrshort{dc} was migrated. This was done effortlessly thanks to the secondary \acrshort{dc}. The research that is required to migrate a Windows Server to the latest version in an business environment will be done in the following section, in particular for an SAP environment. 
+Migrating from older versions of the \acrshort{os} might require multiple consecutive in-place migrations. 
+These all increase the additional baggage that gets transferred. 
+When choosing for a full migration this is not the case. 
+Only the necessary files and services get transferred to the new \acrshort{os}. 
+When choosing for this approach the old infrastructure or \acrshort{vm} can be kept online, so that in case of failure everything remains operational. 
+Only after extensive testing, the old infrastructure can be taken offline, so that it gets replaced by the newer one. 
+This provides an additional fallback in case of any problems. 
+The approach is, however, much broader and requires more research in advance. 
+In this part of the proof of concept only the \acrshort{dc} was migrated. 
+This was done effortlessly thanks to the secondary \acrshort{dc}. 
+The research that is required to migrate a Windows Server to the latest version in an business environment will be done in the following section, in particular for an SAP environment. 
 \clearpage
 
 \section{SAP migration}
-When migrating a server, it is of great importance that the environment around the specific server is entirely mapped. This to ensure that all the dependencies have been met. Afterwards, all of those should be verified. In this section, the migration from Windows Server 2016 to Windows Server 2019 will be done in an SAP environment. This to provide an example of the additional research that comes with migration of a server that is performing a critical task in the environment. 
+\label{sec:SAP}
+When migrating a server, it is of great importance that the environment around the specific server is mapped entirely. 
+This to ensure that all dependencies have been met. 
+Afterwards, all of those should be verified. 
+In this section, the migration from Windows Server 2016 to Windows Server 2019 will be done in an SAP environment. 
+This to provide an example of the additional research that comes with migration of a server that is performing a critical task in a business environment. 
 
 \subsection{Technical specifications of SAP environment}
-The proof of concept environment has been made using Microsoft Azure. It was partially based on the available resources on SAP \acrfull{cal}, adapted to the small size for this environment. A three-tier model was used as the basis of the environment. This means that it consists of the following: 
+The proof of concept environment has been made using Microsoft Azure. 
+It was partially based on the available resources on SAP \acrfull{cal}, adapted to the small size for this demo environment. 
+A three-tier model was used as the basis of the environment, this means that it consists of the following: 
 
 \begin{description}
 	\item[Database server] SAP HANA Express Edition (Linux)
@@ -310,15 +367,25 @@ This will be installed by utilizing SAP Software Provisioning Manager.
 
 \subsection{Migration of SAP}
 %TODO SAP Migration
-In this subsection the full migration of the SAP application Server will be performed. This means adding a \acrshort{vm}, with the latest version of Windows Server, to the environment and installing the required packages to this server. It is important to verify that everything is supported using the SAP \acrfull{pam}.  Since the HANA database is currently only supported on Linux, this will not be migrated. With the database host not changing, the data does not need to be migrated.
+In this subsection the full migration of the SAP application server will be performed. 
+This means adding a \acrshort{vm}, with the latest version of Windows Server, to the environment and installing the required software to this server. 
+It is important to verify that everything is supported using the SAP \acrfull{pam}.  
+Since the HANA database is currently only supported on Linux, this will not be migrated. 
+With the database host not changing, the data does not need to be migrated.
 
 \clearpage
 
 \section{Windows, Windows Server Core and Nano Server}
-In this final section a comparison shall be made between the Windows, Windows Server Core and Windows Nano Server container images. At first, the advantages of the new versions of the images, will be discussed. This involves a comparison between version 1709 and version 1809 of the base container images. This will consist of comparing the size of the base images and their performance performing a uniform task. Afterwards, the different use cases of the various versions will be discussed. These images have been tested in an environment as described in the following subsection.
+In this final section a comparison shall be made between the Windows, Windows Server Core and Windows Nano Server base container images. 
+At first, the advantages of the new versions of the images, will be discussed. 
+This involves a comparison between version 1709 and version 1809 of the base container images. 
+This will consist of comparing the size of the base container images and their performance performing a uniform task. 
+Afterwards, the different use cases of the various versions will be discussed. 
+These base container images have been tested in an environment as described in the following subsection.
 
 \subsection{Technical specifications of the container environment}
-The proof of concept environment for the Windows Server base container images was built using the Microsoft Azure platform. It uses the Standard D2s v3 (2 vcpus, 8 GB memory) Azure \acrshort{vm}, running the Windows Server 2019 Datacenter Server Core and Containers image.
+The proof of concept environment for the Windows Server base container images was built using the Microsoft Azure platform. 
+It uses the Standard D2s v3 (2 vcpus, 8 GB memory) Azure \acrshort{vm}, running the Windows Server 2019 Datacenter Server Core and Containers image.
 The following packages will be installed inside the \acrshort{vm}:
 \begin{itemize}
 	\item Docker
@@ -330,9 +397,13 @@ The following packages will be installed inside the \acrshort{vm}:
 The procedure to generate container environment is described in Appendix \ref{Containers_Azure}.
 
 \subsection{The advantages of version 1809}
-With the arrival of version 1809, the \acrfull{sac} equivalent of Windows Server 2019, their have been improvements to the base images. First of all, the overall size of the base images has been significantly reduced. This can be seen in Figure \ref{fig:Containers}. The only exception is the size of the Nano Server, which has slightly increased in comparison to its previous version. This is due to the addition of new features, such as major improvements for Linux containers and container networking through Kubernetes.
-% TODO Webinar avavin@microsoft.com 
-The size of the different base images has been obtained by downloading and expanding them as described below. This was done through Windows Powershell from inside the \acrshort{vm} that was previously created on the Azure platform. 
+With the arrival of version 1809, the \acrfull{sac} equivalent of Windows Server 2019, their have been improvements to the base container images. 
+First of all, the overall size of the base container images has been significantly reduced. 
+This can be seen in Figure \ref{fig:Containers}. 
+The only exception is the Nano Server, which has slightly increased in size compared to its previous version. 
+This is due to the addition of new features, such as major improvements for Linux containers and container networking through Kubernetes.
+The size of the different base images has been obtained by downloading and expanding them as described below. 
+This was done through Windows Powershell from inside the \acrshort{vm} that was previously created on the Azure platform. 
 
 \begin{lstlisting}[breaklines]
 docker image pull mcr.microsoft.com/windows:1809
@@ -341,7 +412,7 @@ docker image pull mcr.microsoft.com/windows/nanoserver:1809
 docker image pull mcr.microsoft.com/windows/servercore:1709 
 docker image pull mcr.microsoft.com/windows/nanoserver:1709   
 docker images | Out-File .container_images.csv
-Import-Csv -Path .container_images.csv
+Import-Csv -Path .\container_images.csv
 \end{lstlisting}
 
 \begin{figure}[h]
@@ -352,9 +423,19 @@ Import-Csv -Path .container_images.csv
 	\label{fig:Containers}	
 \end{figure}
 
-In this paragraph the performance of the images shall be tested. This will be done using \href{https://benchmarkdotnet.org/}{"BenchmarkDotNet"}, a .NET library made for benchmarking. \autocite{Akinshin2019} Benchmarking using this library is done by calculating \acrfull{md5} and \acrfull{sha} hash functions. The former is mostly used in the generation of identifiers, as it is not deemed secure enough for data security. The latter is better suited for this, but has since been improved by \acrfull{sha3}. \autocite{Enkov2017}
+In this paragraph the performance of the images shall be tested. 
+This will be done using \href{https://benchmarkdotnet.org/}{"BenchmarkDotNet"}, a .NET library made for benchmarking.\autocite{Akinshin2019} 
+Benchmarking using this library is done by calculating \acrfull{md5} and \acrfull{sha} hash functions. 
+The former is mostly used in the generation of identifiers, as it is not deemed secure enough for data security. 
+The latter is better suited for this, but has since been improved by \acrfull{sha3}.\autocite{Enkov2017}
 \\
-The container will be automatically built using a Dockerfile, each of these corresponds with a base container image. This is needed to add the required packages inside the container to successfully perform the benchmark. For the Windows and Server Core image these were added manually, the Nano Server images were provided by Microsoft. Following commands need to be executed on the \acrshort{vm} that was created on the Azure platform to benchmark every container individually. It is important to note that the kernel version of the \acrshort{os} must match the Windows image. While using Hyper-V isolation can circumvent this, it is not recommended since the additional virtualization of the kernel will lower the performance of the container. For the unambiguity of the benchmarks this has been done in these below.
+The container will be automatically built using a Dockerfile, each of these corresponds with a base container image. 
+This is needed to add the required packages inside the container to successfully perform the benchmark. 
+For the Windows and Server Core base container image these were added manually, the Nano Server base container image was provided by Microsoft. 
+Following commands need to be executed on the \acrshort{vm} that was created on the Azure platform to benchmark every container individually. 
+It is important to note that the kernel version of the \acrshort{os} must match the Windows image. 
+While using Hyper-V isolation can circumvent this, it is not recommended since the additional virtualization of the kernel will lower the performance of the container. 
+For the unambiguity of the benchmarks this has been done in these below.
 
 \begin{lstlisting}[breaklines]
 git clone https://github.com/jensdufour/Benchmark.git
@@ -366,8 +447,12 @@ docker build -t benchmark4 --isolation=hyperv -f .\WindowsServercore1809.dockerf
 docker build -t benchmark5 --isolation=hyperv -f .\Windows1809.dockerfile .
 \end{lstlisting}
 
-The results of running the individual benchmarks have been visualized in Figure \ref{fig:MD5} for MD5 and in Figure \ref{fig:SHA} for SHA-256. The figures show the average results after running the benchmarks twenty times. In Appendix \ref{benchmarkdata}, all the data can be found, as well as the initial results after running the benchmarks ten times. Eventual outliers have been removed. 
-As can be seen in Figure \ref{fig:MD5} their is no significant difference in performance between the two versions of Nano Server and Server Core. It is although important to note that version 1709 was more efficient, as these results are the lower the better. This does not, however, offer any resistance to the considerable reduction in the size of the base container images. 
+The results of running the individual benchmarks have been visualized in Figure \ref{fig:MD5} for MD5 and in Figure \ref{fig:SHA} for SHA-256. 
+The figures show the average results after running the benchmarks twenty times. 
+In Appendix \ref{benchmarkdata}, all the data can be found, as well as the initial results after running the benchmarks ten times. 
+Eventual outliers have been removed. 
+As can be seen in Figure \ref{fig:MD5} there is no significant difference in performance between the two versions of Nano Server and Server Core.
+It is important to note that version 1709 was more performant in this benchmark. 
 
 \begin{figure}[h]
 	\captionsetup{width=0.8\linewidth}
@@ -387,14 +472,29 @@ In Figure \ref{fig:SHA} similar results can be found.
 	\label{fig:SHA}
 \end{figure}
 
- When looking at the result of the benchmarks of Server Core and Nano Server, it is clear that the performance of both versions is along the same lines. However, the overall reduction in size and the additional functions that have been added, as discussed in Chapter \ref{ch:stand-van-zaken}, make a strong case for the deployment of the latest one, version 1809. The latest of images also includes the Windows base container. This opens a whole array of new possibilities. The use case of this one, and the others, will be discussed in the following subsection.
+ When looking at the result of the benchmarks of Server Core and Nano Server, it is clear that the performance of both versions is along the same lines. 
+ However, the overall reduction in size and the additional features that have been added, as discussed in Chapter \ref{ch:stand-van-zaken}, make a strong case for the deployment of the latest version, version 1809. 
+ The latest release of the base container images also included the Windows base container image. 
+ This base container image opens a whole array of new possibilities. 
+ The use case of this one, and the others, will be discussed in the following subsection.
 
 \subsection{Use cases of Windows, Windows Server Core and Windows Nano Server}
-The smallest one offered, is the Nano Server. This image is aimed at rapid and lightweight deployment using containers. It has been specifically designed for "born in the cloud" applications. This is a term that has multiple usages, it refers to applications that are not legacy products. Applications that provide an agile deployment and offer on-demand availability. It is in no way meant to run typical Windows services. The bigger brother of Nano Server, Server Core, is more suited for this. 
-This image offers application compatibility and has a wide array of built-in Windows roles and features. On top of this it has full .NET Framework support instead of the basic .NET Core that is offered by the Nano Server. 
-The final image that is offered is the new kid on the block. The Windows image offers almost all the Windows components in a lightweight package. This makes it exceptionally useful for the automation of workloads. It also includes a lot of dependencies which make it usable with out-of-date applications which won't be supported in the latest version of Windows Server Core and Windows Nano Server. 
+The smallest one offered, is the Nano Server. 
+This image is aimed at rapid and lightweight deployment using containers. 
+It has been specifically designed for "born in the cloud" applications. 
+This is a term that has multiple usages, it refers to applications that are not legacy products. 
+Applications that provide an agile deployment and offer on-demand availability. 
+It is in no way meant to run typical Windows services. 
+The bigger brother of Nano Server, Server Core, is more suited for this. 
+This image offers application compatibility and has a wide array of built-in Windows roles and features. 
+On top of this, it has full .NET Framework support instead of the basic .NET Core that is offered by the Nano Server. 
+The final image that is offered is the new kid on the block. 
+The Windows base container image offers almost all the Windows components in a lightweight package. 
+This makes it exceptionally useful for automated UI tests as it also has DirectX graphic capabilities. 
+It also includes a lot of dependencies which make it usable with out-of-date applications which won't be supported in the latest version of Windows Server Core and Windows Nano Server. 
 \\
-Thanks to the further development to these images their footprint has been reduced significantly. Although, older containers from Windows Server 2016 can still run through Hyper-V isolation on Windows Server 2019, it is recommended to rebuild them with the latest available images.
+Thanks to the further development to these base container images their footprint has been reduced significantly. 
+Although, older containers from Windows Server 2016 can still run through Hyper-V isolation on Windows Server 2019, it is recommended to rebuild them with the latest available images.
 
 
 

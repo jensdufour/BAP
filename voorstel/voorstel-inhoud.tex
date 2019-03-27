@@ -1,49 +1,60 @@
 % !TeX spellcheck = en_GB
 %---------- Introduction  ---------------------------------------------------------
 \section{Introduction}\label{sec:introduction}
-Windows Server is a well-known operating system among IT professional. With mayor organizations, like Infosys \autocite{S.Chauhan2015}, over the globe, have implemented some form of the operating system in their back-end. One of the tasks the OS often performs is keeping applications up-to-date in a Windows, however, it is not often described how to migrate the OS itself to a newer version. 
-This does not mean that frequent updates are not important for both the addition of new features as well as the improvement of security, as this is becoming one of the big concerns in the 21st century. 
-This research paper will go in depth about the advantages and disadvantages of a whole system migration to the newer version. In specific, this paper will take a look at the migration from version 2016 to 2019, with as an optional requirement the migration of SAP, as this is applicable to the infrastructure of the client, Delaware.
-The key purpose is to find a solution that is as efficient as possible to minimize possible downtime and to be applicable not only to the client, Delaware but also to other organizations that find them self in the same situation and want to migrate their back-end to the latest version.
+Windows Server is a well-known \acrfull{os} among \acrfull{it} professionals. With major organizations all around the globe, like Infosys, that have implemented some form of the \acrshort{os} in their infrastructure.\autocite{S.Chauhan2015}
+One of the tasks that often need to be performed on the \acrshort{os} is keeping applications up-to-date. However, it is not often described how to migrate the \acrshort{os} itself to a newer version.  
+This does not mean that frequent updates are not important for both the addition of new features as well as the improvement of security, as this is becoming one of the big concerns of this century. 
+This bachelor's thesis will go in-depth about the advantages and disadvantages of a migration to the latest version of Windows Server. In specific, this bachelor's thesis will take a look at the migration from Windows Server 2016 to Windows Server 2019, with as an optional requirement the migration of an SAP environment, as this is applicable to the business environment of the originator, Delaware.
+The key purpose is to find a procedure that is efficient, minimizes possible downtime and is applicable not only to the originator, Delaware, but also to other organizations that find them self in the same situation and want to migrate their infrastructure to the latest version of the \acrshort{os}.
 \subsection{Research question}
-What are the advantages and disadvantages of a migration from Windows Server 2016 to 2019 in a business environment?
+What are the advantages and disadvantages of a migration from Windows Server 2016 to Windows Server 2019 in a business environment?
 \subsection{Sub-research question}
 \begin{itemize}
-	\item What are the differences between the standard, ServerCore and Nano version of Windows Server 2019?
-	\item Can SAP be migrated from an existing Windows Server 2016 to 2019 in a business environment?
+	\item What are the differences between the Windows, ServerCore and Nano Server Base Container Images of Windows Server 2019?
+	\item Can SAP be migrated from an existing Windows Server 2016 to Windows Server 2019 in a business environment?
 	\item How can the new features of Windows Server 2019 be leveraged in the migrated infrastructure? 
 \end{itemize}
 %---------- State of the art ---------------------------------------------------
 \section{State-of-the-art}\label{sec:state-of-the-art}
-Windows Server 2019 was built on the strong foundation of 2016 although it brings some new features \autocite{Gerend2018} in the mix. 
+Windows Server 2019 was built on the strong foundation of Windows Server 2016 although it introduces new features.\autocite{Gerend2018}
 These can be boiled down to four key themes:
 \begin{enumerate}
 	\item Hybrid Cloud
 	\item Security
 	\item Application Platform
-	\item Hyper-Converged Infrastructure (HCI)
+	\item  \acrfull{hci}
 \end{enumerate}
-In the following section, the basic working of the above themes is discussed.
+In the following subsections, the essence of the above themes is discussed.
 \subsection{Hybrid Cloud}
-One of the new features in terms of Hybrid Cloud is the Server Core App Compatibility Feature on Demand \autocite{Pacquer2018}. This is an optional feature pack that was designed for Windows Server 2019 Server Core installations and version 1809 and can be applied to the system at all times. 
-It significantly improves the application compatibility by adding binaries and packages and even with these added packages, the footprint of the machine will remain as small as possible. It achieves this by not implementing the Windows Desktop Experience GUI. It uses a lightweigt GUI instead.
+One of the new features in terms of hybrid cloud is the Server Core App Compatibility Feature on Demand.\autocite{Pacquer2018}
+This is an optional feature pack that was designed for the Windows Server 2019 Server Core Base Container Image and can be applied to the system at all times. 
+It significantly improves the application compatibility by adding binaries and packages. 
+Even with these added packages, the footprint of the machine will remain as small as possible. 
+It achieves this by not implementing the Windows Desktop Experience GUI, it uses a lightweight GUI instead.
 \subsection{Security}
-Security has always been a fundamental part of an operating system. With over 53.000 reported incidents and 2.216 confirmed data breaches \autocite{Verizon2018}, security is without a doubt hot topic. This is heavily reflected in the newest edition of Windows Server with additions like Windows Defender Advanced Threat Protection, Security with Software Defined Networking and Shielded Virtual Machines. This research paper will also explore the additional safety mechanisms that were added.
+Security has always been a fundamental part of any \acrshort{os}. 
+With over 53.000 reported incidents and 2.216 confirmed data breaches, security is without a doubt hot topic.\autocite{Verizon2018} 
+This is heavily reflected in the newest edition of Windows Server, with additions like \acrfull{wdatp}, Security with \acrfull{sdn} and Shielded Virtual Machines. 
+This bachelor's thesis will also explore the additional safety mechanisms that were added.
 \subsection{Application Platform}
-At the heart of a server, applications can be found. Different applications allow one server to provide multiple services for end-users. There have been key improvements in this aspect as well. These improvements are mostly virtualization or security oriented. 
-\subsection{Hyper-Converged Infrastructure}
-This technology could easily come out of buzzword bingo however, it is perhaps the most exciting feature that was improved, by Microsoft, in the release of Windows Server 2019. HCI makes it effortless to scale up from two nodes to a hundred. This makes the technology intriguing for organizations with an in-house datacenter.
+At the heart of a server, applications can be found. 
+Different applications allow one server to provide multiple services for end-users. 
+There have been key improvements in this aspect as well. 
+These improvements are mostly virtualization and security related. 
+\subsection{\acrfull{hci}}
+This technology could easily come out of buzzword bingo however, it is perhaps the most exciting feature that was improved in the release of Windows Server 2019. 
+\acrshort{hci} makes it effortless to scale up from two nodes to a hundred node environment. 
+This makes the technology intriguing for organizations with an in-house data centre.
 %---------- Methodology ------------------------------------------------------
 \section{Methodology}\label{sec:methodology}
-Extensive research will be done before attempting the migration. The effective proof-of-concept will consist of infrastructure with Windows Server 2016 that will be migrated to Windows Server 2019. This will be done for the Windows Desktop Experience version as well as the ServerCore and Nano version. By carrying out this migration, the advantages and disadvantages of the migration will become clear. New features from Windows Server 2019 will also be implemented in the migrated system. 
-\\
-Carrying out the migration on all three versions will make the limitations and features of the different versions very clear. 
-To conclude an attempt will be made to migrate an existing SAP environment to our new and optimized Windows Server 2019 infrastructure.
-\\
-The goal at the end of the proof-of-concept is to make a reasoned decision between Windows Server 2016 or 2019 and the specific versions, Windows Desktop Experience, ServerCore or Nano.
+Extensive research will be done before attempting the migration. The proof of concept will consist of an environment with Windows Server 2016 that will be migrated to Windows Server 2019. This will be done both using the in-place migration and the full migration method. By carrying out this migration, the advantages and disadvantages will become clear. \\
+Carrying out the migration will show the limitations and features of the latest version. 
+Afterwards, an attempt will be made to migrate an existing SAP environment to our new and optimized Windows Server 2019 environment.\\
+Finally, the different Windows Base Container Images will be compared, both in terms of performance and size. 
+The goal at the end of the proof of concept is to make a reasoned decision between Windows Server 2016 and Windows Server 2019.
 %---------- Expected results ----------------------------------------------
 \section{Expected results}\label{sec:anticipated_results}
-It is expected that the proof-of-concept will demonstrate the advantages of the newer Windows Server and that the migration is an investment towards the future. With the new features and improvements, the Windows Desktop Experience will have the upper hand in comparison to the ServerCore and Nano version. However, migrating an SAP will not yet be recommended due to the new nature of Windows Server 2019. 
+It is expected that the proof of concept will demonstrate the advantages of the latest Windows Server and that the migration is an investment in the future. However, migrating an SAP will not yet be recommended due to the new nature of Windows Server 2019. Also, when looking at the Windows Base Container Images, the latest version will have the upper hand. 
 %---------- Expected conclusion ----------------------------------------------
 \section{Expected conclusions}\label{sec:anticipated_conclusions}
-It is expected to conclude that migration from Windows Server 2016 to 2019 is perfectly manageable however additional studies will be necessary to make sure that all software packages are already supported by the operating system.
+It is expected to conclude that migration from Windows Server 2016 to Windows Server 2019 is perfectly manageable, with a preference for a full migration,  however additional research will be necessary for each individual software solution. 

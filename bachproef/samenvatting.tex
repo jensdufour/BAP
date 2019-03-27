@@ -1,36 +1,48 @@
 %%=============================================================================
 %% Samenvatting
 %%=============================================================================
-% - Context: waarom is dit werk belangrijk?
-% - Nood: waarom moest dit onderzocht worden?
-% - Taak: wat heb je precies gedaan?
-% - Object: wat staat in dit document geschreven?
-% - Resultaat: wat was het resultaat?
-% - Conclusie: wat is/zijn de belangrijkste conclusie(s)?
-% - Perspectief: blijven er nog vragen open die in de toekomst nog kunnen
-%    onderzocht worden? Wat is een mogelijk vervolg voor jouw onderzoek?
-
-
 %%---------- Nederlandse samenvatting -----------------------------------------
 \IfLanguageName{english}{%
 \selectlanguage{dutch}
 \chapter*{Samenvatting}
-Uit een studie \autocite{Tsai2016} is gebleken dat in 2016 17.9\% en 45.4\% van de servers in het Spiceworks-netwerk respectievelijk Windows Server 2003 en Windows Server 2008 gebruikten. Windows Server 2003 wordt officieel niet langer ondersteund door Microsoft en de uitgebreide ondersteuning voor Windows Server 2008 loopt tot eind januari 2020. Dit betekent dat een grootschalige update naar een nieuwere versie niet alleen interessant is, maar ook een vereiste wordt voor een groot aantal organisaties. In deze bachelorproef zijn de voor- en nadelen van de migratie naar de nieuwste versie van het besturingssysteem, Windows Server 2019, onderzocht. Er is rekening gehouden met de vier hoofdthema's waarin de extra functies van Windows Server 2019 zijn opgebouwd. De migratie tussen twee versies wordt vervolgens uitgevoerd aan de hand van de in-place en de volledige migratiemethode. Aangezien voor vele organisaties dit \acrshort{os} de basis vormt voor hun applicaties, is ook een migratie van een SAP-omgeving uitgevoerd. De keuze voor de migratie van dit softwarepakket werd gemaakt in samenspraak met Delaware. 
-Hieruit bleek dat hoewel een in-place migratie in een eerste opzicht de eenvoudigste methode is, dit niet altijd de beste is. De voordelen van een volledige migratie op vlak van veiligheid en performantie op lange termijn verantwoorden de additionele inspanning die hiermee gemoeid is.
+Uit een studie is gebleken dat in 2016 17.9\% en 45.4\% van de servers, in het Spiceworks-netwerk, respectievelijk Windows Server 2003 en Windows Server 2008 gebruikten.\autocite{Tsai2016} 
+Windows Server 2003 wordt officieel niet langer ondersteund door Microsoft en de uitgebreide ondersteuning voor Windows Server 2008 loopt tot einde januari 2020. 
+Dit betekent dat een grootschalige update naar een nieuwere versie niet alleen interessant is, maar ook een vereiste wordt voor een groot aantal organisaties. 
+In deze bachelorproef zijn de voor- en nadelen van de migratie naar de nieuwste versie van het besturingssysteem, Windows Server 2019, onderzocht. 
+Er is rekening gehouden met de vier hoofdthema's waarin de niewe functies van Windows Server 2019 zijn onderverdeeld. 
+De migratie tussen de twee versies wordt vervolgens uitgevoerd aan de hand van de in-place en de volledige migratiemethode, met Windows Server 2016 als startpunt. 
+Aangezien voor vele organisaties dit \acrshort{os} de basis vormt voor hun applicaties, is ook een migratie van een SAP-omgeving uitgevoerd. 
+De keuze voor de migratie van dit softwarepakket werd gemaakt in samenspraak met Delaware. 
+Hieruit bleek dat hoewel een in-place migratie in een eerste opzicht de eenvoudigste methode is, dit niet altijd de beste is. 
+De voordelen van een volledige migratie op vlak van veiligheid en performantie op lange termijn verantwoorden de additionele inspanning die hiermee gemoeid is.
 %TODO SAP Conclusion
-Hierna, werden de verschillende beschikbare Windows Base Container Images geanalyseerd. Hieruit bleek dat ondanks een miniem verschil in grote en performantie de keuze toch naar de laatste versie gaat. Dit mede door de additionele functies, die doorheen deze bachelorproef besproken worden, en de toevoeging van de nieuwe Windows Base Container Image.
-Tot slot word er een kijkje genomen naar wat de toekomst brengt voor Windows Server. Hier wordt gekeken naar het gebruik van Microsoft Azure en nieuwe functionaliteiten in \acrlong{wac}. 
-Opvallend is dat voor de migratie van andere softwarepakketten aanvullend onderzoek moet worden verricht, evenals een testomgeving. Dit om, net als bij Windows Server 2019 en SAP, ervoor te zorgen dat alles voldoet aan de eisen die de organisatie stelt.
+Hierna, werden de verschillende beschikbare Windows Base Container Images geanalyseerd. 
+Hieruit bleek dat door een verschil in grote en performantie de keuze naar de meest recente versie gaat. 
+Dit door de additionele functies, die doorheen deze bachelorproef besproken worden, en de toevoeging van de nieuwe Windows Base Container Image.
+Tot slot word er een kijkje genomen naar wat de toekomst brengt voor Windows Server en infrastructuur. 
+Hier wordt gekeken naar het gebruik van de cloud, en de nieuwe functionaliteiten die hiermee gepaard gaan in \acrlong{wac}. 
+Opvallend is dat voor de migratie van andere softwarepakketten aanvullend onderzoek moet worden verricht, evenals een testomgeving. 
+Dit om, net als bij Windows Server 2019 en SAP, ervoor te zorgen dat alles voldoet aan de eisen die een organisatie stelt.
 
 \selectlanguage{english}
 }{}
 %%---------- Engelse samenvatting -----------------------------------------------------
 \chapter*{\IfLanguageName{dutch}{Samenvatting}{Abstract}}
-A study \autocite{Tsai2016} showed that in 2016, 17.9\% and 45.4\% of servers, in the Spiceworks network, respectively used Windows Server 2003 and Windows Server 2008. Windows Server 2003 is officially no longer supported by Microsoft and the extended support for Windows Server 2008 runs until the end of January 2020. This means that a large-scale update to a newer version is not only interesting, but also becomes a requirement for many organizations. In this Bachelor's thesis the advantages and disadvantages of migrating to the latest version of the \acrshort{os},
-Windows Server 2019, investigated. The four main themes were taken into account in which the extra functions of Windows Server 2019 are divided. The migration between the two versions is then carried out according to the in-place and the complete migration method. Since for many organizations this \acrshort{os} is the basis for their applications, a migration of an SAP environment is also performed. The choice for the
-migration of this software package was made in consultation with Delaware. 
-This showed that although an in-place migration is in a first respect the simplest method, it is not always the best. The advantages of a complete migration in terms of safety and long-term performance justify the additional effort involved.
+A study showed that in 2016, 17.9\% and 45.4\% of servers, in the Spiceworks network, respectively used Windows Server 2003 and Windows Server 2008.\autocite{Tsai2016} 
+Windows Server 2003 is officially no longer supported by Microsoft and the extended support for Windows Server 2008 runs until the end of January 2020. 
+This means that a large-scale update to a newer version is not only interesting, but also becomes a requirement for many organizations. 
+In this bachelor's thesis the advantages and disadvantages of migrating to the latest version of the \acrshort{os}, Windows Server 2019, are investigated. 
+The four main themes, in which the new features of Windows Server 2019 are divided, were taken into account. 
+The migration between both versions is then carried out according to the in-place and full migration method, starting from Windows Server 2016. 
+Since for many organizations this \acrshort{os} is the basis for their applications, a migration of an SAP environment is also performed. 
+The choice for migrating this software solution was made in consultation with Delaware. 
+This showed that although an in-place migration is in a first respect the simplest method, it is not always the best. 
+The advantages of a complete migration in terms of safety and long-term performance justify the additional effort involved.
 %TODO SAP Conclusion
-After this, the different available Windows Base Container Images were analysed. This showed that despite a minimal difference in size and performance, the choice goes to the latest version. This is partly due to the additional functions, which are discussed during this bachelor's thesis, and the addition of the new Windows Base Container Image.
-Finally, a look is taken at what the future brings for Windows Server. Here a look at the use of Microsoft Azure and new functionalities in \acrlong{wac} is taken. 
-It is striking that for the migration of other software packages additional studies need to be carried out, as well as additional and rigorous testing. This, like done in this Bachelor's thesis for Windows Server 2019 and SAP, to ensure that everything meets the requirements of the organization.
+After this, the different available Windows Base Container Images were analysed. 
+This showed that because of a difference in size and performance, the choice went to the most recent version. 
+This due to the additional functions, which are discussed during this bachelor's thesis, and the addition of the new Windows Base Container Image.
+Finally, a look is taken at what the future brings for Windows Server and infrastructure. 
+Here a look at the usage of the cloud, and the new functionalities that are paired with this in \acrlong{wac}, is taken. 
+It is striking that for the migration of other software solutions supplementary research needs to be carried out, as well as additional and rigorous testing. 
+This, like done in this bachelor's thesis for Windows Server 2019 and SAP, to ensure that everything meets the requirements of an organization.

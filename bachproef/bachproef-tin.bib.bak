@@ -232,12 +232,12 @@
   publisher = {Springer Nature},
 }
 
-@Manual{MicrosoftCorporation2019,
-  title        = {{Modern Desktop Deployment and Management Lab Kit }},
+@Online{MicrosoftCorporation2019,
   author       = {{Microsoft Corporation}},
-  organization = {{Microsoft Corporation}},
+  title        = {{Modern Desktop Deployment and Management Lab Kit }},
   month        = feb,
   year         = {2019},
+  organization = {{Microsoft Corporation}},
   url          = {http://download.microsoft.com/download/5/6/D/56DCD85A-DCA4-4F8D-AF2E-2CAAB4CFD0DE/MDlab_1809_guides_v2.13.zip},
 }
 
@@ -283,6 +283,23 @@
   year   = {2019},
   note   = {[Online; accessed March 26, 2019]},
   url    = {https://developers.sap.com/tutorials/hxe-ms-azure-marketplace-getting-started.html},
+}
+
+@TechReport{Ng2018,
+  author      = {Fred Ng and Colleen Graham and Ed Anderson and David Ackerman and Mike Dorosh and Sid Nag and Laurie Wurster and TJ Singh and Cathy Tornbohm and Rajesh Kandaswamy and Dean Blackmore and Michael Dominy and Hai Swinehart and Yanna Dharmasthira and Balaji Abbabatull and Craig Roth and Ruggero Contu and Fabrizio Biscotti and Ahmed Mouldaia and Chris Pang and John Kostoulas and Gregor Petri and Jim Hare and Robert Anderson and Nigel Montgomery and Alys Woodward and Terilyn Palanca and Julian Poulter and Neha Gupta},
+  title       = {{Forecast: Public Cloud Services, Worldwide, 2016-2022, 2Q18 Update}},
+  institution = {Gartner},
+  year        = {2018},
+  month       = jul,
+  url         = {https://www.gartner.com/doc/3884473/forecast-public-cloud-services-worldwide},
+}
+
+@Webinar{Singh2019,
+  author = {Avinash Singh and Mili Shah},
+  title  = {{Introduction to Microsoft Windows Server 2019}},
+  month  = mar,
+  year   = {2019},
+  url    = {https://support.microsoft.com/nl-be/help/4487177/introduction-to-microsoft-windows-server-2019},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
