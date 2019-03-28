@@ -30,7 +30,7 @@ The specifications of the server are the following:
 	\item Administrative rights on the device
 \end{itemize}
 
-The proof of concept environment was based on the Modern Desktop Deployment and Management Lab Kit provided by Microsoft.\autocite{Gallagher2018}
+The proof of concept environment was based on the Modern Desktop Deployment and Management Lab Kit provided by Microsoft. \autocite{Gallagher2018}
 This to make replication of the environment simple and efficient.
 \\
 The Modern Desktop Deployment and Management Lab Kit consists of the components in Table \ref{tab:LKC}.
@@ -424,10 +424,10 @@ Import-Csv -Path .\container_images.csv
 \end{figure}
 
 In this paragraph the performance of the images shall be tested. 
-This will be done using \href{https://benchmarkdotnet.org/}{"BenchmarkDotNet"}, a .NET library made for benchmarking.\autocite{Akinshin2019} 
+This will be done using \href{https://benchmarkdotnet.org/}{"BenchmarkDotNet"}, a .NET library made for benchmarking. \autocite{Akinshin2019} 
 Benchmarking using this library is done by calculating \acrfull{md5} and \acrfull{sha} hash functions. 
 The former is mostly used in the generation of identifiers, as it is not deemed secure enough for data security. 
-The latter is better suited for this, but has since been improved by \acrfull{sha3}.\autocite{Enkov2017}
+The latter is better suited for this, but has since been improved by \acrfull{sha3}. \autocite{Enkov2017}
 \\
 The container will be automatically built using a Dockerfile, each of these corresponds with a base container image. 
 This is needed to add the required packages inside the container to successfully perform the benchmark. 
