@@ -14,7 +14,6 @@ deploy:
    file:
      - "bachproef/bachproef-tin.pdf"
      - "poster/conference_poster.pdf"
-     - "voorstel/dufour_jens_voorstel.pdf"
    skip_cleanup: true
    on:
      repo: jensdufour/BAP
