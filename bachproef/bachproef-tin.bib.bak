@@ -302,4 +302,14 @@
   url    = {https://support.microsoft.com/nl-be/help/4487177/introduction-to-microsoft-windows-server-2019},
 }
 
+@Article{kreutz2015software,
+  author  = {Kreutz, Diego and Ramos, Fernando MV and Verissimo, Paulo and Rothenberg, Christian Esteve and Azodolmolky, Siamak and Uhlig, Steve},
+  title   = {Software-defined networking: A comprehensive survey},
+  journal = {Proceedings of the IEEE},
+  year    = {2015},
+  volume  = {103},
+  number  = {1},
+  pages   = {14--76},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

@@ -5,16 +5,16 @@
 \chapter{\IfLanguageName{dutch}{Inleiding}{Introduction}}
 \label{ch:inleiding}
 Windows Server is an \acrfull{os} that is widely used by organizations all over the world. 
-Some of them with only a handful of employees to corporations that have a couple of thousand at their disposal, in multiple geographic locations. 
-To keep up in the fast-paced world that is \acrfull{it}, updates are a necessary part of the daily operation, though they do not always present themselves at the most convenient time. 
+Some of them with only a handful of employees to corporations that have a couple of thousand at their disposal. 
+To keep up in the fast-paced world that is \acrfull{it}, updates are a necessary part of the daily operation, though they do not always present themselves at a convenient time. 
 \acrfull{sac} updates which can be scheduled to \acrfull{ltsc} updates, that could require entire systems to be taken offline for an extended duration. 
-This can bring tremendous damage to the business value of the organization since \acrshort{it} has become a core business for many of them. 
+This can bring tremendous damage to the business value of any organization since \acrshort{it} has become a core business for many of them. 
 Therefore, asking how this can be done as efficient and cost-effective as possible is important before considering a migration to the latest version. 
 
-\section{\IfLanguageName{dutch}{Probleemstelling}{Problem Statement}}
+\section{\IfLanguageName{dutch}{Probleemstelling}{Problem statement}}
 \label{sec:probleemstelling}
-Since the release of Windows Server 2019, the latest version, many organizations are willing to look into a migration from previous versions of the \acrshort{os} in the nearby future. 
-One of these organizations, Delaware, wants to research how this migration would take place, starting from Windows Server 2016, and how the migration can be achieved in an efficient and cost-effective way. 
+Since the release of Windows Server 2019, the latest version, many organizations are willing to investigate a migration from previous versions of the \acrshort{os} in the nearby future. 
+One of these organizations, delaware, wants to research how this migration would take place, starting from Windows Server 2016, and how the migration can be achieved in an efficient and cost-effective way. 
 
 \begin{table}[htb!]
 	\centering
@@ -33,9 +33,9 @@ One of these organizations, Delaware, wants to research how this migration would
 \end{table}
 
 With the ending of mainstream support for Windows Server 2016 scheduled at the start of 2022, as seen in Table ~\ref{tab:EOL2016}, it is best to research the migration to the latest version well in advance. 
-Especially when considering that organizations running \acrfull{eol} \acrshort{os}s are very common. \\
+Especially when considering that organizations running an \acrfull{eol} \acrshort{os} are very common. \\
 In an article written by \textcite{Tsai2016}, it is shown that the market share, in the Spiceworks network, of Windows Server 2003 was at 17.9\% and that of Windows Server 2008 was at 45.4\%, in 2016. 
-The official support for both of these versions has already ended. The extended support for the latter will be ending at the start of 2020. 
+The official support for both versions has already ended. The extended support for the latter will be ending at the start of 2020. 
 
 \begin{table}[ht]
 	\centering
@@ -54,11 +54,11 @@ The official support for both of these versions has already ended. The extended 
 	\label{tab:EOL2019}
 \end{table}
 
-Those deadlines combined with the \acrshort{eol} of Windows Server 2016, make a strong case to look into the migration to the latest version, which can offer enhanced security and additional features. 
+Those deadlines combined with the \acrshort{eol} of Windows Server 2016, make a strong case to investigate the migration to the latest version, which can offer enhanced security and additional features. 
 The life cycle of the latest version, Windows Server 2019, started in November 2018 and it will continue to receive mainstream support until January 2024. 
 The extended support is guaranteed until January 2029, as seen in Table ~\ref{tab:EOL2019}.\\
 This makes it a viable successor for the \acrshort{os} that makes up a large percent of the server infrastructure used in the world. 
-This bachelor's thesis attempts to show that the benefits will outweigh the disadvantages that are paired with a migration. 
+This bachelor's thesis attempts to show that the benefits that are paired with migrating will outweigh the disadvantages. 
 The new features of the latest version can be divided into four key themes \autocite{MWST2018}:
 
 \begin{itemize}
@@ -77,7 +77,7 @@ What are the advantages and disadvantages of a migration from Windows Server 201
 \subsection{Sub-research question}
 
 \begin{itemize}
-	\item What are the differences between the Windows, ServerCore and Nano Server Base Container Images of Windows Server 2019?
+	\item What are the differences between the Windows, Server Core and Nano Server base container images of Windows Server 2019?
 	\item Can SAP be migrated from an existing Windows Server 2016 to Windows Server 2019 in a business environment?
 	\item How can the new features of Windows Server 2019 be leveraged in the migrated infrastructure? 
 \end{itemize}
@@ -85,24 +85,25 @@ What are the advantages and disadvantages of a migration from Windows Server 201
 \section{\IfLanguageName{dutch}{Onderzoeksdoelstelling}{Research objective}}
 \label{sec:onderzoeksdoelstelling}
 
-The expected result of this bachelor's thesis is to demonstrate the advantages of utilizing Windows Server 2019 over Windows Server 2016, proving that migration is a long-term investment towards the future. 
-It will also compare the Base Container Images of the \acrshort{os}: Windows, Windows Server Core and Windows Nano Server. \\
-However, migrating an SAP environment will not yet be recommended due to the new nature of Windows Server 2019. 
+The expected result of this bachelor's thesis is to demonstrate the advantages of utilizing Windows Server 2019 over Windows Server 2016, proving that migration is a long-term investment towards the future for any organization. 
+It will also compare the base container images of the \acrshort{os}: Windows, Server Core and Nano Server. \\
+%TODO SAP Review
+However, migrating a SAP environment will not yet be recommended due to the new nature of Windows Server 2019. 
 This due to requirements that have not yet been met between the \acrshort{os} and the SAP Kernel. 
 
-\section{\IfLanguageName{dutch}{Opzet van deze bachelorproef}{Structure of this bachelor thesis}}
+\section{\IfLanguageName{dutch}{Opzet van deze bachelorproef}{Structure of this bachelor's thesis}}
 \label{sec:opzet-bachelorproef}
 
 The remainder of this bachelor's thesis is structured as follows:
 
-In Chapter ~\ref{ch:stand-van-zaken}, an overview is given of the state of affairs within the research domain, based on a literature study.
+In Chapter ~\ref{ch:stand-van-zaken}, an overview is given of the state of the art within the research domain, based on a literature study.
 \\
 
-In Chapter ~\ref{ch:methodologie}, a methodology is explained and the research techniques used to formulate an answer to the research questions are discussed.
+In Chapter ~\ref{ch:methodologie}, a methodology is explained, and the research techniques used to formulate an answer to the research questions are discussed.
 \\
 
 In Chapter ~\ref{ch:toekomstvisie}, the further development of Windows Server over the years to come will be analysed. 
 \\
 
-In Chapter~\ref{ch:conclusie}, finally, the conclusion is given and an answer is formulated to the research questions. This will also provide an impetus for future research within this domain.
+In Chapter~\ref{ch:conclusie}, finally, the conclusion is given, and an answer is formulated to the research questions. This will also provide an impetus for future research within this domain.
 \\

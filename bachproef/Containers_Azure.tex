@@ -1,5 +1,5 @@
 \label{Containers_Azure}
-\section{Creation of Microsoft Azure \acrshort{vm}}
+\section{Creation of the Microsoft Azure \acrshort{vm}}
 \begin{figure}[h]
 	\begin{subfigure}{\textwidth}
 		\captionsetup{width=0.9\linewidth}
@@ -27,8 +27,8 @@
 	\label{fig:Container_VM}
 \end{figure}
 \clearpage
-\section{Installation of nested \acrshort{vm}}
-The following commands have to be run through Powershell on the created \acrshort{vm} to install the requirements needed to run a nested \acrshort{vm}. This is necessary to run the containers isolated.
+\section{Requirements for a nested \acrshort{vm}}
+The following commands must be run through Powershell on the created \acrshort{vm} to install the requirements needed to run a nested \acrshort{vm}. This is necessary to run the containers isolated.
 \begin{lstlisting}[breaklines]
 Install-WindowsFeature -Name Hyper-V
 Install-WindowsFeature -Name Containers
@@ -36,14 +36,14 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 Enable-WindowsOptionalFeature -Online -FeatureName containers -All
 \end{lstlisting}
 \section{Installation of Git}
-The following commands have to be run through Powershell on the created \acrshort{vm} to install Git. Git is necessary to clone the files needed to run the benchmarks.
+The following commands must be run through Powershell on the created \acrshort{vm} to install Git. Git is necessary to clone the files needed to run the benchmarks.
 \begin{lstlisting}[breaklines]
 Set-ExecutionPolicy Bypass -Scope Process -Force;iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 choco install git -params '"/GitAndUnixToolsOnPath"' -y
 refreshenv
 \end{lstlisting}
 \section{Installation of Docker EE}
-The following commands have to be run through Powershell on the created \acrshort{vm} to install Docker EE.
+The following commands must be run through Powershell on the created \acrshort{vm} to install Docker EE.
 \begin{lstlisting}[breaklines]
 Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
 Install-Package -Name docker -ProviderName DockerMsftProvider
