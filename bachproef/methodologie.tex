@@ -4,18 +4,20 @@
 %%=============================================================================
 \chapter{\IfLanguageName{dutch}{Methodologie}{Methodology}}
 \label{ch:methodologie}
-
 In this chapter, the migration from Windows Server 2016 to Windows Server 2019 will be executed. 
-This migration will first be performed using an in-place upgrade. 
-Microsoft heavily focused on the improvement of this method. 
-This should make it more resilient and safer to use. 
-Afterwards, the process will be repeated using a traditional side-by-side migration. 
-After this, the side-by-side migration of a typical SAP environment, as described by delaware, from Windows Server 2016 to Windows Server 2019 will be performed. 
-Finally, the different versions of the base container images will be analysed. 
-How these can lower virtual machine overhead and improve virtualization efficiency, will be reviewed. 
-But first, the infrastructure that was used for most of this proof of concept, will be discussed.
+This migration will first be performed on an environment which has been based on the Modern Desktop Deployment and Management Lab Kit provided by Microsoft. \autocite{Gallagher2018} 
+Here a \acrfull{dc} will be migrated. 
+After this, the migration of a typical SAP environment, as described by delaware, from Windows Server 2016 to Windows Server 2019 will be performed. 
+Finally, the different versions of the Windows Server 2019 base container images will be analysed. 
+How these can lower virtual machine overhead and improve virtualization efficiency compared to their predecessor, will be reviewed. 
+But first, the infrastructure that was used for the initial migration will be discussed.
 
-\section{Technical specifications of the proof of concept setup}
+\section{Migrating the \acrshort{os}}
+In this section, a \acrshort{dc} will be migrated using both the in-place upgrade and side-by-side migration method. 
+This to show the basics of the migration process in an environment where no third-party services, such as SAP, are running. 
+That will be discussed in Section \ref{sec:SAP}.
+
+\subsection{Technical specifications of the proof of concept environment}
 The proof of concept was made using a bare-metal server running Windows Server 2016. 
 The proof of concept environment was than virtualized using Hyper-V. 
 Additionally, \acrlong{wac} was also installed locally, this to make the management of the resources easier and more efficient.
@@ -39,34 +41,34 @@ The Modern Desktop Deployment and Management Lab Kit consists of the components 
 \begin{table}[ht]
 	\centering
 	\begin{adjustbox}{width=1\textwidth}
-	\begin{tabular}{l|l}
-		Server Name  & Roles \& Products                                                  	 \\ 
-		\hline
-		HYD-DC1      & Active Directory Domain Controller, DNS, DHCP, Certificate Services 	   \\
-		HYD-MDT1     & Microsoft Deployment Toolkit                                        		\\
-		& Windows 10 1809 ADK                                                 					 \\
-		& Windows Deployment Services                                         					  \\
-		HYD-CM1      & System Center Configuration Manager 1806                            		   \\
-		& Windows Deployment Services                                         						\\
-		& Microsoft Deployment Toolkit                                         						 \\
-		& Windows 10 1809 ADK                                                 			 			  \\
-		& Windows Software Update Services                                        		  			   \\
-		& Microsoft SQL Server 2014                                           						    \\
-		HYD-APP1     & Microsoft BitLocker Administration and Monitoring                   				 \\
-		& Microsoft SQL Server 2014                                          							  \\
-		HYD-GW1      & Remote Access for Internet Connectivity                           				   \\
-		HYD-INET1    & Simulated Internet                                                			 	    \\
-		HYD-VPN1     & Remote Access for VPN                                             				     \\
-		HYD-CLIENT1  & Windows 10 1809 Domain Joined                                  					      \\
-		& Office 365 ProPlus Build 16.0.11121.20000                         								   \\
-		HYD-CLIENT2  & Windows 10 1809 Domain Joined                                     					    \\
-		& Office 365 ProPlus Build 16.0.11121.20000                           									 \\
-		HYD-CLIENT3  & Windows 10 1809 Workgroup                                         						  \\
-		HYD-CLIENT4  & Windows 10 1809 Workgroup                                          						   \\
-		HYD-CLIENT5 & Bare metal (no installations)                                      						    \\
-		HYD-CLIENT6 & Bare metal (no installations)                                       							 \\
-		HYD-CLIENT7  & Windows 7 Domain Joined                                            
-	\end{tabular}
+		\begin{tabular}{l|l}
+			Server Name  & Roles \& Products                                                  	 \\ 
+			\hline
+			HYD-DC1      & Active Directory Domain Controller, DNS, DHCP, Certificate Services 	   \\
+			HYD-MDT1     & Microsoft Deployment Toolkit                                        		\\
+			& Windows 10 1809 ADK                                                 					 \\
+			& Windows Deployment Services                                         					  \\
+			HYD-CM1      & System Center Configuration Manager 1806                            		   \\
+			& Windows Deployment Services                                         						\\
+			& Microsoft Deployment Toolkit                                         						 \\
+			& Windows 10 1809 ADK                                                 			 			  \\
+			& Windows Software Update Services                                        		  			   \\
+			& Microsoft SQL Server 2014                                           						    \\
+			HYD-APP1     & Microsoft BitLocker Administration and Monitoring                   				 \\
+			& Microsoft SQL Server 2014                                          							  \\
+			HYD-GW1      & Remote Access for Internet Connectivity                           				   \\
+			HYD-INET1    & Simulated Internet                                                			 	    \\
+			HYD-VPN1     & Remote Access for VPN                                             				     \\
+			HYD-CLIENT1  & Windows 10 1809 Domain Joined                                  					      \\
+			& Office 365 ProPlus Build 16.0.11121.20000                         								   \\
+			HYD-CLIENT2  & Windows 10 1809 Domain Joined                                     					    \\
+			& Office 365 ProPlus Build 16.0.11121.20000                           									 \\
+			HYD-CLIENT3  & Windows 10 1809 Workgroup                                         						  \\
+			HYD-CLIENT4  & Windows 10 1809 Workgroup                                          						   \\
+			HYD-CLIENT5 & Bare metal (no installations)                                      						    \\
+			HYD-CLIENT6 & Bare metal (no installations)                                       							 \\
+			HYD-CLIENT7  & Windows 7 Domain Joined                                            
+		\end{tabular}
 	\end{adjustbox}
 	\caption[Lab Kit Components]{Modern Desktop Deployment and Management Lab Kit Components}
 	\scriptsize	
@@ -74,19 +76,19 @@ The Modern Desktop Deployment and Management Lab Kit consists of the components 
 	\label{tab:LKC}
 \end{table}
 
-	
+
 Only HYD-CLIENT1 will be kept in the environment since there is no need for any additional clients. 
 Connection to the \acrshort{vm}s can be made using the credentials in Table \ref{tab:LKCred}.
 
 \begin{table}[ht]
 	\centering
 	\begin{adjustbox}{width=1\textwidth}
-	\begin{tabular}{l|lll}
-		User                 & Access Type              & User Name                    & Password \\
-		\hline
-		Local Administrator  & Administrative           & Administrator                & P@ssw0rd \\
-		Domain Administrator & Enterprise Administrator & CORP\textbackslash{}LabAdmin & P@ssw0rd
-	\end{tabular}
+		\begin{tabular}{l|lll}
+			User                 & Access Type              & User Name                    & Password \\
+			\hline
+			Local Administrator  & Administrative           & Administrator                & P@ssw0rd \\
+			Domain Administrator & Enterprise Administrator & CORP\textbackslash{}LabAdmin & P@ssw0rd
+		\end{tabular}
 	\end{adjustbox}
 	\caption[Lab Kit Credentials]{Modern Desktop Deployment and Management Lab Kit Credentials}
 	\scriptsize	
@@ -94,7 +96,6 @@ Connection to the \acrshort{vm}s can be made using the credentials in Table \ref
 	\label{tab:LKCred}
 \end{table}
 
-\section{Upgrading the \acrshort{os}}
 \subsection{In-place upgrade to Windows Server 2019}
 \label{subsection:Inplace}
 In this subsection, an in-place upgrade will be performed on the \acrfull{dc}, HYD-DC1, from Windows Server 2016 to Windows Server 2019. 
@@ -116,14 +117,15 @@ adprep /domainprep
 \end{lstlisting}
 
 \begin{figure}[h]
-	\includegraphics[height=8cm]{img/Methodologie/Prerequisites0.png}
-	\captionsetup{width=0.8\linewidth}
+	\includegraphics[width=\linewidth]{img/Methodologie/Prerequisites0.png}
+	\captionsetup{width=0.9\linewidth}
 	\centering		
 	\caption[Preparing forest and domain ]{Preparing the forest and domain for in-place upgrade}
 	\label{fig:Prerequisites}
 \end{figure}
+\clearpage
 
-\subsubsection{In-place upgrade to Windows Server 2019}
+\subsubsection{In-place upgrade}
 After preparing the forest and domain for the in-place upgrade, the setup from the installation media is to be launched. 
 From this point on, the upgrade process has been visualized in Figure \ref{fig:Inplace}. 
 Be sure not to use the evaluation version of Windows Server 2019, since this does not support in-place upgrades.
@@ -269,7 +271,7 @@ The prerequisites are shown in Figure \ref{fig:PrerequisitesMigration}.
 	\label{fig:PrerequisitesMigration}
 \end{figure}
 
-\subsubsection{Migration}
+\subsubsection{Side-by-side migration}
 The side-by-side migration to the new Windows Server 2019 \acrshort{dc}, that will be performed in this paragraph, can be divided into seven parts:
 \begin{enumerate}
 	\item Creating the \acrshort{vm}
@@ -314,6 +316,7 @@ However, it can be found in Appendix \ref{Migration}.
 	\caption[Verifying the side-by-side migration]{Verifying the connection to the migrated \acrshort{dc}}
 	\label{fig:Migration}
 \end{figure}
+\clearpage
 
 \subsection{Conclusion}
 After performing the migration from Windows Server 2016 to Windows Server 2019 using both methods, either of them has its own advantages and disadvantages. 
@@ -341,8 +344,12 @@ The research that is required to migrate Windows Server to the latest version in
 When migrating a server, it is of great importance that the environment around the specific server is mapped entirely. 
 This to ensure that all dependencies have been met. 
 Afterwards, all of those should be verified. 
-In this section, the side-by-side migration from Windows Server 2016 to Windows Server 2019 will be done in a SAP environment. 
-This to provide an example of the additional research that comes with the side-by-side migration of a server that is performing a critical task in a business environment. 
+In this section, the migration from Windows Server 2016 to Windows Server 2019 will be done in a SAP environment. 
+Keep in mind that only the \acrlong{ltsc} version is supported. 
+This to provide an example of the additional research that comes with the migration of a server that is performing a critical task in a business environment. 
+The migration is of interest for any kind of organization for the same reasons that were mentioned before. 
+Additionally, SAP recommands the usage of the latest supported version for its products. 
+Currently the latest supported version is Windows Server 2016 \acrshort{ltsc}.
 
 \subsection{Technical specifications of the SAP environment}
 The proof of concept environment has been made using Microsoft Azure. 
@@ -350,6 +357,7 @@ It was partially based on the available resources on SAP \acrfull{cal}, adapted 
 The architecture of the SAP environment can be seen in Figure \ref{fig:SAPInfra}.
 The installation and configuration of the SAP environment can be found in Appendix \ref{SAPConfig}.
 
+%TODO Check PAM and revise Figure
 \begin{figure}[h]
 	\captionsetup{width=0.8\linewidth}
 	\includegraphics[width=0.9\linewidth]{img/Methodologie/sap0.png}
@@ -358,16 +366,33 @@ The installation and configuration of the SAP environment can be found in Append
 	\label{fig:SAPInfra}	
 \end{figure}
 
-\subsection{Side-by-side migration of SAP}
-%TODO SAP Migration
-In this subsection, the side-by-side migration of the SAP application server will be performed. 
-This means adding a \acrshort{vm}, with the latest version of Windows Server, to the environment and installing the required software to this server. 
-It is important to verify that everything is supported using the SAP \acrfull{pam}.  
-Since the HANA database is currently only supported on Linux, this will not be migrated. 
+\subsection{In-place upgrade of the SAP environment}
+%TODO SAP In-place upgrade
+With Windows Server 2019 SAP offers support for full upgrades. 
+This means that for non-clustered systems the in-place upgrade method is supported.
+This eliminates the need for a system copy and provides a smooth upgrade to Windows Server 2019. 
+
+\subsubsection{Prerequisites}
+\subsubsection{In-place upgrade}
+\subsubsection{Verification}
+
+
+\subsection{Side-by-side migration of the SAP environment}
+%TODO SAP Side-by-side migration
+As discussed in the previous section, an in-place upgrade is not always available from the \acrshort{os} of origin. 
+As an alternative the side-by-side migration will also be performed. 
+The starting point is the same as in the previous subsection.
+
+\subsubsection{Prerequisites}
+\subsubsection{Side-by-side migration}
+\subsubsection{Verification}
+
+\subsection{Conclusion}
+%TODO SAP Conclusion
 
 \clearpage
 
-\section{Windows, Windows Server Core and Nano Server}
+\section{Base container images of Windows Server 2019}
 In this final section, a comparison shall be made between the Windows, Server Core and Nano Server base container images. 
 At first, the advantages of the new versions of the images will be discussed. 
 This involves a comparison between version 1709 and version 1809 of the base container images. 
