@@ -345,22 +345,21 @@ When migrating a server, it is of great importance that the environment around t
 This to ensure that all dependencies have been met. 
 Afterwards, all of those should be verified. 
 In this section, the migration from Windows Server 2016 to Windows Server 2019 will be done in a SAP environment. 
-Keep in mind that only the \acrlong{ltsc} version is supported. 
 This to provide an example of the additional research that comes with the migration of a server that is performing a critical task in a business environment. 
-The migration is of interest for any kind of organization for the same reasons that were mentioned before. 
+The migration is of interest in any kind of organization for the same reasons that were mentioned before. 
 Additionally, SAP recommands the usage of the latest supported version for its products. 
-Currently the latest supported version is Windows Server 2016 \acrshort{ltsc}.
+Currently, the latest supported version is Windows Server 2019 \acrshort{ltsc}.
 
 \subsection{Technical specifications of the SAP environment}
 The proof of concept environment has been made using Microsoft Azure. 
-It was partially based on the available resources on SAP \acrfull{cal}, adapted to the small size for this demo environment. 
+For the environment a PO system running Netweaver 7.5 on Windows Server 2016 Datacenter Edition using Sybase DB. 
 The architecture of the SAP environment can be seen in Figure \ref{fig:SAPInfra}.
 The installation and configuration of the SAP environment can be found in Appendix \ref{SAPConfig}.
 
 %TODO Check PAM and revise Figure
 \begin{figure}[h]
 	\captionsetup{width=0.8\linewidth}
-	\includegraphics[width=0.9\linewidth]{img/Methodologie/sap0.png}
+	\includegraphics[width=0.9\linewidth]{img/Methodologie/SAP_PO.png}
 	\centering
 	\caption[SAP Infrastructure]{Infrastructure of the SAP environment}
 	\label{fig:SAPInfra}	
