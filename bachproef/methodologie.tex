@@ -384,11 +384,11 @@ The following process will verify the operation of the software solution.
 
 \begin{enumerate}
     \item Browse to `http://host:port/dir`
-    \item Click on `Enterprise Services Builder`
-    \item Verify the `SAP Basis` component as seen in Figure \ref{fig:SAPPreInPlace}
+    \item Click on Enterprise Services Builder
+    \item Verify the SAP Basis component as seen in Figure \ref{fig:SAPPreInPlace}
     \item Browse to `http://host:port/pimon`
-    \item Click on `Adapter Engine`
-    \item Click on `Message Monitor`
+    \item Click on Adapter Engine
+    \item Click on Message Monitor
     \item Verify that no warnings are shown as seen in Figure \ref{fig:SAPPreInPlace}
     \item Browse to `http://host:port/CPACache/refresh`
     \item Execute the cache refresh and verify that no warnings are shown
@@ -400,14 +400,14 @@ The following process will verify the operation of the software solution.
         \includegraphics[width=0.9\linewidth]{img/Methodologie/SAP0.png}
         %        TODO SAP1.png
         \centering
-        \caption{Verify the `SAP Basis` component}
+        \caption{Verify the SAP Basis component}
     \end{subfigure}
     \begin{subfigure}{0.5\textwidth}
         \captionsetup{width=0.8\linewidth}
         \includegraphics[width=0.9\linewidth]{img/Methodologie/SAP0.png} 
         %        TODO SAP2.png
         \centering
-        \caption{Verify that no warnings are shown in `Message Monitor`}
+        \caption{Verify that no warnings are shown in Message Monitor}
     \end{subfigure}
     \caption[Prerequisites of the in-place upgrade]{Verifying the operation of the SAP \acrshort{po}}
     \label{fig:SAPPreInPlace}	
@@ -425,15 +425,20 @@ The side-by-side migration of the SAP environment can be divided into 4 parts:
 \end{enumerate}
 The first and second part of this procedure were already described in Subsection \ref{sssec:Side-by-side_migration}.
 The third part of this procedure has already been described in Appendix \ref{SAPConfig}. 
-The final part is the deletion of the old \acrshort{vm} after verifying the operation of the new \acrshort{vm}.
-As shown in the following paragraph.
+The final part is the deletion of the old \acrshort{vm} after verifying the operation of the new \acrshort{vm}, as shown in the following paragraph.
 
 \subsubsection{Verification}
 After a successful migration, the operation of the SAP \acrshort{po} will be verified, again, as described in Subsection \ref{sssec:SAP_Prerequisites}.
 
 \subsection{Conclusion}
-%TODO SAP Conclusion
-
+After the migration of the SAP environment, it is clear that many of the aspects from the previous migration in Section \ref{sec:Migrating_the_OS} return. 
+With the migration of a software solution it is important to verify that it supports the version of the \acrshort{os} to which will be migrated beforehand. 
+For SAP, this was verified using the SAP \acrshort{pam}.
+Here all the different aspects that were installed, as described in Appendix \ref{SAPConfig}, were verified to be supported for operation on Windows Server 2019. 
+Additionally, verifying the operation of all the third-party applications that need to be installed requires additional research. 
+This section of the bachelor's thesis shows that no two migrations are the same. 
+It emphasizes that for any migration, irrespective of the size and scope, requires its own research as no environment is identical to the other. 
+There are always some variables which should be considered.  
 \clearpage
 
 \section{Base container images of Windows Server 2019}
