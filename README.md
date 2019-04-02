@@ -1,14 +1,12 @@
 # Bachelorproef toegepaste informatica [![Build Status](https://travis-ci.com/jensdufour/BAP.svg?token=wVQRmoVqnNmxsb78JHKk&branch=master)](https://travis-ci.com/jensdufour/BAP)
 
-Deze repository bevat LaTeX sources voor het genereren van mijn bachelorproef voor het bekomen van de graad van professionele bachelor in de toegepaste informatica:
+Deze repository bevat mijn bachelorproef voor het bekomen van de graad van professionele bachelor in de toegepaste informatica:
 
-- [Het onderzoeksvoorstel](./voorstel/)
-- [De bachelorproef zelf](./bachproef/)
-- [Een poster](./poster/)
+- [Het onderzoeksvoorstel](https://github.com/jensdufour/BAP/releases/latest/download/dufour_jens_voorstel.pdf)
+- [De bachelorproef zelf](https://github.com/jensdufour/BAP/releases/latest/download/bachproef-tin.pdf)
+- [Een poster](https://github.com/jensdufour/BAP/releases/latest/download/conference_poster.pdf)
 
-Het voorblad van het bachelorproefsjabloon is conform aan datgene dat door de [scriptie-tool](https://scriptie.hogent.be/) wordt gegenereerd.
-
-Tijdelijke en finale versies van deze scriptie kunnen gevonden worden in de Github Releases. 
+Het voorblad van het bachelorproefsjabloon is conform aan datgene dat door de [scriptie-tool](https://scriptie.hogent.be/) wordt gegenereerd. 
 
 ## Vragen, fouten, verbeteringen
 
