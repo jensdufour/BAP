@@ -1,0 +1,1230 @@
+\ifglsentryexists{eol}{}%
+{%
+\gls@defglossaryentry{eol}%
+{%
+name={EOL},%
+sort={EOL},%
+type={main},%
+first={End of Life\glsspace (EOL)},%
+firstplural={End of Life\acrpluralsuffix \glsspace (EOL\acrpluralsuffix )},%
+text={EOL},%
+plural={EOL\acrpluralsuffix },%
+description={End of Life},%
+descriptionplural={End of Life\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={End of Life},%
+longplural={End of Lifes},%
+short={EOL},%
+shortplural={EOLs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{it}{}%
+{%
+\gls@defglossaryentry{it}%
+{%
+name={IT},%
+sort={IT},%
+type={main},%
+first={Information Technology\glsspace (IT)},%
+firstplural={Information Technology\acrpluralsuffix \glsspace (IT\acrpluralsuffix )},%
+text={IT},%
+plural={IT\acrpluralsuffix },%
+description={Information Technology},%
+descriptionplural={Information Technology\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Information Technology},%
+longplural={Information Technologys},%
+short={IT},%
+shortplural={ITs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{os}{}%
+{%
+\gls@defglossaryentry{os}%
+{%
+name={OS},%
+sort={OS},%
+type={main},%
+first={Operating System\glsspace (OS)},%
+firstplural={Operating System\acrpluralsuffix \glsspace (OS\acrpluralsuffix )},%
+text={OS},%
+plural={OS\acrpluralsuffix },%
+description={Operating System},%
+descriptionplural={Operating System\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Operating System},%
+longplural={Operating Systems},%
+short={OS},%
+shortplural={OSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{hr}{}%
+{%
+\gls@defglossaryentry{hr}%
+{%
+name={HR},%
+sort={HR},%
+type={main},%
+first={Human Resources\glsspace (HR)},%
+firstplural={Human Resources\acrpluralsuffix \glsspace (HR\acrpluralsuffix )},%
+text={HR},%
+plural={HR\acrpluralsuffix },%
+description={Human Resources},%
+descriptionplural={Human Resources\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Human Resources},%
+longplural={Human Resourcess},%
+short={HR},%
+shortplural={HRs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{vpn}{}%
+{%
+\gls@defglossaryentry{vpn}%
+{%
+name={VPN},%
+sort={VPN},%
+type={main},%
+first={Virtual Private Network\glsspace (VPN)},%
+firstplural={Virtual Private Network\acrpluralsuffix \glsspace (VPN\acrpluralsuffix )},%
+text={VPN},%
+plural={VPN\acrpluralsuffix },%
+description={Virtual Private Network},%
+descriptionplural={Virtual Private Network\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Virtual Private Network},%
+longplural={Virtual Private Networks},%
+short={VPN},%
+shortplural={VPNs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{atp}{}%
+{%
+\gls@defglossaryentry{atp}%
+{%
+name={ATP},%
+sort={ATP},%
+type={main},%
+first={Advanced Threat Protection\glsspace (ATP)},%
+firstplural={Advanced Threat Protection\acrpluralsuffix \glsspace (ATP\acrpluralsuffix )},%
+text={ATP},%
+plural={ATP\acrpluralsuffix },%
+description={Advanced Threat Protection},%
+descriptionplural={Advanced Threat Protection\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Advanced Threat Protection},%
+longplural={Advanced Threat Protections},%
+short={ATP},%
+shortplural={ATPs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{sdn}{}%
+{%
+\gls@defglossaryentry{sdn}%
+{%
+name={SDN},%
+sort={SDN},%
+type={main},%
+first={Software Defined Networking\glsspace (SDN)},%
+firstplural={Software Defined Networking\acrpluralsuffix \glsspace (SDN\acrpluralsuffix )},%
+text={SDN},%
+plural={SDN\acrpluralsuffix },%
+description={Software Defined Networking},%
+descriptionplural={Software Defined Networking\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Software Defined Networking},%
+longplural={Software Defined Networkings},%
+short={SDN},%
+shortplural={SDNs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{vm}{}%
+{%
+\gls@defglossaryentry{vm}%
+{%
+name={VM},%
+sort={VM},%
+type={main},%
+first={Virtual Machine\glsspace (VM)},%
+firstplural={Virtual Machine\acrpluralsuffix \glsspace (VM\acrpluralsuffix )},%
+text={VM},%
+plural={VM\acrpluralsuffix },%
+description={Virtual Machine},%
+descriptionplural={Virtual Machine\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Virtual Machine},%
+longplural={Virtual Machines},%
+short={VM},%
+shortplural={VMs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{wdatp}{}%
+{%
+\gls@defglossaryentry{wdatp}%
+{%
+name={WDATP},%
+sort={WDATP},%
+type={main},%
+first={Windows Defender Advanced Threat Protection\glsspace (WDATP)},%
+firstplural={Windows Defender Advanced Threat Protection\acrpluralsuffix \glsspace (WDATP\acrpluralsuffix )},%
+text={WDATP},%
+plural={WDATP\acrpluralsuffix },%
+description={Windows Defender Advanced Threat Protection},%
+descriptionplural={Windows Defender Advanced Threat Protection\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Windows Defender Advanced Threat Protection},%
+longplural={Windows Defender Advanced Threat Protections},%
+short={WDATP},%
+shortplural={WDATPs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{roi}{}%
+{%
+\gls@defglossaryentry{roi}%
+{%
+name={ROI},%
+sort={ROI},%
+type={main},%
+first={Return on Investment\glsspace (ROI)},%
+firstplural={Return on Investment\acrpluralsuffix \glsspace (ROI\acrpluralsuffix )},%
+text={ROI},%
+plural={ROI\acrpluralsuffix },%
+description={Return on Investment},%
+descriptionplural={Return on Investment\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Return on Investment},%
+longplural={Return on Investments},%
+short={ROI},%
+shortplural={ROIs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ws}{}%
+{%
+\gls@defglossaryentry{ws}%
+{%
+name={WS},%
+sort={WS},%
+type={main},%
+first={Windows Server\glsspace (WS)},%
+firstplural={Windows Server\acrpluralsuffix \glsspace (WS\acrpluralsuffix )},%
+text={WS},%
+plural={WS\acrpluralsuffix },%
+description={Windows Server},%
+descriptionplural={Windows Server\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Windows Server},%
+longplural={Windows Servers},%
+short={WS},%
+shortplural={WSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{dtls}{}%
+{%
+\gls@defglossaryentry{dtls}%
+{%
+name={DTLS},%
+sort={DTLS},%
+type={main},%
+first={Datagram Transport Layer Security\glsspace (DTLS)},%
+firstplural={Datagram Transport Layer Security\acrpluralsuffix \glsspace (DTLS\acrpluralsuffix )},%
+text={DTLS},%
+plural={DTLS\acrpluralsuffix },%
+description={Datagram Transport Layer Security},%
+descriptionplural={Datagram Transport Layer Security\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Datagram Transport Layer Security},%
+longplural={Datagram Transport Layer Securitys},%
+short={DTLS},%
+shortplural={DTLSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{tls}{}%
+{%
+\gls@defglossaryentry{tls}%
+{%
+name={TLS},%
+sort={TLS},%
+type={main},%
+first={Transport Layer Security\glsspace (TLS)},%
+firstplural={Transport Layer Security\acrpluralsuffix \glsspace (TLS\acrpluralsuffix )},%
+text={TLS},%
+plural={TLS\acrpluralsuffix },%
+description={Transport Layer Security},%
+descriptionplural={Transport Layer Security\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Transport Layer Security},%
+longplural={Transport Layer Securitys},%
+short={TLS},%
+shortplural={TLSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{hgs}{}%
+{%
+\gls@defglossaryentry{hgs}%
+{%
+name={HGS},%
+sort={HGS},%
+type={main},%
+first={Host Guardian Service\glsspace (HGS)},%
+firstplural={Host Guardian Service\acrpluralsuffix \glsspace (HGS\acrpluralsuffix )},%
+text={HGS},%
+plural={HGS\acrpluralsuffix },%
+description={Host Guardian Service},%
+descriptionplural={Host Guardian Service\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Host Guardian Service},%
+longplural={Host Guardian Services},%
+short={HGS},%
+shortplural={HGSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{hci}{}%
+{%
+\gls@defglossaryentry{hci}%
+{%
+name={HCI},%
+sort={HCI},%
+type={main},%
+first={Hyper-Converged Infrastructure\glsspace (HCI)},%
+firstplural={Hyper-Converged Infrastructure\acrpluralsuffix \glsspace (HCI\acrpluralsuffix )},%
+text={HCI},%
+plural={HCI\acrpluralsuffix },%
+description={Hyper-Converged Infrastructure},%
+descriptionplural={Hyper-Converged Infrastructure\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Hyper-Converged Infrastructure},%
+longplural={Hyper-Converged Infrastructures},%
+short={HCI},%
+shortplural={HCIs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{rsc}{}%
+{%
+\gls@defglossaryentry{rsc}%
+{%
+name={RSC},%
+sort={RSC},%
+type={main},%
+first={Receive Segment Coalescing\glsspace (RSC)},%
+firstplural={Receive Segment Coalescing\acrpluralsuffix \glsspace (RSC\acrpluralsuffix )},%
+text={RSC},%
+plural={RSC\acrpluralsuffix },%
+description={Receive Segment Coalescing},%
+descriptionplural={Receive Segment Coalescing\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Receive Segment Coalescing},%
+longplural={Receive Segment Coalescings},%
+short={RSC},%
+shortplural={RSCs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{dvmmq}{}%
+{%
+\gls@defglossaryentry{dvmmq}%
+{%
+name={d.VMMQ},%
+sort={d.VMMQ},%
+type={main},%
+first={Dynamic Virtual Machine Multi-Queue\glsspace (d.VMMQ)},%
+firstplural={Dynamic Virtual Machine Multi-Queue\acrpluralsuffix \glsspace (d.VMMQ\acrpluralsuffix )},%
+text={d.VMMQ},%
+plural={d.VMMQ\acrpluralsuffix },%
+description={Dynamic Virtual Machine Multi-Queue},%
+descriptionplural={Dynamic Virtual Machine Multi-Queue\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Dynamic Virtual Machine Multi-Queue},%
+longplural={Dynamic Virtual Machine Multi-Queues},%
+short={d.VMMQ},%
+shortplural={d.VMMQs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{vrss}{}%
+{%
+\gls@defglossaryentry{vrss}%
+{%
+name={vRSS},%
+sort={vRSS},%
+type={main},%
+first={Virtual Receive Side Scaling\glsspace (vRSS)},%
+firstplural={Virtual Receive Side Scaling\acrpluralsuffix \glsspace (vRSS\acrpluralsuffix )},%
+text={vRSS},%
+plural={vRSS\acrpluralsuffix },%
+description={Virtual Receive Side Scaling},%
+descriptionplural={Virtual Receive Side Scaling\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Virtual Receive Side Scaling},%
+longplural={Virtual Receive Side Scalings},%
+short={vRSS},%
+shortplural={vRSSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ledbat}{}%
+{%
+\gls@defglossaryentry{ledbat}%
+{%
+name={LEDBAT},%
+sort={LEDBAT},%
+type={main},%
+first={Low Extra Delay Background Transport\glsspace (LEDBAT)},%
+firstplural={Low Extra Delay Background Transport\acrpluralsuffix \glsspace (LEDBAT\acrpluralsuffix )},%
+text={LEDBAT},%
+plural={LEDBAT\acrpluralsuffix },%
+description={Low Extra Delay Background Transport},%
+descriptionplural={Low Extra Delay Background Transport\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Low Extra Delay Background Transport},%
+longplural={Low Extra Delay Background Transports},%
+short={LEDBAT},%
+shortplural={LEDBATs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{gre}{}%
+{%
+\gls@defglossaryentry{gre}%
+{%
+name={GRE},%
+sort={GRE},%
+type={main},%
+first={Generic Routing Encapsulation\glsspace (GRE)},%
+firstplural={Generic Routing Encapsulation\acrpluralsuffix \glsspace (GRE\acrpluralsuffix )},%
+text={GRE},%
+plural={GRE\acrpluralsuffix },%
+description={Generic Routing Encapsulation},%
+descriptionplural={Generic Routing Encapsulation\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Generic Routing Encapsulation},%
+longplural={Generic Routing Encapsulations},%
+short={GRE},%
+shortplural={GREs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ipsec}{}%
+{%
+\gls@defglossaryentry{ipsec}%
+{%
+name={IPSec},%
+sort={IPSec},%
+type={main},%
+first={Internet Protocol Security\glsspace (IPSec)},%
+firstplural={Internet Protocol Security\acrpluralsuffix \glsspace (IPSec\acrpluralsuffix )},%
+text={IPSec},%
+plural={IPSec\acrpluralsuffix },%
+description={Internet Protocol Security},%
+descriptionplural={Internet Protocol Security\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Internet Protocol Security},%
+longplural={Internet Protocol Securitys},%
+short={IPSec},%
+shortplural={IPSecs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{sddc}{}%
+{%
+\gls@defglossaryentry{sddc}%
+{%
+name={SDDC},%
+sort={SDDC},%
+type={main},%
+first={Software-Defined Data Centre\glsspace (SDDC)},%
+firstplural={Software-Defined Data Centre\acrpluralsuffix \glsspace (SDDC\acrpluralsuffix )},%
+text={SDDC},%
+plural={SDDC\acrpluralsuffix },%
+description={Software-Defined Data Centre},%
+descriptionplural={Software-Defined Data Centre\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Software-Defined Data Centre},%
+longplural={Software-Defined Data Centres},%
+short={SDDC},%
+shortplural={SDDCs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{sds}{}%
+{%
+\gls@defglossaryentry{sds}%
+{%
+name={SDS},%
+sort={SDS},%
+type={main},%
+first={Software-Defined Storage\glsspace (SDS)},%
+firstplural={Software-Defined Storage\acrpluralsuffix \glsspace (SDS\acrpluralsuffix )},%
+text={SDS},%
+plural={SDS\acrpluralsuffix },%
+description={Software-Defined Storage},%
+descriptionplural={Software-Defined Storage\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Software-Defined Storage},%
+longplural={Software-Defined Storages},%
+short={SDS},%
+shortplural={SDSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{dc}{}%
+{%
+\gls@defglossaryentry{dc}%
+{%
+name={DC},%
+sort={DC},%
+type={main},%
+first={Domain Controller\glsspace (DC)},%
+firstplural={Domain Controller\acrpluralsuffix \glsspace (DC\acrpluralsuffix )},%
+text={DC},%
+plural={DC\acrpluralsuffix },%
+description={Domain Controller},%
+descriptionplural={Domain Controller\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Domain Controller},%
+longplural={Domain Controllers},%
+short={DC},%
+shortplural={DCs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{s2d}{}%
+{%
+\gls@defglossaryentry{s2d}%
+{%
+name={S2D},%
+sort={S2D},%
+type={main},%
+first={Storage Spaces Direct\glsspace (S2D)},%
+firstplural={Storage Spaces Direct\acrpluralsuffix \glsspace (S2D\acrpluralsuffix )},%
+text={S2D},%
+plural={S2D\acrpluralsuffix },%
+description={Storage Spaces Direct},%
+descriptionplural={Storage Spaces Direct\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Storage Spaces Direct},%
+longplural={Storage Spaces Directs},%
+short={S2D},%
+shortplural={S2Ds},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ui}{}%
+{%
+\gls@defglossaryentry{ui}%
+{%
+name={UI},%
+sort={UI},%
+type={main},%
+first={User Interface\glsspace (UI)},%
+firstplural={User Interface\acrpluralsuffix \glsspace (UI\acrpluralsuffix )},%
+text={UI},%
+plural={UI\acrpluralsuffix },%
+description={User Interface},%
+descriptionplural={User Interface\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={User Interface},%
+longplural={User Interfaces},%
+short={UI},%
+shortplural={UIs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{sac}{}%
+{%
+\gls@defglossaryentry{sac}%
+{%
+name={SAC},%
+sort={SAC},%
+type={main},%
+first={Semi-Annual Channel\glsspace (SAC)},%
+firstplural={Semi-Annual Channel\acrpluralsuffix \glsspace (SAC\acrpluralsuffix )},%
+text={SAC},%
+plural={SAC\acrpluralsuffix },%
+description={Semi-Annual Channel},%
+descriptionplural={Semi-Annual Channel\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Semi-Annual Channel},%
+longplural={Semi-Annual Channels},%
+short={SAC},%
+shortplural={SACs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{md5}{}%
+{%
+\gls@defglossaryentry{md5}%
+{%
+name={MD5},%
+sort={MD5},%
+type={main},%
+first={Message Digest Algorithm 5\glsspace (MD5)},%
+firstplural={Message Digest Algorithm 5\acrpluralsuffix \glsspace (MD5\acrpluralsuffix )},%
+text={MD5},%
+plural={MD5\acrpluralsuffix },%
+description={Message Digest Algorithm 5},%
+descriptionplural={Message Digest Algorithm 5\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Message Digest Algorithm 5},%
+longplural={Message Digest Algorithm 5s},%
+short={MD5},%
+shortplural={MD5s},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{sha}{}%
+{%
+\gls@defglossaryentry{sha}%
+{%
+name={SHA-2},%
+sort={SHA-2},%
+type={main},%
+first={Secure Hash Algorithm 2\glsspace (SHA-2)},%
+firstplural={Secure Hash Algorithm 2\acrpluralsuffix \glsspace (SHA-2\acrpluralsuffix )},%
+text={SHA-2},%
+plural={SHA-2\acrpluralsuffix },%
+description={Secure Hash Algorithm 2},%
+descriptionplural={Secure Hash Algorithm 2\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Secure Hash Algorithm 2},%
+longplural={Secure Hash Algorithm 2s},%
+short={SHA-2},%
+shortplural={SHA-2s},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{sha3}{}%
+{%
+\gls@defglossaryentry{sha3}%
+{%
+name={SHA-3},%
+sort={SHA-3},%
+type={main},%
+first={Secure Hash Algorithm 3\glsspace (SHA-3)},%
+firstplural={Secure Hash Algorithm 3\acrpluralsuffix \glsspace (SHA-3\acrpluralsuffix )},%
+text={SHA-3},%
+plural={SHA-3\acrpluralsuffix },%
+description={Secure Hash Algorithm 3},%
+descriptionplural={Secure Hash Algorithm 3\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Secure Hash Algorithm 3},%
+longplural={Secure Hash Algorithm 3s},%
+short={SHA-3},%
+shortplural={SHA-3s},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ltsc}{}%
+{%
+\gls@defglossaryentry{ltsc}%
+{%
+name={LTSC},%
+sort={LTSC},%
+type={main},%
+first={Long-Term Servicing Channel\glsspace (LTSC)},%
+firstplural={Long-Term Servicing Channel\acrpluralsuffix \glsspace (LTSC\acrpluralsuffix )},%
+text={LTSC},%
+plural={LTSC\acrpluralsuffix },%
+description={Long-Term Servicing Channel},%
+descriptionplural={Long-Term Servicing Channel\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Long-Term Servicing Channel},%
+longplural={Long-Term Servicing Channels},%
+short={LTSC},%
+shortplural={LTSCs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{wac}{}%
+{%
+\gls@defglossaryentry{wac}%
+{%
+name={WAC},%
+sort={WAC},%
+type={main},%
+first={Windows Admin Center\glsspace (WAC)},%
+firstplural={Windows Admin Center\acrpluralsuffix \glsspace (WAC\acrpluralsuffix )},%
+text={WAC},%
+plural={WAC\acrpluralsuffix },%
+description={Windows Admin Center},%
+descriptionplural={Windows Admin Center\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Windows Admin Center},%
+longplural={Windows Admin Centers},%
+short={WAC},%
+shortplural={WACs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{rdp}{}%
+{%
+\gls@defglossaryentry{rdp}%
+{%
+name={RDP},%
+sort={RDP},%
+type={main},%
+first={Remote Desktop Protocol\glsspace (RDP)},%
+firstplural={Remote Desktop Protocol\acrpluralsuffix \glsspace (RDP\acrpluralsuffix )},%
+text={RDP},%
+plural={RDP\acrpluralsuffix },%
+description={Remote Desktop Protocol},%
+descriptionplural={Remote Desktop Protocol\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Remote Desktop Protocol},%
+longplural={Remote Desktop Protocols},%
+short={RDP},%
+shortplural={RDPs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{pam}{}%
+{%
+\gls@defglossaryentry{pam}%
+{%
+name={PAM},%
+sort={PAM},%
+type={main},%
+first={Product Availability Matrix\glsspace (PAM)},%
+firstplural={Product Availability Matrix\acrpluralsuffix \glsspace (PAM\acrpluralsuffix )},%
+text={PAM},%
+plural={PAM\acrpluralsuffix },%
+description={Product Availability Matrix},%
+descriptionplural={Product Availability Matrix\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Product Availability Matrix},%
+longplural={Product Availability Matrixs},%
+short={PAM},%
+shortplural={PAMs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{cal}{}%
+{%
+\gls@defglossaryentry{cal}%
+{%
+name={CAL},%
+sort={CAL},%
+type={main},%
+first={Cloud Appliance Library\glsspace (CAL)},%
+firstplural={Cloud Appliance Library\acrpluralsuffix \glsspace (CAL\acrpluralsuffix )},%
+text={CAL},%
+plural={CAL\acrpluralsuffix },%
+description={Cloud Appliance Library},%
+descriptionplural={Cloud Appliance Library\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Cloud Appliance Library},%
+longplural={Cloud Appliance Librarys},%
+short={CAL},%
+shortplural={CALs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{cm}{}%
+{%
+\gls@defglossaryentry{cm}%
+{%
+name={CM},%
+sort={CM},%
+type={main},%
+first={Customer Management\glsspace (CM)},%
+firstplural={Customer Management\acrpluralsuffix \glsspace (CM\acrpluralsuffix )},%
+text={CM},%
+plural={CM\acrpluralsuffix },%
+description={Customer Management},%
+descriptionplural={Customer Management\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Customer Management},%
+longplural={Customer Managements},%
+short={CM},%
+shortplural={CMs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ai}{}%
+{%
+\gls@defglossaryentry{ai}%
+{%
+name={AI},%
+sort={AI},%
+type={main},%
+first={Artificial Intelligence\glsspace (AI)},%
+firstplural={Artificial Intelligence\acrpluralsuffix \glsspace (AI\acrpluralsuffix )},%
+text={AI},%
+plural={AI\acrpluralsuffix },%
+description={Artificial Intelligence},%
+descriptionplural={Artificial Intelligence\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Artificial Intelligence},%
+longplural={Artificial Intelligences},%
+short={AI},%
+shortplural={AIs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{sdk}{}%
+{%
+\gls@defglossaryentry{sdk}%
+{%
+name={SDK},%
+sort={SDK},%
+type={main},%
+first={Software Development Kit\glsspace (SDK)},%
+firstplural={Software Development Kit\acrpluralsuffix \glsspace (SDK\acrpluralsuffix )},%
+text={SDK},%
+plural={SDK\acrpluralsuffix },%
+description={Software Development Kit},%
+descriptionplural={Software Development Kit\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Software Development Kit},%
+longplural={Software Development Kits},%
+short={SDK},%
+shortplural={SDKs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{sles}{}%
+{%
+\gls@defglossaryentry{sles}%
+{%
+name={SLES},%
+sort={SLES},%
+type={main},%
+first={SUSE Linux Enterprise Server\glsspace (SLES)},%
+firstplural={SUSE Linux Enterprise Server\acrpluralsuffix \glsspace (SLES\acrpluralsuffix )},%
+text={SLES},%
+plural={SLES\acrpluralsuffix },%
+description={SUSE Linux Enterprise Server},%
+descriptionplural={SUSE Linux Enterprise Server\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={SUSE Linux Enterprise Server},%
+longplural={SUSE Linux Enterprise Servers},%
+short={SLES},%
+shortplural={SLESs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{sccm}{}%
+{%
+\gls@defglossaryentry{sccm}%
+{%
+name={SCCM},%
+sort={SCCM},%
+type={main},%
+first={System Center Configuration Manager\glsspace (SCCM)},%
+firstplural={System Center Configuration Manager\acrpluralsuffix \glsspace (SCCM\acrpluralsuffix )},%
+text={SCCM},%
+plural={SCCM\acrpluralsuffix },%
+description={System Center Configuration Manager},%
+descriptionplural={System Center Configuration Manager\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={System Center Configuration Manager},%
+longplural={System Center Configuration Managers},%
+short={SCCM},%
+shortplural={SCCMs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{po}{}%
+{%
+\gls@defglossaryentry{po}%
+{%
+name={PO},%
+sort={PO},%
+type={main},%
+first={Process Orchestrator\glsspace (PO)},%
+firstplural={Process Orchestrator\acrpluralsuffix \glsspace (PO\acrpluralsuffix )},%
+text={PO},%
+plural={PO\acrpluralsuffix },%
+description={Process Orchestrator},%
+descriptionplural={Process Orchestrator\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Process Orchestrator},%
+longplural={Process Orchestrators},%
+short={PO},%
+shortplural={POs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
