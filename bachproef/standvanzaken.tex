@@ -6,7 +6,7 @@
 \label{ch:stand-van-zaken}
 In this chapter, the state of the art will be examined. 
 As mentioned in the introduction, this part of the bachelor's thesis will be used to get an in-depth understanding of the four key themes that incorporate the changes in Windows Server 2019. 
-First, a basic understanding of what those four key themes are will be established. 
+First, a basic understanding of what those four key themes are, will be established. 
 Afterwards, their implementation in the latest version of the \acrshort{os} will be investigated.
 
 \section{Hybrid cloud}
@@ -36,7 +36,7 @@ It is only accessible inside a private internal network or over the internet for
 Private clouds cannot be accessed by the public. 
 They can also be known by other names such as internal or corporate cloud. 
 Their main advantage is the higher level of security and privacy, which is offered using in-house hosted infrastructure and additional company firewalls. 
-The biggest disadvantage that comes with this added layer of security is the responsibility that is given to the \acrshort{it} team that manages the infrastructure that supports the private cloud. 
+The biggest disadvantage that comes with this added layer of security, is the responsibility that is given to the \acrshort{it} team that manages the infrastructure that supports the private cloud. 
 This means that on top of the additional infrastructure costs, they require the same number of man-hours that comes with the management of a traditional data centre. 
 Keep in mind that in-house does not necessarily mean on-premise.
 \\
@@ -65,8 +65,7 @@ Thus, eliminating the cost that is associated with the management and responsibi
 Public clouds also provide the possibility for effortless scalability and flexibility in comparison with private clouds, where the required hardware for scaling needs to be available in-house. 
 This makes the public cloud ideal for temporary solutions and fast-growing organizations.
 \\
-\textcite{Singh2012} concluded, in a comparison between the cost and security of private and public clouds over three years, that although security can be a real concern in the usage of public cloud it should not be ruled out immediately without analysing the requirements of an organization. 
-Keeping in mind the major investment that comes with the usage and implementation of a private cloud.  
+\textcite{Singh2012} concluded, in a comparison between the cost and security of private and public clouds over three years, that although security can be a real concern in the usage of public cloud it should not be ruled out immediately without analysing the requirements of an organization, keeping in mind the major investment that comes with the usage and implementation of a private cloud.  
 The different obstacles that come with securing a public cloud have also been addressed by \textcite{Ren2012}, in which there is a call for additional research about the subject to fully take advantage of the breakthrough that cloud computing is. 
 
 \subsubsection{Hybrid cloud}
@@ -83,9 +82,10 @@ The connection between the public and private cloud of the hybrid cloud is gener
 As mentioned in Subsection \ref{subsection:typesofcloud}, Microsoft offers a public cloud solution: Microsoft Azure. 
 This can be combined with a private cloud of an organization or an on-premise environment to create a hybrid environment. 
 Microsoft Azure is offered from more than fifty different global Azure regions all over the world. 
-They are confident that clients who are running the latest version of Windows Server, and the associated software, can have a hybrid environment set-up almost instantly. 
+They are confident that clients who are running the latest version of Windows Server and the associated software, can have a hybrid environment set-up almost instantly. 
 This through the usage of a new feature that significantly simplifies the management of this environment. 
-Nowadays this feature is known as \acrfull{wac}, before the release it was known as Project Honolulu. 
+Nowadays this feature is known as \acrfull{wac}. 
+Before the release it was known as Project Honolulu. 
 \acrlong{wac} was built with a hybrid environment and \acrshort{hci} in mind. 
 This tool, built to manage Windows Server and Windows 10, is optimized for use within Windows Server 2019. 
 It uses the Azure Network Adapter to establish a point-to-site connection between your server and your Azure virtual network. 
@@ -94,11 +94,11 @@ The entire step-by-step plan for \acrlong{wac} Azure Integration is given in App
 Once this has been completed, the following features can be leveraged through \acrlong{wac} \autocite{Washburn2018}:
 
 \begin{description}
-\item [Azure Active Directory authentication] Provides access to Azure Active Directory which adds a layer of security and ease of management and scalability.
-\item [Manage Azure IaaS virtual machines] Manage on-premise \acrshort{vm}s as well as Azure \acrshort{vm}s.
-\item [Azure Site Recovery] Provides back-up and recovery services for business continuity and disaster recovery.
-\item [Azure Update Management] An Azure Automation solution to manage updates and patches for on-premise, external hosted or Azure \acrshort{vm}s.
-\item [Azure Network Adapter] Securely connect the local computer to Azure Virtual Network.
+\item [Azure Active Directory authentication] provides access to Azure Active Directory which adds a layer of security and ease of management and scalability.
+\item [Manage Azure IaaS virtual machines] manage on-premise \acrshort{vm}s as well as Azure \acrshort{vm}s.
+\item [Azure Site Recovery] provides back-up and recovery services for business continuity and disaster recovery.
+\item [Azure Update Management] an Azure Automation solution to manage updates and patches for on-premise, external hosted or Azure \acrshort{vm}s.
+\item [Azure Network Adapter] securely connect the local computer to Azure Virtual Network.
 \end{description}
 
 As will be discussed in Chapter \ref{ch:toekomstvisie}, new features will be introduced several times a year to improve the overall experience with the \acrlong{wac}.
@@ -166,8 +166,7 @@ These can also be processed by tools such as Power BI.
 Virtual network peering allows administrators to combine two individual virtual networks. 
 A coherent connection is made that represents itself as an individual one. 
 This means the connection between both networks can be routed through the infrastructure backbone. 
-This in term means that there is no need for a public gateway. 
-Providing a more secure connection, while no additional downtime is accumulated when peering the networks.
+This in term means that there is no need for a public gateway, providing a more secure connection, while no additional downtime is accumulated when peering the networks.
 
 \subsubsection{Egress metering}
 Egress metering for \acrshort{sdn} enables an administrator to monitor the consumption of outgoing connections.
@@ -180,8 +179,8 @@ Since Windows Server 2019, it is possible to run Shielded \acrshort{vm}s on mach
 This can be done by leveraging the following two new features:
 
 \begin{description}
-	\item[Fall-back \acrshort{hgs}] Provide a redundant connection in case the primary \acrshort{hgs} cannot be reached.
-	\item[Offline Mode] Once a shielded \acrshort{vm} has been set up it can be started up seeing that the security configuration remains unchanged.
+	\item[Fall-back \acrshort{hgs}] provide a redundant connection in case the primary \acrshort{hgs} cannot be reached.
+	\item[Offline Mode] once a shielded \acrshort{vm} has been set up, it can be started up seeing that the security configuration remains unchanged.
 \end{description}
 
 Another new feature is the addition of support for different flavours of Linux, like Ubuntu and \acrfull{sles} inside Shielded \acrshort{vm}s. 
@@ -214,7 +213,7 @@ This is an important addition knowing that only 3.23\% of all Apache servers run
 Kubernetes is a software solution designed to oversee containers. 
 It is a management environment for network, computing and data infrastructure. 
 With Windows Server 2019 this has been further developed inside the \acrshort{os}. 
-For now, there has been a great improvement in container networking, but as new versions of Kubernetes are rolled out additional features will be added with updates through \acrfull{sac} releases.
+For now, there has been a great improvement in container networking, but as new versions of Kubernetes are rolled out, additional features will be added with updates through \acrfull{sac} releases.
 \subsection*{Container improvements}
 There is better support for Windows Authentication inside containers as well as improved application compatibility for the existing Server Core image. 
 Containers have become more manageable thanks to their implementation in the \acrlong{wac}.
@@ -233,8 +232,7 @@ This as a direct result of the three new features that have been introduced:
 \acrshort{ledbat} is a delay-based congestion control algorithm that designates bandwidth to users and applications, while still using the totality of the network when it is available. \autocite{Shalunov2012}
 This makes it interesting for deploying large updates in large-scale \acrshort{it} environments without impacting users.
 \subsection*{High-performance \acrshort{sdn} gateways}
-The throughput of existing \acrshort{sdn} gateways has been improved. 
-This by improving the throughput for \acrfull{ipsec} and \acrfull{gre} connections. 
+The throughput of existing \acrshort{sdn} gateways has been improved, this by improving the throughput for \acrfull{ipsec} and \acrfull{gre} connections. 
 Additionally, the required CPU utilization has been lowered.
 \subsection*{Persistent Memory support for Hyper-V VMs}
 Storage-class memory, or also known as persistent memory, improves latency and delivers a high throughput. 
@@ -250,7 +248,7 @@ Estimates made in a report by \textcite{Gantz2012}, show that the digital univer
 This means that the infrastructure needs to be able to store these vast amounts of data. 
 The static and inflexible way of storing data needs to become dynamic and agile to conform to modern standards. 
 This can be achieved through a \acrfull{sddc}. 
-It was developed to further leverage the success that is virtualization. 
+%It was developed to further leverage the success that is virtualization. 
 An \acrshort{sddc} can be achieved in multiple ways but the most efficient and popular method is through \acrshort{hci}. 
 It converges the compute, storage, networking and management components, as can be seen in Figure \ref{fig:HCI}, through software that is running on the hypervisor. 
 In addition to the advantages that come with \acrshort{hci}, they deliver strong support for the deployment of a hybrid cloud, one of the other key themes in Windows Server 2019. 
@@ -293,7 +291,7 @@ The first option is to deploy it as a gateway server, this is the ideal solution
 When deploying the gateway server in a failover cluster, high availability can be enabled. 
 The final option is to deploy it on a server which is going to be managed or is part of the cluster that is going to be managed. 
 This option is recommended for distributed scenarios.\\
-The key components of which it consists listed below, make it no surprise that the \acrlong{wac} has been mentioned before. 
+The key components of which it consists, listed below, make it no surprise that the \acrlong{wac} has been mentioned before. 
 \begin{itemize}
 	\item Core tools
 	\item HCI Management
