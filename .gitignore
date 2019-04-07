@@ -20,8 +20,8 @@
 *.dvi
 *-converted-to.*
 # these rules might exclude image files for figures etc.
-# *.ps
-# *.eps
+*.ps
+*.eps
 *.pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
@@ -113,20 +113,4 @@ acs-*.bib
 *.nlo
 
 # sagetex
-*.sagetex.sage
-*.sagetex.py
-*.sagetex.scmd
-
-# sympy
-*.sout
-*.sympy
-sympy-plots-for-*.tex/
-
-# todonotes
-*.tdo
-
-# xindy
-*.xdy
-
-# Vim-LaTeX
-*.latexmain
+*.sagetex.sa
