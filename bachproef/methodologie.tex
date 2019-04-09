@@ -354,7 +354,7 @@ Currently, the latest supported version is Windows Server 2019 \acrshort{ltsc}.
 
 \subsection{Technical specifications of the SAP environment}
 The proof of concept environment has been made using Microsoft Azure. 
-For the environment a \acrfull{po} system running Netweaver 7.5 on Windows Server 2016 Datacenter Edition using a Sybase database, will be used. 
+For the environment a \acrfull{po} system running Netweaver 7.5 on Windows Server 2016 Datacenter Edition using a SyBase ASE DB, will be used. 
 The architecture of the SAP environment can be seen in Figure \ref{fig:SAPInfra}.
 The installation and configuration of the SAP environment can be found in Appendix \ref{SAPConfig}.
 
@@ -373,6 +373,15 @@ This eliminates the need for a system copy and provides a smooth upgrade to Wind
 However, the traditional method of migration, using the side-by-side migration method, still has the sign of approval. 
 Many parts of the migration process that was described in Section \ref{sec:Migrating_the_OS} are applicable to the current environment. 
 Because of this reason, the migration of the SAP environment will be kept constraint and the focus will be on the additional chores that come with this migration.
+First of all, it was verified that Windows Server 2019 was supported using the SAP \acrshort{pam}, as can be seen in Figure \ref{fig:PAM}.
+
+\begin{figure}[h]
+    \captionsetup{width=0.8\linewidth}
+    \includegraphics[width=0.9\linewidth]{img/Methodologie/PAM.png}
+    \centering
+    \caption[SAP \acrshort{pam}]{SAP \acrfull{pam}}
+    \label{fig:PAM}	
+\end{figure}
 
 \subsubsection{Prerequisites}
 \label{sssec:SAP_Prerequisites}
@@ -391,24 +400,24 @@ The following process will verify the operation of the software solution.
     \item Execute the cache refresh and verify that no warnings are shown
 \end{enumerate}
 
-\begin{figure}[h]
-    \begin{subfigure}{0.5\textwidth}
-        \captionsetup{width=0.8\linewidth}
-        \includegraphics[width=0.9\linewidth]{img/Methodologie/SAP0.png}
-        %        TODO SAP1.png
-        \centering
-        \caption{Verify the SAP Basis component}
-    \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
-        \captionsetup{width=0.8\linewidth}
-        \includegraphics[width=0.9\linewidth]{img/Methodologie/SAP0.png} 
-        %        TODO SAP2.png
-        \centering
-        \caption{Verify that no warnings are shown in Message Monitor}
-    \end{subfigure}
-    \caption[Prerequisites of the in-place upgrade]{Verifying the operation of the SAP \acrshort{po}}
-    \label{fig:SAPPreInPlace}	
-\end{figure}
+%\begin{figure}[h]
+%    \begin{subfigure}{0.5\textwidth}
+%        \captionsetup{width=0.8\linewidth}
+%        \includegraphics[width=0.9\linewidth]{img/Methodologie/SAP0.png}
+%        %        TODO SAP1.png
+%        \centering
+%        \caption{Verify the SAP Basis component}
+%    \end{subfigure}
+%    \begin{subfigure}{0.5\textwidth}
+%        \captionsetup{width=0.8\linewidth}
+%        \includegraphics[width=0.9\linewidth]{img/Methodologie/SAP0.png} 
+%        %        TODO SAP2.png
+%        \centering
+%        \caption{Verify that no warnings are shown in Message Monitor}
+%    \end{subfigure}
+%    \caption[Prerequisites of the in-place upgrade]{Verifying the operation of the SAP \acrshort{po}}
+%    \label{fig:SAPPreInPlace}	
+%\end{figure}
 
 \subsubsection{SAP migration}
 After verifying the operation of the software solution, the in-place upgrade will be performed as described in Subsection \ref{sssec:In-place_upgrade}.\\
@@ -418,10 +427,12 @@ The side-by-side migration of the SAP environment can be divided into 4 parts:
     \item Creating the VM
     \item Installing Windows Server 2019
     \item Installing and configuring the SAP environment
+    \item Backup and restore of the SyBase ASE DB
     \item Decommissioning the old SAP environment
 \end{enumerate}
 The first and second part of this procedure were already described in Subsection \ref{sssec:Side-by-side_migration}.
-The third part of this procedure has been described in Appendix \ref{SAPConfig}. 
+The installation and configuration has been described in Appendix \ref{SAPConfig}. 
+%TODO BACKUP RESTORE AND DECOMISSIONING
 The final part is the deletion of the old \acrshort{vm} after verifying the operation of the new \acrshort{vm}, as shown in the following paragraph.
 
 \subsubsection{Verification}
