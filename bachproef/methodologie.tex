@@ -367,10 +367,9 @@ The installation and configuration of the SAP environment can be found in Append
 \end{figure}
 
 \subsection{Migration of the SAP environment}
-With Windows Server 2019, SAP offers support for full upgrades. 
+Since Windows Server 2019, SAP offers support for full upgrades. 
 This means that for non-clustered systems the in-place upgrade method is supported.
-This eliminates the need for a system copy and provides a smooth upgrade to Windows Server 2019. 
-However, the traditional method of migration, using the side-by-side migration method, still has the sign of approval. 
+However, the traditional method of migration, using a side-by-side migration, is still supported. 
 Many parts of the migration process that was described in Section \ref{sec:Migrating_the_OS} are applicable to the current environment. 
 Because of this reason, the migration of the SAP environment will be kept constraint and the focus will be on the additional chores that come with this migration.
 First of all, it was verified that Windows Server 2019 was supported using the SAP \acrshort{pam}, as can be seen in Figure \ref{fig:PAM}.
@@ -385,42 +384,36 @@ First of all, it was verified that Windows Server 2019 was supported using the S
 
 \subsubsection{Prerequisites}
 \label{sssec:SAP_Prerequisites}
-Before the migration, either it being an in-place upgrade or a side-by-side migration, the operation of the SAP \acrshort{po} solution will be verified.  
+Before any migration, the operation of the SAP solution will be verified.  
 The following process will verify the operation of the software solution.
 
 \begin{enumerate}
-    \item Browse to `http://host:port/dir`
-    \item Click on Enterprise Services Builder
-    \item Verify the SAP Basis component as seen in Figure \ref{fig:SAPPreInPlace}
-    \item Browse to `http://host:port/pimon`
-    \item Click on Adapter Engine
-    \item Click on Message Monitor
-    \item Verify that no warnings are shown as seen in Figure \ref{fig:SAPPreInPlace}
-    \item Browse to `http://host:port/CPACache/refresh`
-    \item Execute the cache refresh and verify that no warnings are shown
+    \item Browse to 'http://localhost:50013/' on the \acrshort{vm}
+    \item Verify the SAP environment is running, as seen in Figure \ref{fig:SAPPreInPlace}
+    \item Verify the database server as seen in Figure \ref{fig:SAPPreInPlace}
 \end{enumerate}
 
-%\begin{figure}[h]
-%    \begin{subfigure}{0.5\textwidth}
-%        \captionsetup{width=0.8\linewidth}
-%        \includegraphics[width=0.9\linewidth]{img/Methodologie/SAP0.png}
-%        %        TODO SAP1.png
-%        \centering
-%        \caption{Verify the SAP Basis component}
-%    \end{subfigure}
-%    \begin{subfigure}{0.5\textwidth}
-%        \captionsetup{width=0.8\linewidth}
-%        \includegraphics[width=0.9\linewidth]{img/Methodologie/SAP0.png} 
-%        %        TODO SAP2.png
-%        \centering
-%        \caption{Verify that no warnings are shown in Message Monitor}
-%    \end{subfigure}
-%    \caption[Prerequisites of the in-place upgrade]{Verifying the operation of the SAP \acrshort{po}}
-%    \label{fig:SAPPreInPlace}	
-%\end{figure}
+\begin{figure}[h]
+    \begin{subfigure}{0.5\textwidth}
+        \captionsetup{width=0.8\linewidth}
+        \includegraphics[width=0.9\linewidth]{img/Methodologie/SAP0.png}
+        \centering
+        \caption{Verify the SAP environment}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \captionsetup{width=0.8\linewidth}
+        \includegraphics[width=0.9\linewidth]{img/Methodologie/SAP1.png} 
+        \centering
+        \caption{Verify the Database Components}
+    \end{subfigure}
+    \caption[Prerequisites of the in-place upgrade]{Verifying the operation through the SAP Management Console}
+    \label{fig:SAPPreInPlace}	
+\end{figure}
+\clearpage
 
 \subsubsection{SAP migration}
-After verifying the operation of the software solution, the in-place upgrade will be performed as described in Subsection \ref{sssec:In-place_upgrade}.\\
+After verifying the operation of the software solution, the in-place upgrade will be performed as described in Subsection \ref{sssec:In-place_upgrade}. To do this the \acrfull{vhd} was downloaded from Azure
+The upgrade was performed through Hyper-V on the bare-metal server discussed in Section \ref{sec:Migrating_the_OS}.
 Alternatively, a side-by-side migration can be performed. 
 The side-by-side migration of the SAP environment can be divided into 4 parts:
 \begin{enumerate}
@@ -436,7 +429,7 @@ The installation and configuration has been described in Appendix \ref{SAPConfig
 The final part is the deletion of the old \acrshort{vm} after verifying the operation of the new \acrshort{vm}, as shown in the following paragraph.
 
 \subsubsection{Verification}
-After a successful migration, the operation of the SAP \acrshort{po} will be verified, again, as described in Subsection \ref{sssec:SAP_Prerequisites}.
+After a successful migration, the operation of the SAP solution will be verified, again, as described in Subsection \ref{sssec:SAP_Prerequisites}.
 
 \subsection{Conclusion}
 After the migration of the SAP environment, it is clear that many of the aspects from the previous migration in Section \ref{sec:Migrating_the_OS} return. 
