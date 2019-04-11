@@ -302,7 +302,7 @@
   url    = {https://support.microsoft.com/nl-be/help/4487177/introduction-to-microsoft-windows-server-2019},
 }
 
-@Article{kreutz2015software,
+@Article{Kreutz2015,
   author  = {Kreutz, Diego and Ramos, Fernando MV and Verissimo, Paulo and Rothenberg, Christian Esteve and Azodolmolky, Siamak and Uhlig, Steve},
   title   = {Software-defined networking: A comprehensive survey},
   journal = {Proceedings of the IEEE},
