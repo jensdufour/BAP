@@ -3,7 +3,7 @@
 %----------------------------------------------------------------------------------------
 
 \documentclass[a0,portrait]{a0poster}
-
+\usepackage{subfigure}
 \usepackage{multicol} % This is so we can have multiple columns of text side-by-side
 \columnsep=100pt % This is the amount of white space between the columns in the poster
 \columnseprule=3pt % This is the thickness of the black line between the columns in the poster
@@ -35,7 +35,7 @@
 \begin{minipage}[t]{0.75\linewidth}
 \VeryHuge \color{HoGentAccent1} \textbf{The migration process and advantages of Windows Server 2019} \color{Black}\\ % Title
 %\Huge\textit{Ondertitel (eventueel)}\\[2.4cm] % Subtitle
-\huge \textbf{Du Four Jens, Vershuere Glenn, Stroobants Ludwig}\\[0.5cm] % Author(s)
+\huge \textbf{Du Four Jens, Verschuere Glenn, Stroobants Ludwig}\\[0.5cm] % Author(s)
 \huge Hogeschool Gent, Valentin Vaerwyckweg 1, 9000 Gent\\[0.4cm] % University/organization
 \Large \texttt{jens.dufour.y2321@student.hogent.be} \\
 \end{minipage}
@@ -72,7 +72,7 @@ In the end this research paper will advise for or against a migration to the lat
 %----------------------------------------------------------------------------------------
 
 \color{HoGentAccent1} 
-\section*{Introductie}
+\section*{Introduction}
 \color{black}
 \color{black}
 Windows Server is a well-known operating system among IT professionals. With major organizations all around the globe, like Infosys, that have implemented some form of the operating system in their infrastructure.
@@ -88,46 +88,68 @@ The key purpose is to find a procedure that is efficient, minimizes possible dow
 
 \color{Black} % DarkSlateGray color for the rest of the content
 \color{HoGentAccent1} 
-\section*{Experimenten}
+\section*{Experiment}
 \color{black}
-A newt? Camelot! Why? No, no, no! Yes, yes. A bit. But she's got a wart.
-
-Shut up! I dunno. Must be a king. Who's that then? Look, my liege! On second thoughts, let's not go there. It is a silly place.
-
-Shut up! Will you shut up?! No, no, no! Yes, yes. A bit. But she's got a wart. He hasn't got shit all over him. It's only a model. It's only a model.
-
-Bring her forward! I don't want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave 
-
-
-
-\color{HoGentAccent1} 
-\section*{Sectie met figuur}
-\color{black}
-
+After a state of the art about the new features of Windows Server 2019, the migration was performed. \\
+The proof of concept environment that was used is based on the Modern Desktop Deployment and Management Lab Kit provided by Microsoft. 
+In this environment a Domain Controller was migrated using the in-place upgrade and side-by-side migration method using Windows Server 2016 as a starting point.\\
+Afterwards, a migration was done of an SAP solution, this to show the additional research that is required to migrate a third-party software solution to the latest version of the Operating System. 
 
 \begin{center}\vspace{1cm}
-\includegraphics[width=1.0\linewidth]{grail}
-\captionof{figure}{\color{HoGentAccent5} He hasn't got shit all over him. The nose? Where'd you get the coconuts? What do you mean? We shall say 'Ni' again to you, if you do not appease us}
+    \includegraphics[width=1.0\linewidth]{../bachproef/img/Methodologie/SAP_PO}
+    \captionof{figure}{\color{HoGentAccent5} Infrastructure of the SAP environment}
 \end{center}\vspace{1cm}
+
+\vfill\null
+\columnbreak
+
+Finally, the advantages of the new versions base container images that come with Windows Server 2019 were discussed.
+At first, the Windows, Server Core and Nano Server were analysed in terms of size and performance. \\
+Afterwards, the different use cases of the various versions were discussed.
+
+\begin{center}\vspace{1cm}
+    \includegraphics[width=1.0\linewidth]{../bachproef/img/Methodologie/Containers0}
+    \captionof{figure}{\color{HoGentAccent5} Comparison of the Windows base container image size}
+\end{center}\vspace{1cm}
+\begin{center}\vspace{1cm}
+    \includegraphics[width=1.0\linewidth]{../bachproef/img/Methodologie/Containers1}
+    \captionof{figure}{\color{HoGentAccent5} Base Container Image MD5 benchmark (N=20)}
+\end{center}\vspace{1cm}
+%
+%\color{HoGentAccent1} 
+%\section*{Sectie met figuur}
+%\color{black}
 
 %------------------------------------------------
 
 
 
 \color{HoGentAccent1} 
-\section*{Conclusies}
+\section*{Conclusion}
 \color{black}
-on't underestimate the Force. Oh God, my uncle. How am I ever gonna explain this? I suggest you try it again, Luke. This time, let go your conscious self and act on instinct. Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force.
+The final conclusion of this bachelor's thesis is that a migration to Windows Server 2019 is achievable.
+The latest version of the OS offers a smooth and manageable experience through the advancements made in the four key themes of Windows Server 2019. 
+The extended support till 2029 make it an ideal choice to future-proof any organization. 
+While a migration to Windows Server 2019 in an environment with a third-party application requires additional research, it was attainable for an SAP environment. 
+The migration from Windows Server 2016 to Windows Server 2019 is also feasible for any organization running an EOL OS, as expected with the latest version of the OS.
+This for either the general OS and the base container images.
+Windows Server 2019 offers a wide array of improvements in terms of security, hybrid cloud, application platform and the Hyper-Converged Infrastructure (HCI).
+The addition of the new Windows base container image provides the tools for automated UI tests and its additional dependencies make it perfect for utilization with out-of-date packages. 
+The Server Core base container image can be used to run typical Windows services. 
+It offers application compatibility and has a wide array of built-in Windows roles and features. 
+The Nano Server base container image was designed for 'born in the cloud' applications that provide an agile deployment and offer on-demand availability. 
+The reduced footprint of the base container images without a drop of performance make the latest version the natural choice. 
+The new features which are introduced can be leveraged through the usage of the Windows Admin Center (WAC).
+Organizations that are running EOL Operating Systems should consider the migration to Windows Server 2019.
+
 %----------------------------------------------------------------------------------------
 %	FORTHCOMING RESEARCH
 %----------------------------------------------------------------------------------------
 \color{HoGentAccent1} 
-\section*{Toekomstig onderzoek}
+\section*{Future research}
 \color{black}
+Organizations that are running EOL infrastructure could also consider a migration to the cloud, although this imposes additional research towards the advantages of a cloud solution in comparison to an in-house infrastructure.
 
-I care. So, what do you think of her, Han? No! Alderaan is peaceful. We have no weapons. You can't possibly… I have traced the Rebel spies to her. Now she is my only link to finding their secret base.
-
-Kid, I've flown from one side of this galaxy to the other. I've seen a lot of strange stuff, but I've never seen anything to make me believe there's one all-powerful Force controlling everything. There's no mystical energy field that controls my destiny. It's all a lot of simple tricks and nonsense. You are a part of the Rebel Alliance and a traitor! Take her away! 
 
 
 %----------------------------------------------------------------------------------------
