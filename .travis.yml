@@ -2,13 +2,14 @@ sudo: required
 
 services:
   - docker
-
+before_install:
+  - sudo apt-get install -y libxml2-dev
+  
 script:
  - docker pull dxjoke/tectonic-docker
  - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 bachproef/bachproef-tin.tex; biber bachproef/bachproef-tin; tectonic bachproef/bachproef-tin.tex"
- - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 poster/conference_poster.tex"
  - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 voorstel/dufour_jens_voorstel.tex; biber voorstel/dufour_jens_voorstel; tectonic voorstel/dufour_jens_voorstel.tex"
- - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 presentatie/HOGENT-presentatie.tex"
+ - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 poster/conference_poster.tex"
 deploy:
  - provider: releases
    api_key:
@@ -17,7 +18,6 @@ deploy:
      - "bachproef/bachproef-tin.pdf"
      - "poster/conference_poster.pdf"
      - "voorstel/dufour_jens_voorstel.pdf"
-     - "presentatie/HOGENT-presentatie.pdf"
    skip_cleanup: true
    on:
      repo: jensdufour/BAP
