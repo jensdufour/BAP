@@ -6,7 +6,7 @@ Deze repository bevat mijn bachelorproef voor het bekomen van de graad van profe
 - [De bachelorproef zelf](https://github.com/jensdufour/BAP/releases/latest/download/bachproef-tin.pdf)
 - [Een poster](https://github.com/jensdufour/BAP/releases/latest/download/conference_poster.pdf)
 
-Het voorblad van het bachelorproefsjabloon is conform aan datgene dat door de [scriptie-tool](https://scriptie.hogent.be/) wordt gegenereerd. 
+Indien u de laatste versie wil is het aangeraden deze zelf te compileren.
 
 ## Vragen, fouten, verbeteringen
 
