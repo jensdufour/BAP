@@ -5,6 +5,7 @@ Deze repository bevat mijn bachelorproef voor het bekomen van de graad van profe
 - [Het onderzoeksvoorstel](https://github.com/jensdufour/BAP/releases/latest/download/dufour_jens_voorstel.pdf)
 - [De bachelorproef zelf](https://github.com/jensdufour/BAP/releases/latest/download/bachproef-tin.pdf)
 - [Een poster](https://github.com/jensdufour/BAP/releases/latest/download/conference_poster.pdf)
+- [Een presentatie](https://github.com/jensdufour/BAP/releases/latest/download/HOGENT-presentatie.pdf)
 
 Indien u de laatste versie wil is het aangeraden deze zelf te compileren.
 
