@@ -4,12 +4,11 @@ services:
   - docker
   
 script:
- - docker pull dxjoke/tectonic-docker
- - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "cp -r presentatie/fonts/*  /usr/local/share/fonts/ && chmod -R 664 /usr/local/share/fonts/"
- - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 presentatie/HOGENT-presentatie.tex"
- - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 poster/conference_poster.tex"
- - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 voorstel/dufour_jens_voorstel.tex; biber voorstel/dufour_jens_voorstel; tectonic voorstel/dufour_jens_voorstel.tex"
- - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 bachproef/bachproef-tin.tex; biber bachproef/bachproef-tin; tectonic bachproef/bachproef-tin.tex"
+ - docker pull firilith/docker-tectonic
+ - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind firilith/docker-tectonic /bin/sh -c "pdflatex bachproef/bachproef-tin.tex"
+ - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind firilith/docker-tectonic /bin/sh -c "pdflatex voorstel/dufour_jens_voorstel.tex"
+ - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind firilith/docker-tectonic /bin/sh -c "pdflatex poster/conference_poster.tex"
+ - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind firilith/docker-tectonic /bin/sh -c "pdflatex presentatie/HOGENT-presentatie.tex"
 deploy:
  - provider: releases
    api_key:
