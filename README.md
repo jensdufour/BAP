@@ -7,7 +7,7 @@ Deze repository bevat mijn bachelorproef voor het bekomen van de graad van profe
 - [Een poster](https://github.com/jensdufour/BAP/releases/latest/download/conference_poster.pdf)
 - [Een presentatie](https://github.com/jensdufour/BAP/releases/latest/download/HOGENT-presentatie.pdf)
 
-Indien u de laatste versie wil is het aangeraden deze zelf te compileren.
+De laatste versie kan u steeds [hier](https://jensdufour.github.io/BAP) bekijken. 
 
 ## Vragen, fouten, verbeteringen
 
