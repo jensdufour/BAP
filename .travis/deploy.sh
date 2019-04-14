@@ -1,6 +1,6 @@
 #!/bin/bash
-git clone --depth=1 --branch=master "https://github.com/jensdufour/BAP" pages
-cp bachproef/bachproef-tin.pdf pages/docs/BP.pdf
+git clone --depth=1 --branch=gh-pages "https://github.com/jensdufour/BAP" pages
+cp $TRAVIS_BUILD_DIR/bachproef/bachproef-tin.pdf pages/docs/BP.pdf
 cd pages
 git remote rm origin
 git remote add origin https://jensdufour:$GH_TOKEN@github.com/jensdufour/BAP.git
