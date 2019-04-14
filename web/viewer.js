@@ -4232,7 +4232,7 @@ var defaultOptions = {
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
   },
   defaultUrl: {
-    value: 'https://github.com/jensdufour/BAP/releases/download/latest/bachproef-tin.pdf',
+    value: 'https://github.com/jensdufour/BAP/releases/latest/download/bachproef-tin.pdf',
     kind: OptionKind.VIEWER
   },
   defaultZoomValue: {
