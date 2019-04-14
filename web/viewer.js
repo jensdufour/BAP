@@ -1750,7 +1750,7 @@ var PDFViewerApplication = {
 exports.PDFViewerApplication = PDFViewerApplication;
 var validateFileURL;
 {
-  var HOSTED_VIEWER_ORIGINS = ['null', 'https://github.com/jensdufour/BAP/releases', 'https://jensdufour.github.io'];
+  var HOSTED_VIEWER_ORIGINS = ['null', 'https://github.com/jensdufour/BAP', 'https://jensdufour.github.io','https://github.com/jensdufour/BAP/releases/latest/download/bachproef-tin.pdf'];
 
   validateFileURL = function validateFileURL(file) {
     if (file === undefined) {
