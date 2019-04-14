@@ -9,6 +9,8 @@ script:
  - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind firilith/docker-tectonic /bin/sh -c "tectonic --keep-intermediates --reruns 0 voorstel/dufour_jens_voorstel.tex; biber voorstel/dufour_jens_voorstel; tectonic voorstel/dufour_jens_voorstel.tex"
  - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind firilith/docker-tectonic /bin/sh -c "tectonic poster/conference_poster.tex"
  - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind firilith/docker-tectonic /bin/sh -c "tectonic presentatie/HOGENT-presentatie.tex"
+after_success:
+ - bash .travis/deploy.sh
 deploy:
  - provider: releases
    api_key:
