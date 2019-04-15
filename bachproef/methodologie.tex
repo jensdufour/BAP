@@ -343,19 +343,19 @@ The research that is required to migrate Windows Server to the latest version in
 
 \section{SAP migration}
 \label{sec:SAP}
-When migrating a server, it is of great importance that the environment around is mapped entirely. 
+When migrating a server, it is of great importance that the is mapped in its entirety. 
 This to ensure that all dependencies have been met. 
 Afterwards, all of those should be verified. 
 In this section, the migration from Windows Server 2016 to Windows Server 2019 will be done in a SAP environment. 
 This to provide an example of the additional research that comes with the migration of a server that is performing a critical task in a business environment. 
 The migration is of interest in any kind of organization for the same reasons that were mentioned before. 
-Additionally, SAP recommands the usage of the latest supported version for its software solutions. 
-Currently, the latest supported version is Windows Server 2019 \acrshort{ltsc}.
+Additionally, SAP recommands the usage of the latest supported version of any \acrshort{os} for its software solutions. 
+Currently, the latest supported version of Windows Server is Windows Server 2019 \acrshort{ltsc}.
 
 \subsection{Technical specifications of the SAP environment}
 The proof of concept environment has been made using Microsoft Azure. 
 For the environment a system running Windows Server 2016 Datacenter Edition was used.
-The installation consisted of a SAP NetWeaver 7.5 ABAP Stack combined with a SyBase ASE database. 
+The installation consisted of a SAP NetWeaver 7.5 ABAP stack combined with a SyBase ASE database. 
 The architecture of the SAP environment can be seen in Figure \ref{fig:SAPInfra}.
 The installation and configuration of the SAP environment can be found in Appendix \ref{SAPConfig}.
 
@@ -413,7 +413,8 @@ The following process will verify the operation of the software solution.
 \clearpage
 
 \subsubsection{SAP migration}
-After verifying the operation of the software solution, the in-place upgrade will be performed as described in Subsection \ref{sssec:In-place_upgrade}. There for the \acrfull{vhd} was downloaded from Azure.
+After verifying the operation of the software solution, the in-place upgrade will be performed as described in Subsection \ref{sssec:In-place_upgrade}. 
+Therefore, the \acrfull{vhd} was downloaded from Azure.
 The upgrade was performed through Hyper-V on the bare-metal server discussed in Section \ref{sec:Migrating_the_OS}.
 Alternatively, a side-by-side migration can be performed. 
 The side-by-side migration of the SAP environment can be divided into 4 parts:
@@ -426,7 +427,9 @@ The side-by-side migration of the SAP environment can be divided into 4 parts:
 \end{enumerate}
 The first and second part of this procedure were already described in Subsection \ref{sssec:Side-by-side_migration}.
 The installation and configuration has been described in Appendix \ref{SAPConfig}. 
-For the third part to reduce the cut over time the backup and restore is used, followed by log shipping. When the last log is applied, the new system is ready to cut over. This way, the downtime is limited by the last log ship instead of the backup and restore of the database. 
+For the third part to reduce the cut over time, the backup and restore is used followed by log shipping. 
+When the last log is applied, the new system is ready to cut over. 
+This way, the downtime is limited by the last log ship instead of the backup and restore of the database. 
 The final part is the deletion of the old \acrshort{vm} after verifying the operation of the new \acrshort{vm}, as shown in the following paragraph.
 
 \subsubsection{Verification}
@@ -435,9 +438,9 @@ After a successful migration, the operation of the SAP solution will be verified
 \subsection{Conclusion}
 After the migration of the SAP environment, it is clear that many of the aspects from the previous migration in Section \ref{sec:Migrating_the_OS} return. 
 With the migration of a software solution, it is important to verify that it supports the version of the \acrshort{os} to which will be migrated beforehand. 
-For SAP, this was verified using the SAP \acrfull{pam}.
-In the \acrfull{pam} all supported SAP solutions can be found.
-Here, all the different aspects that were installed, as described in Appendix \ref{SAPConfig}, were verified to be supported for operation on Windows Server 2019. 
+For SAP, this was verified using the SAP \acrshort{pam}.
+In the SAP \acrshort{pam} all supported solutions can be found.
+Here, all the different aspects that were installed, as described in Appendix \ref{SAPConfig}, were verified to be supported for operation on Windows Server 2019 \acrshort{ltsc}. 
 Verifying the operation of all the third-party applications that need to be installed requires additional research. 
 This section of the bachelor's thesis shows that no two migrations are the same. 
 It emphasizes that for any migration, irrespective of the size and scope, requires its own research as no environment is identical to the other. 
