@@ -4,27 +4,12 @@ The required Microsoft Azure \acrshort{vm} will be created as described in Appen
 The required Azure \acrshort{vm} is shown in Figure \ref{fig:SAPInfra}.
 
 \section{Installation of the SAP environment}
-The following components will be installed:
-
-\begin{itemize}
-    \item SAP NetWeaver 7.5
-    \item Adobe Document Services
-    \item Advanced Adapter Engine Extended
-    \item Application Server Java
-    \item BPM and Event Management
-    \item Composition Platform
-    \item EP Core
-    \item Enterprise Services Repository
-    \item PDF Export 
-\end{itemize}
+For the SAP environment a SAP NetWeaver 7.5 ABAP stack will be installed. 
 
 \subsection{Preconditions}
 \subsubsection{Server information}
 \begin{description}
-    \item[Local IP] 10.0.1.4
-    \item[Public IP] 40.68.22.199
-    \item[User] jensdufour
-    \item[Password] Bachelorproef2019
+    \item[Azure VM] Standard D4s v3
     \item[Ports] RDP
     \item[Windows Release] Windows Server 2016 Datacenter Edition
 \end{description}   
@@ -56,7 +41,7 @@ The following components will be installed:
         \captionsetup{width=0.8\linewidth}
         \includegraphics[width=0.9\linewidth]{img/Methodologie/Precondition2.png}
         \centering
-        \caption{Adjust visual effects for best performance}
+        \caption{Adjust visual effects}
     \end{subfigure}
     \begin{subfigure}{0.5\textwidth}
         \captionsetup{width=0.8\linewidth}
@@ -80,11 +65,11 @@ The following components will be installed:
     \end{subfigure}
 \end{figure}
 \begin{figure}[!htb]\ContinuedFloat
-    \begin{subfigure}{\textwidth}
+    \begin{subfigure}{0.5\textwidth}
         \captionsetup{width=0.8\linewidth}
         \includegraphics[width=0.9\linewidth]{img/Methodologie/Precondition6.png}
         \centering
-        \caption{Setting Virtual Host Names on Windows}
+        \caption{Setting Virtual Host Names}
     \end{subfigure}
     \caption[Preconditions SAP]{Preconditions for the installation of the SAP stack}
     \label{fig:Preconditions}
@@ -97,13 +82,13 @@ The following components will be installed:
         \captionsetup{width=0.8\linewidth}
         \includegraphics[width=0.9\linewidth]{img/Methodologie/SAP38.png}
         \centering
-        \caption{Extract the Software Provisioning Manager using 'SAPCAR'}
+        \caption{Extract the software using 'SAPCAR'}
     \end{subfigure}
     \begin{subfigure}{0.5\textwidth}
         \captionsetup{width=0.8\linewidth}
         \includegraphics[width=0.9\linewidth]{img/Methodologie/SAP37.png} 
         \centering
-        \caption{Start the Software Provisioning Manager}
+        \caption{Start the SPM}
     \end{subfigure}
 \end{figure}
 \begin{figure}[!htb]\ContinuedFloat
@@ -111,7 +96,7 @@ The following components will be installed:
         \captionsetup{width=0.8\linewidth}
         \includegraphics[width=0.9\linewidth]{img/Methodologie/SAP36.png}
         \centering
-        \caption{Login with administrator credentials}
+        \caption{Login as an administrator}
     \end{subfigure}
     \begin{subfigure}{0.5\textwidth}
         \captionsetup{width=0.8\linewidth}
@@ -125,13 +110,13 @@ The following components will be installed:
         \captionsetup{width=0.8\linewidth}
         \includegraphics[width=0.9\linewidth]{img/Methodologie/SAP34.png}
         \centering
-        \caption{Select the Custom Parameter Settings}
+        \caption{Select the Custom Parameter}
     \end{subfigure}
     \begin{subfigure}{0.5\textwidth}
         \captionsetup{width=0.8\linewidth}
         \includegraphics[width=0.9\linewidth]{img/Methodologie/SAP33.png} 
         \centering
-        \caption{Enter a SAP System ID and select the Destination Drive}
+        \caption{Enter the general SAP System Parameters}
     \end{subfigure}
 \end{figure}
 \begin{figure}[!htb]\ContinuedFloat
