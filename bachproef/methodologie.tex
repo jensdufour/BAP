@@ -339,13 +339,33 @@ The approach is, however, much broader and requires more research in advance.
 In this part of the proof of concept, only the \acrshort{dc} was migrated. 
 This was done effortlessly thanks to the secondary \acrshort{dc}. 
 The research that is required to migrate Windows Server to the latest version in a business environment will be done in the following section, for a SAP environment. 
+\subsection{Summary}
+\begin{multicols}{2}
+	\subsubsection{In-place upgrade}
+	\begin{itemize}
+		\item[+] Requires a minimal amount of research
+		\item[-] Replaces the old environment without providing redundancy
+		\item[-] Unnecessary files get transferred with the upgrade
+		\item[-] Consecutive upgrades could be required
+		\item[-] Limited support for older versions of Windows Server
+		\item[-] No support for Microsoft Azure
+	\end{itemize}
+	\columnbreak
+	\subsubsection{Side-by-side migration}
+	\begin{itemize}
+		\item[+] Clean installation of Windows Server
+		\item[+] Old environment remains in production during migration
+		\item[+] Supported in Microsoft Azure
+		\item[-] Requires additional research for each individual migration
+	\end{itemize}
+\end{multicols}
 \clearpage
 
 \section{SAP migration}
 \label{sec:SAP}
-When migrating a server, it is of great importance that the is mapped in its entirety. 
-This to ensure that all dependencies have been met. 
-Afterwards, all of those should be verified. 
+When migrating a server, it is of great importance to ensure that all dependencies have been met. 
+Afterwards, all of these dependencies should be verified.
+This to confirm the operation of the environment. 
 In this section, the migration from Windows Server 2016 to Windows Server 2019 will be done in a SAP environment. 
 This to provide an example of the additional research that comes with the migration of a server that is performing a critical task in a business environment. 
 The migration is of interest in any kind of organization for the same reasons that were mentioned before. 
@@ -433,7 +453,9 @@ This way, the downtime is limited by the last log ship instead of the backup and
 The final part is the deletion of the old \acrshort{vm} after verifying the operation of the new \acrshort{vm}, as shown in the following paragraph.
 
 \subsubsection{Verification}
-After a successful migration, the operation of the SAP solution will be verified, as described in Subsection \ref{sssec:SAP_Prerequisites}.
+After a successful migration, the operation of the SAP solution will be verified.
+This was done before the migration to verify the operation of the SAP environment on Windows Server 2016. 
+This procedure is identical for both Windows Server 2016 and Windows Server 2019 and has been described in Subsection \ref{sssec:SAP_Prerequisites}.
 
 \subsection{Conclusion}
 After the migration of the SAP environment, many of the aspects from the previous migration in Section \ref{sec:Migrating_the_OS} return. 
