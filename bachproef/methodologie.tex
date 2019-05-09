@@ -15,7 +15,7 @@ But first, the infrastructure that was used for the initial migration will be di
 \section{Migrating the \acrshort{os}}
 \label{sec:Migrating_the_OS}
 In this section, a \acrshort{dc} will be migrated using both the in-place upgrade and side-by-side migration method. 
-This to show the basics of the migration process in an environment where no third-party services, such as SAP, are running. 
+This to show the basics of the migration process in an environment where no third-party services, such as an SAP solution, are running. 
 That will be discussed in Section \ref{sec:SAP}.
 
 \subsection{Technical specifications of the proof of concept environment}
@@ -102,8 +102,8 @@ In this subsection, an in-place upgrade will be performed on the \acrfull{dc}, H
 At first, the operation and services running on the \acrshort{dc}, as well as the connection to the other servers and clients in the domain, will be verified.
 \subsubsection{Prerequisites}
 Before starting the upgrade, it is important to verify that the server is backed-up. 
-Be sure to check when the last back-up was performed and if it can be restored. 
-After this, it is important to verify that all the third-party applications on the server are supported by the newest version of the \acrshort{os}, this will be examined for SAP in Section \ref{sec:SAP}. 
+Be sure to check when the last back-up was performed and if it can be successfully restored. 
+After this, it is important to verify that all the third-party applications on the server are supported by the newest version of the \acrshort{os}, this will be examined for SAP in Section \ref{sec:SAP}, but is not of interest in this subsection. 
 Finally, the forest and domain need to be prepared for the upgrade. 
 The Windows Server 2019 installation media provides the necessary tools for this. 
 The following commands complete this process, as is shown in Figure \ref{fig:Prerequisites}. 
@@ -120,7 +120,7 @@ adprep /domainprep
 	\includegraphics[width=\linewidth]{img/Methodologie/Prerequisites0.png}
 	\captionsetup{width=0.9\linewidth}
 	\centering		
-	\caption[Preparing forest and domain ]{Preparing the forest and domain for in-place upgrade}
+	\caption[Preparing forest and domain]{Preparing the forest and domain for in-place upgrade}
 	\label{fig:Prerequisites}
 \end{figure}
 \clearpage
@@ -238,7 +238,7 @@ Finally, the connection between the new  \acrshort{dc} running Windows Server 20
 
 \subsubsection{Prerequisites}
 The connection between the \acrshort{dc} and the client will be verified as was done in Subsection \ref{sssec:In-place_upgrade}.
-Additionally, the Windows edition will be checked. 
+Additionally, the Windows edition will be checked to verify the success of the side-by-side migration. 
 The prerequisites are shown in Figure \ref{fig:PrerequisitesMigration}.
 
 \begin{figure}[h]
@@ -363,7 +363,7 @@ The research that is required to migrate Windows Server to the latest version in
 
 \section{SAP migration}
 \label{sec:SAP}
-When migrating a server, it is of great importance to ensure that all dependencies have been met. 
+Before migrating a server, it is of great importance to ensure that all dependencies have been met. 
 Afterwards, all of these dependencies should be verified.
 This to confirm the operation of the environment. 
 In this section, the migration from Windows Server 2016 to Windows Server 2019 will be done in a SAP environment. 
@@ -453,7 +453,7 @@ This way, the downtime is limited by the last log ship instead of the backup and
 The final part is the deletion of the old \acrshort{vm} after verifying the operation of the new \acrshort{vm}, as shown in the following paragraph.
 
 \subsubsection{Verification}
-After a successful migration, the operation of the SAP solution will be verified.
+After a successful migration, the operation of the SAP solution will be verified once-more.
 This was done before the migration to verify the operation of the SAP environment on Windows Server 2016. 
 This procedure is identical for both Windows Server 2016 and Windows Server 2019 and has been described in Subsection \ref{sssec:SAP_Prerequisites}.
 
@@ -465,8 +465,8 @@ In the SAP \acrshort{pam} all supported solutions can be found.
 Here, all the different aspects that were installed, as described in Appendix \ref{SAPConfig} were verified to be supported for operation on Windows Server 2019 \acrshort{ltsc}. 
 Verifying the operation of all the third-party applications that need to be installed requires additional research. 
 This section of the bachelor's thesis shows that no two migrations are the same. 
-It emphasizes that for any migration, irrespective of the size and scope requires its own research as no environment is identical to the other. 
-There are always some variables which should be considered.  
+It emphasizes that for any migration, irrespective of the size and scope, its own research is required. Because no environment is identical to one another. 
+There are always variables that should be taken into account.  
 \clearpage
 
 \section{Base container images of Windows Server 2019}
@@ -491,7 +491,7 @@ The following packages will be installed inside the \acrshort{vm}:
 The procedure to generate the container environment is described in Appendix \ref{Containers_Azure}.
 
 \subsection{The advantages of version 1809}
-With the arrival of version 1809, the \acrfull{sac} equivalent of Windows Server 2019, there have been improvements to the base container images. 
+With the arrival of version 1809, the \acrfull{sac} equivalent of Windows Server 2019, there have been numerous improvements to the base container images. 
 First, the overall size of the base container images has been significantly reduced. 
 This can be seen in Figure \ref{fig:Containers}. 
 The only exception is the Nano Server image, which has slightly increased in size compared to its previous version. 
@@ -523,13 +523,13 @@ Benchmarking using this library is done by calculating \acrfull{md5} and \acrful
 The former is mostly used in the generation of identifiers, as it is not deemed secure enough for data security. 
 The latter is better suited for this but has since been improved by \acrfull{sha3}. \autocite{Enkov2017}
 \\
-The container will be automatically built using a Dockerfile, each of these corresponds with a base container image. 
+The container will be automatically built using a Dockerfile, each of these corresponds with its respective base container image. 
 This is needed to add the required packages inside the container to successfully perform the benchmark. 
 For the Windows and Server Core base container image, these were added manually, the Nano Server base container image was provided by Microsoft. 
 Following commands need to be executed on the \acrshort{vm} that was created on the Azure platform to benchmark every container individually. 
 It is important to note that the kernel version of the \acrshort{os} must match the Windows image. 
 While using Hyper-V isolation can circumvent this, it is not recommended since the additional virtualization of the kernel will lower the performance of the container. 
-For the unambiguity of the benchmarks, Hyper-V isolation was used.
+For the unambiguity of the benchmarks, Hyper-V isolation was used in every benchmark.
 
 \begin{lstlisting}[breaklines]
 git clone https://github.com/jensdufour/Benchmark.git
@@ -566,7 +566,7 @@ In Figure \ref{fig:SHA} similar results can be found.
 	\label{fig:SHA}
 \end{figure}
 
- When looking at the result of the benchmarks of Server Core and Nano Server, the performance of both versions is along the same lines. 
+ When looking at the result of the benchmarks of Server Core and Nano Server, the performance of both versions is comparable, with the former version keeping the upper hand. 
  However, the overall reduction in size and the additional features that have been added, as discussed in Chapter \ref{ch:stand-van-zaken}, make a strong case for the deployment of the latest images, version 1809. 
  The latest release of the base container images also included the Windows base container image. 
  This base container image opens a whole array of new possibilities. 

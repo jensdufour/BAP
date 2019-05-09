@@ -5,17 +5,17 @@
 \chapter{\IfLanguageName{dutch}{Stand van zaken}{State of the art}}
 \label{ch:stand-van-zaken}
 In this chapter, the state of the art will be examined. 
-As mentioned in the introduction, this part of the bachelor's thesis will be used to get an in-depth understanding of the four key themes that incorporate the changes in Windows Server 2019. 
+As mentioned in the introduction, this part of the bachelor's thesis will be used to establish an in-depth understanding of the four key themes that incorporate the changes that were made in Windows Server 2019. 
 First, a basic understanding of what those four key themes are will be established. 
 Afterwards, their implementation in the latest version of the \acrshort{os} will be investigated.
 
 \section{Hybrid cloud}
 Hybrid cloud is a topic that has gained more momentum over the past years. 
 For organizations, this makes it a consistent topic of interest and makes it a natural choice as one of the four keystone themes in Windows Server 2019. \autocite{MWST2018} 
-The hybrid cloud will be discussed as an essential part of the bachelor's thesis. 
+The hybrid cloud will be discussed as an essential part of the bachelor's thesis, as it also returns as a topic of interest in Chapter \ref{ch:toekomstvisie}.
 It is especially beneficial to know the advantages that it offers to Windows Server 2019.
 How these new and improved features enhance workflow and how they can be leveraged by organizations, like delaware. \\
-First, the different types of clouds will be discussed in the following subsection.
+First, the different types of clouds will be discussed in the Subsection \ref{subsection:typesofcloud}.
 
 \subsection{Types of cloud solutions}
 \label{subsection:typesofcloud}
@@ -35,9 +35,9 @@ It can, however, consist of multiple clients provided those are in the same orga
 It is only accessible inside a private internal network or over the internet for a selected number of users. 
 Private clouds cannot be accessed by the public. 
 They can also be known by other names such as internal or corporate cloud. 
-Their main advantage is the higher level of security and privacy, which is offered using in-house hosted infrastructure and additional company firewalls. 
+Their main advantage is the higher level of security and privacy, which is offered through the usage of an in-house hosted infrastructure and additional company firewalls. 
 The biggest disadvantage that comes with this added layer of security, is the responsibility that is given to the \acrshort{it} team that manages the infrastructure that supports the private cloud. 
-This means that on top of the additional infrastructure costs, they require the same number of man-hours that comes with the management of a traditional data centre. 
+This means that on top of the additional infrastructure costs, they require the same amount of man-hours that comes with the management of a traditional data centre. 
 Keep in mind that in-house does not necessarily mean on-premise.
 \\
 Still, the private cloud holds a great benefit compared to long-standing infrastructure possibilities. 
@@ -47,8 +47,10 @@ This was a direct result of the implementation of a private cloud. \autocite{Hof
 
 \subsubsection{Community cloud}
 When several organizations collaborate to meet the requirements that are demanded of the \acrshort{it} infrastructure, they are operating under a community cloud. 
-The management of this environment can be outsourced to a third-party organization that is operating inside the same community. The alternative is that the organization manages the infrastructure itself.
-This form of operation tackles one of the main disadvantages of a private cloud. It shares the costs over multiple organizations, thus greatly reducing it. 
+The management of this environment can be outsourced to a third-party organization that is operating inside the same community.
+The alternative is that the organization manages the infrastructure itself.
+This form of operation tackles one of the main disadvantages of a private cloud.
+It shares the costs over multiple organizations, thus greatly reducing it. 
 Since they are operating inside the same community, they share the same concerns and will be subjected to the same requirements that can be imposed by a governing instance. 
 However, these advantages over private clouds come at a cost. 
 This reduction in cost because of sharing the infrastructure results in a devaluation of security. 
@@ -56,10 +58,11 @@ Meaning that it is a viable alternative to organizations with mitigated security
 \\
 An example of this is described in an article by \textcite{Yao2014}. 
 The research shows how small hospitals in China, not all of which can provide their own infrastructure, could utilize a community cloud. 
-These grass-roots healthcare institutions, that all operate within the same community can share the cost and management of the community cloud. This to provide an attractive hospital information solution to improve their services without the extensive cost nor the need for additional security concerns regarding confidential information in patient files.
+These grass-roots healthcare institutions, that all operate within the same community, can share the cost and management of the community cloud. 
+This to provide an attractive hospital information solution to improve their services without the extensive cost nor the need for additional security concerns regarding confidential information in patient files.
 
 \subsubsection{Public cloud}
-Amazon Web Services, Oracle Cloud and Microsoft Azure are some examples of public cloud solutions. 
+Amazon Web Services, Alibaba Cloud and Microsoft Azure are some examples of public cloud solutions. 
 Most of these solutions are offered by corporations who manage and operate their data centres and provide access to their cloud via the internet. 
 Thus, eliminating the cost that is associated with the management and responsibility of a private cloud and significantly reducing the cost in comparable use cases. 
 Public clouds also provide the possibility for effortless scalability and flexibility in comparison with private clouds, where the required hardware for scaling needs to be available in-house. 
@@ -117,19 +120,19 @@ In the following section all the major elements will be discussed, distributed a
 
 \subsection{\acrfull{wdatp}}
 In a research study done by \textcite{Musto2017}, \acrshort{wdatp} was scrutinized. 
-When the endpoint security solution is implemented in Windows Server 2019, it will require additional licensing. 
+Keep in mind that when the endpoint security solution is implemented in Windows Server 2019, it will require additional licensing. 
 Still, the efficiency with which it tackles security problems resulted in a 53\% \acrfull{roi}. 
 The research reported that \acrshort{wdatp} reduced the risk of a breach by 40\%. 
 It even enabled them to identify threats faster and resolve them in a more efficient fashion. 
 In conclusion, the replacement of previous solutions with \acrshort{wdatp} reduced costs and made security teams more efficient. 
 With the advent of Windows Server 2019, additional features have been added to \acrshort{wdatp} to ensure the safety of organizations in the years to come. 
 The different components of \acrshort{wdatp} are described in Figure \ref{fig:WDATPT2018}. 
-Those will not be individually reviewed here as this subject of endpoint security alone offers enough content for another bachelor's thesis.
+These will not be individually reviewed here as this subject of endpoint security alone offers enough substance for another bachelor's thesis.
 
 \begin{figure}[hbt!]
 	\centering
 	\includegraphics[width=\textwidth,height=6cm,keepaspectratio=true]{img/StandVanZaken/WDATP.png}
-	\caption[Components of \acrshort{wdatp}]{The different components of \acrfull{wdatp}. \autocite{Aslaner2018}}
+	\caption[Components of \acrshort{wdatp}]{The different components of \acrlong{wdatp}. \autocite{Aslaner2018}}
 	\label{fig:WDATPT2018}
 \end{figure}
 
@@ -138,7 +141,8 @@ Those will not be individually reviewed here as this subject of endpoint securit
 \label{sdn}
 As described by \textcite{Shin2016}, \acrshort{sdn} is a state-of-the-art technology that enables developers to design advanced networks effortlessly. 
 According to \textcite{Kreutz2015}, \acrshort{sdn} has paved the way for the next generation of networking. 
-In Windows Server 2019 there have been new developments in this field. These can be boiled down to four features: 
+In Windows Server 2019 there have been new developments in this field. 
+These can be boiled down to four features: 
 
 \begin{itemize}
 	\item Encrypted networks
@@ -151,7 +155,7 @@ The discussion of these will be kept constrained.
 
 \subsubsection{Encrypted networks}
 Encrypted networks, or more specifically virtual encrypted networks, enable the encryption of network traffic between different \acrshort{vm}s. 
-Using \acrfull{dtls}. 
+This is achieved through the usage of \acrfull{dtls}. 
 \acrshort{dtls} was built as close to \acrfull{tls} as possible, which makes it ideal at securing connections. 
 However, since the connections between \acrshort{vm}s are delay sensitive, \acrshort{dtls} is preferred. \autocite{Modadugu2004}
 
@@ -166,14 +170,16 @@ These can also be processed by tools such as Power BI.
 Virtual network peering allows administrators to combine two individual virtual networks. 
 A coherent connection is made that represents itself as an individual one. 
 This means the connection between both networks can be routed through the infrastructure backbone. 
-This in term means that there is no need for a public gateway, providing a more secure connection, while no additional downtime is accumulated when peering the networks.
+This in term means that there is no need for a public gateway, providing a more secure connection.
+All of this is done without accumulating downtime when peering the networks.
 
 \subsubsection{Egress metering}
 Egress metering for \acrshort{sdn} enables an administrator to monitor the consumption of outgoing connections.
 Windows Server 2019 also makes a distinction between traffic that leaves the virtual network and the data centre, in comparison to traffic that stays within the data centre. 
 
 \subsection{Shielded Virtual Machines}
-Shielded \acrshort{vm}s is a feature that was introduced with Windows Server 2016. It aimed at securing Hyper-V \acrshort{vm}s from tampering. The securing of the \acrshort{vm} gets done through the usage of features like BitLocker encryption and Virtual Trusted Platform Modules. 
+Shielded \acrshort{vm}s is a feature that was introduced with Windows Server 2016, aimed at securing Hyper-V \acrshort{vm}s from tampering. 
+The securing of the \acrshort{vm} gets done through, for example: BitLocker encryption and Virtual Trusted Platform Modules. 
 One of these features, \acrfull{hgs}, is also a requirement to run a Shielded \acrshort{vm}. 
 Since Windows Server 2019, it is possible to run Shielded \acrshort{vm}s on machines with an irregular connection to the \acrshort{hgs}. 
 This can be done by leveraging the following two new features:
@@ -230,7 +236,7 @@ This as a direct result of the three new features that have been introduced:
 \end{itemize}
 \subsection*{\acrfull{ledbat}}
 \acrshort{ledbat} is a delay-based congestion control algorithm that designates bandwidth to users and applications, while still using the totality of the network when it is available. \autocite{Shalunov2012}
-This makes it interesting for deploying large updates in large-scale \acrshort{it} environments without impacting users.
+This makes it interesting for deploying updates in large-scale \acrshort{it} environments without impacting users.
 \subsection*{High-performance \acrshort{sdn} gateways}
 The throughput of existing \acrshort{sdn} gateways has been improved, this by improving the throughput for \acrfull{ipsec} and \acrfull{gre} connections. 
 Additionally, the required CPU utilization has been lowered.
@@ -244,7 +250,7 @@ The extension that provides this is only available in a \acrshort{hci}.
 \clearpage
 
 \section{\acrfull{hci}}
-Estimates made in a report by \textcite{Gantz2012}, show that the digital universe will consist of 50.000 Exabytes by the year 2020. 
+Estimates made in a report by \textcite{Gantz2012}, show that the digital universe will consist of 50.000 exabytes by the year 2020. 
 This means that the infrastructure needs to be able to store these vast amounts of data. 
 The static and inflexible way of storing data needs to become dynamic and agile to conform to modern standards. 
 This can be achieved through a \acrfull{sddc}. 
@@ -258,7 +264,7 @@ This will be discussed below together with Hyper-V, \acrshort{sdn} and how these
 	\includegraphics[width=0.8\linewidth]{img/StandVanZaken/HCI.png}
 	\captionsetup{width=0.6\linewidth}
 	\centering		
-	\caption[\acrshort{hci}]{\acrfull{hci}}
+	\caption[\acrshort{hci}]{\acrlong{hci}}
 	\scriptsize	
 	Adapted from \cite{Woolslayer2018}
 	\label{fig:HCI}
@@ -285,7 +291,7 @@ It provides \acrshort{it} administrators with the ability to design advanced net
 It is not a replacement for Microsoft \acrfull{sccm}, it is a complementary tool that does not require \acrshort{sccm}.	
 \acrshort{wac} can be deployed as a local client on a Windows 10 machine, from where it is possible to manage all the connected servers. 
 Alternatively, it can be deployed on Windows Server. 
-It has been designed for Windows Server 2019 but can also be deployed to Windows Server 2016 and Windows Server \acrshort{sac}.
+It has been designed for Windows Server 2019 but can also be deployed to Windows Server 2016.
 The first option is to deploy it as a gateway server, this is the ideal solution for large-scale environments.
 When deploying the gateway server in a failover cluster, high availability can be enabled. 
 The final option is to deploy it on a server which is going to be managed or is part of the cluster that is going to be managed. 
@@ -306,6 +312,6 @@ This tool is also the final part of our \acrshort{hci} environment, as it combin
 
 Windows Server 2019 is a highly advanced \acrshort{os}. 
 With the new features, it provides a smooth and manageable experience to administrators and \acrshort{it} professionals.
-The four key themes, that have been further developed to offer improvements, have been thoroughly discussed in the previous sections and make it interesting to negotiate the migration regardless of its size.
+The four key themes, that have been further developed to offer improvements, have been thoroughly discussed in the previous sections and make it interesting to negotiate the migration regardless of its size and impact.
 Furthermore, extended support for Windows Server 2019 will be provided until 2029, this makes it an investment in the future for any organization.\\
-In the next chapter, the different methods for migrating the system will be discussed.
+In Chapter \ref{ch:methodologie}, the different methods for migrating the system will be discussed.
