@@ -59,13 +59,12 @@
 
 \begin{abstract}
 This research covers the topic of Windows Server 2019, the different versions, and the advantages it has to its precursor Windows Server 2016.
-Windows Server is one of the most used enterprise operating systems in the world. 
-This makes keeping it up-to-date in the fast paced world of information technologies crucial. 
-Thanks to the abundance of new features it offers looking into migration to this newer version is definitely an important question.
+As it being one of the major operating systems in the world, keeping it up-to-date in the fast-paced world of information technologies is crucial. 
+Thanks to the abundance of new features it offers looking into migration to the latest version is definitely an important question.
 This research paper will look into how the migration process from Windows Server 2016 to Windows Server 2019 would work, the advantages and possible disadvantages of this  process. 
 Another important part will be looking into the migration of an SAP environment, as described by delaware.
 At last, there will be a comparison between the different available base container images and how these can be leveraged.
-In the end this research paper will advise for or against a migration to the latest version of the operating system.
+In the end this research paper will advise for a migration to the latest version of the operating system.
 \end{abstract}
 %----------------------------------------------------------------------------------------
 %	INTRODUCTION
@@ -75,9 +74,10 @@ In the end this research paper will advise for or against a migration to the lat
 \section*{Introduction}
 \color{black}
 \color{black}
-Windows Server is a well-known operating system among IT professionals. With major organizations all around the globe, like Infosys, that have implemented some form of the operating system in their infrastructure.
-One of the tasks that often need to be performed on the operating system, is keeping applications up-to-date. 
-However, it is not often described how to migrate to a newer version.  
+Windows Server is a well-known operating system among IT professionals. 
+With major organizations all around the globe, like Infosys, that have implemented some form of the operating system in their infrastructure.
+One of the tasks that often needs to be performed, is keeping applications up-to-date. 
+However, it is not often described how to migrate the entire operating system to a newer version.  
 This does not mean that frequent updates are not important for both the addition of new features as well as the improvement of security, as this is becoming one of the big concerns of this century. 
 This bachelor's thesis will go in-depth about the advantages and disadvantages of migrating to the latest version of Windows Server.
 In specific, this bachelor's thesis look at the migration from Windows Server 2016 to Windows Server 2019, with as an optional requirement the migration of a SAP environment, as this is applicable to the business environment of the originator, delaware.
@@ -93,7 +93,7 @@ The key purpose is to find a procedure that is efficient, minimizes possible dow
 After a state of the art about the new features of Windows Server 2019, the migration was performed. \\
 The proof of concept environment that was used is based on the Modern Desktop Deployment and Management Lab Kit provided by Microsoft. 
 In this environment a Domain Controller was migrated using the in-place upgrade and side-by-side migration method using Windows Server 2016 as a starting point.\\
-Afterwards, a migration was done of an SAP solution, this to show the additional research that is required to migrate a third-party software solution to the latest version of the Operating System. 
+Afterwards, a migration was done of an SAP solution, this to show the additional research that is required to migrate a third-party software solution to the latest version of the operating system. 
 
 \begin{center}\vspace{1cm}
     \includegraphics[width=1.0\linewidth]{../bachproef/img/Methodologie/SAP_PO}
@@ -102,7 +102,7 @@ Afterwards, a migration was done of an SAP solution, this to show the additional
 \vfill\null
 \columnbreak
 
-Finally, the advantages of the new versions base container images that come with Windows Server 2019 were discussed.
+Finally, the advantages and disadvantages of the latest base container images that come with Windows Server 2019 were discussed.
 At first, the Windows, Server Core and Nano Server were analysed in terms of size and performance. \\
 Afterwards, the different use cases of the various versions were discussed.
 
@@ -133,11 +133,11 @@ While a migration to Windows Server 2019 in an environment with a third-party ap
 The migration from Windows Server 2016 to Windows Server 2019 is also feasible for any organization running an EOL OS, as expected with the latest version of the OS.
 This for either the general OS and the base container images.
 Windows Server 2019 offers a wide array of improvements in terms of security, hybrid cloud, application platform and the Hyper-Converged Infrastructure (HCI).
-The addition of the new Windows base container image provides the tools for automated UI tests and its additional dependencies make it perfect for utilization with out-of-date packages. 
+The addition of the new Windows base container image provides the tools for automated UI tests and its additional dependencies make it a good fit for utilization with out-of-date packages. 
 The Server Core base container image can be used to run typical Windows services. 
 It offers application compatibility and has a wide array of built-in Windows roles and features. 
 The Nano Server base container image was designed for 'born in the cloud' applications that provide an agile deployment and offer on-demand availability. 
-The reduced footprint of the base container images without a drop of performance make the latest version the natural choice. 
+The reduced footprint of the base container images with a minimal drop of performance make the latest version the natural choice. 
 The new features which are introduced can be leveraged through the usage of the Windows Admin Center (WAC).
 Organizations that are running EOL Operating Systems should consider the migration to Windows Server 2019.
 
